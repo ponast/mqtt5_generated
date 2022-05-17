@@ -7,8 +7,8 @@
 
 #include <tuple>
 #include "mqtt5/message/Auth.h"
+#include "mqtt5/message/ClientDisconnect.h"
 #include "mqtt5/message/Connect.h"
-#include "mqtt5/message/Disconnect.h"
 #include "mqtt5/message/Pingreq.h"
 #include "mqtt5/message/Puback.h"
 #include "mqtt5/message/Pubcomp.h"
@@ -40,7 +40,7 @@ using ServerInputMessages =
         mqtt5::message::Subscribe<TBase, TOpt>,
         mqtt5::message::Unsubscribe<TBase, TOpt>,
         mqtt5::message::Pingreq<TBase, TOpt>,
-        mqtt5::message::Disconnect<TBase, TOpt>,
+        mqtt5::message::ClientDisconnect<TBase, TOpt>,
         mqtt5::message::Auth<TBase, TOpt>
     >;
 

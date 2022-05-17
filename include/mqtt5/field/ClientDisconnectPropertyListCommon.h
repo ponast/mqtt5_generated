@@ -2,7 +2,7 @@
 
 /// @file
 /// @brief Contains common template parameters independent functionality of
-///    @ref mqtt5::field::DisconnectPropertyList field.
+///    @ref mqtt5::field::ClientDisconnectPropertyList field.
 
 #pragma once
 
@@ -16,18 +16,18 @@ namespace field
 
 
 /// @brief Scope for all the common definitions of the member fields of
-///     @ref mqtt5::field::DisconnectPropertyList field.
-struct DisconnectPropertyListMembersCommon
+///     @ref mqtt5::field::ClientDisconnectPropertyList field.
+struct ClientDisconnectPropertyListMembersCommon
 {
     /// @brief Common types and functions for
-    ///     @ref mqtt5::field::DisconnectPropertyListMembers::Length field.
+    ///     @ref mqtt5::field::ClientDisconnectPropertyListMembers::Length field.
     struct LengthCommon
     {
         /// @brief Re-definition of the value type used by
-        ///     mqtt5::field::DisconnectPropertyListMembers::Length field.
+        ///     mqtt5::field::ClientDisconnectPropertyListMembers::Length field.
         using ValueType = std::uint32_t;
         
-        /// @brief Name of the @ref mqtt5::field::DisconnectPropertyListMembers::Length field.
+        /// @brief Name of the @ref mqtt5::field::ClientDisconnectPropertyListMembers::Length field.
         static const char* name()
         {
             return "Length";
@@ -45,13 +45,13 @@ struct DisconnectPropertyListMembersCommon
 };
 
 /// @brief Common types and functions for
-///     @ref mqtt5::field::DisconnectPropertyList field.
-struct DisconnectPropertyListCommon
+///     @ref mqtt5::field::ClientDisconnectPropertyList field.
+struct ClientDisconnectPropertyListCommon
 {
-    /// @brief Name of the @ref mqtt5::field::DisconnectPropertyList field.
+    /// @brief Name of the @ref mqtt5::field::ClientDisconnectPropertyList field.
     static const char* name()
     {
-        return "Disconnect Properties";
+        return "Client Disconnect Properties";
     }
     
 };

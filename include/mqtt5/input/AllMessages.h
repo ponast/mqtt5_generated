@@ -7,9 +7,9 @@
 
 #include <tuple>
 #include "mqtt5/message/Auth.h"
+#include "mqtt5/message/ClientDisconnect.h"
 #include "mqtt5/message/Connack.h"
 #include "mqtt5/message/Connect.h"
-#include "mqtt5/message/Disconnect.h"
 #include "mqtt5/message/Pingreq.h"
 #include "mqtt5/message/Pingresp.h"
 #include "mqtt5/message/Puback.h"
@@ -17,6 +17,7 @@
 #include "mqtt5/message/Publish.h"
 #include "mqtt5/message/Pubrec.h"
 #include "mqtt5/message/Pubrel.h"
+#include "mqtt5/message/ServerDisconnect.h"
 #include "mqtt5/message/Suback.h"
 #include "mqtt5/message/Subscribe.h"
 #include "mqtt5/message/Unsuback.h"
@@ -48,7 +49,8 @@ using AllMessages =
         mqtt5::message::Unsuback<TBase, TOpt>,
         mqtt5::message::Pingreq<TBase, TOpt>,
         mqtt5::message::Pingresp<TBase, TOpt>,
-        mqtt5::message::Disconnect<TBase, TOpt>,
+        mqtt5::message::ServerDisconnect<TBase, TOpt>,
+        mqtt5::message::ClientDisconnect<TBase, TOpt>,
         mqtt5::message::Auth<TBase, TOpt>
     >;
 

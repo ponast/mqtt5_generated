@@ -220,10 +220,10 @@ struct ConnectFieldsCommon
     struct WillTopicMembersCommon
     {
         /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::WillTopicMembers::Topic field.
-        struct TopicCommon : public mqtt5::field::StringCommon
+        ///     @ref mqtt5::message::ConnectFields::WillTopicMembers::TopicName field.
+        struct TopicNameCommon : public mqtt5::field::StringCommon
         {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::WillTopicMembers::Topic field.
+            /// @brief Name of the @ref mqtt5::message::ConnectFields::WillTopicMembers::TopicName field.
             static const char* name()
             {
                 return "Will Topic";

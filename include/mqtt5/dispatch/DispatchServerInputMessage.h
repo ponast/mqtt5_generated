@@ -94,7 +94,7 @@ auto dispatchServerInputMessage(
     }
     case mqtt5::MsgId_Disconnect:
     {
-        using MsgType = mqtt5::message::Disconnect<InterfaceType, TProtOptions>;
+        using MsgType = mqtt5::message::ClientDisconnect<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
     case mqtt5::MsgId_Auth:

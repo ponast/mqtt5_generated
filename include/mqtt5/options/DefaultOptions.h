@@ -28,17 +28,17 @@ struct DefaultOptions
         using BinData = comms::option::EmptyOption;
         
         /// @brief Extra options for @ref
+        ///     mqtt5::field::ClientDisconnectPropertyList
+        ///     field.
+        using ClientDisconnectPropertyList = comms::option::EmptyOption;
+        
+        /// @brief Extra options for @ref
         ///     mqtt5::field::ConnackPropertyList field.
         using ConnackPropertyList = comms::option::EmptyOption;
         
         /// @brief Extra options for @ref
         ///     mqtt5::field::ConnectPropertyList field.
         using ConnectPropertyList = comms::option::EmptyOption;
-        
-        /// @brief Extra options for @ref
-        ///     mqtt5::field::DisconnectPropertyList
-        ///     field.
-        using DisconnectPropertyList = comms::option::EmptyOption;
         
         /// @brief Extra options for @ref
         ///     mqtt5::field::HandshakePropertyList
@@ -52,6 +52,11 @@ struct DefaultOptions
         /// @brief Extra options for @ref
         ///     mqtt5::field::PublishPropertyList field.
         using PublishPropertyList = comms::option::EmptyOption;
+        
+        /// @brief Extra options for @ref
+        ///     mqtt5::field::ServerDisconnectPropertyList
+        ///     field.
+        using ServerDisconnectPropertyList = comms::option::EmptyOption;
         
         /// @brief Extra options for @ref
         ///     mqtt5::field::String field.
@@ -77,16 +82,17 @@ struct DefaultOptions
     struct message
     {
         /// @brief Extra options for @ref
+        ///     mqtt5::message::ClientDisconnect
+        ///     message.
+        using ClientDisconnect = comms::option::EmptyOption;
+        
+        /// @brief Extra options for @ref
         ///     mqtt5::message::Connack message.
         using Connack = comms::option::EmptyOption;
         
         /// @brief Extra options for @ref
         ///     mqtt5::message::Connect message.
         using Connect = comms::option::EmptyOption;
-        
-        /// @brief Extra options for @ref
-        ///     mqtt5::message::Disconnect message.
-        using Disconnect = comms::option::EmptyOption;
         
         /// @brief Extra options for @ref
         ///     mqtt5::message::Pingreq message.
@@ -106,6 +112,11 @@ struct DefaultOptions
             using Payload = comms::option::EmptyOption;
             
         };
+        
+        /// @brief Extra options for @ref
+        ///     mqtt5::message::ServerDisconnect
+        ///     message.
+        using ServerDisconnect = comms::option::EmptyOption;
         
         /// @brief Extra options for fields of
         ///     @ref mqtt5::message::Suback message.

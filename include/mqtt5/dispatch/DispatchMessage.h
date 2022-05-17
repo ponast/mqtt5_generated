@@ -20,6 +20,7 @@ namespace dispatch
 /// @tparam TProtOptions Protocol options struct used for the application,
 ///     like @ref mqtt5::options::DefaultOptions.
 /// @param[in] id Numeric message ID.
+/// @param[in] idx Index of the message among messages with the same ID.
 /// @param[in] msg Message object held by reference to its interface class.
 /// @param[in] handler Reference to handling object. Must define
 ///     @b handle() member function for every message type it exects
@@ -42,6 +43,7 @@ namespace dispatch
 template<typename TProtOptions, typename TMsg, typename THandler>
 auto dispatchMessage(
     mqtt5::MsgId id,
+    std::size_t idx,
     TMsg& msg,
     THandler& handler) -> decltype(handler.handle(msg))
 {
@@ -114,8 +116,21 @@ auto dispatchMessage(
     }
     case mqtt5::MsgId_Disconnect:
     {
-        using MsgType = mqtt5::message::Disconnect<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
+        switch (idx) {
+        case 0U:
+        {
+            using MsgType = mqtt5::message::ServerDisconnect<InterfaceType, TProtOptions>;
+            return handler.handle(static_cast<MsgType&>(msg));
+        }
+        case 1U:
+        {
+            using MsgType = mqtt5::message::ClientDisconnect<InterfaceType, TProtOptions>;
+            return handler.handle(static_cast<MsgType&>(msg));
+        }
+        default:
+            return handler.handle(msg);
+        };
+        break;
     }
     case mqtt5::MsgId_Auth:
     {
@@ -130,12 +145,10 @@ auto dispatchMessage(
 }
 
 /// @brief Dispatch message object to its appropriate handling function.
-/// @details Same as other dispatchMessage(), but receives extra @b idx parameter.
+/// @details Same as other dispatchMessage(), but without @b idx parameter.
 /// @tparam TProtOptions Protocol options struct used for the application,
 ///     like @ref mqtt5::options::DefaultOptions.
 /// @param[in] id Numeric message ID.
-/// @param[in] idx Index of the message among messages with the same ID.
-///     Expected to be @b 0.
 /// @param[in] msg Message object held by reference to its interface class.
 /// @param[in] handler Reference to handling object.
 /// @see dispatchMessage()
@@ -143,41 +156,20 @@ auto dispatchMessage(
 template<typename TProtOptions, typename TMsg, typename THandler>
 auto dispatchMessage(
     mqtt5::MsgId id,
-    std::size_t idx,
     TMsg& msg,
     THandler& handler) -> decltype(handler.handle(msg))
 {
-    if (idx != 0U) {
-        return handler.handle(msg);
-    }
-    return dispatchMessage<TProtOptions>(id, msg, handler);
+    return dispatchMessage<TProtOptions>(id, 0U, msg, handler);
 }
 
 /// @brief Dispatch message object to its appropriate handling function.
 /// @details Same as other dispatchMessage(), but passing
 ///     mqtt5::options::DefaultOptions as first template parameter.
 /// @param[in] id Numeric message ID.
-/// @param[in] msg Message object held by reference to its interface class.
-/// @param[in] handler Reference to handling object.
-/// @see dispatchMessage()
-/// @note Defined in mqtt5/dispatch/DispatchMessage.h
-template<typename TMsg, typename THandler>
-auto dispatchMessageDefaultOptions(
-    mqtt5::MsgId id,
-    TMsg& msg,
-    THandler& handler) -> decltype(handler.handle(msg))
-{
-    return dispatchMessage<mqtt5::options::DefaultOptions>(id, msg, handler);
-}
-
-/// @brief Dispatch message object to its appropriate handling function.
-/// @details Same as other dispatchMessageDefaultOptions(), 
-///     but receives extra @b idx parameter.
-/// @param[in] id Numeric message ID.
 /// @param[in] idx Index of the message among messages with the same ID.
 /// @param[in] msg Message object held by reference to its interface class.
 /// @param[in] handler Reference to handling object.
-/// @see dispatchMessageDefaultOptions()
+/// @see dispatchMessage()
 /// @note Defined in mqtt5/dispatch/DispatchMessage.h
 template<typename TMsg, typename THandler>
 auto dispatchMessageDefaultOptions(
@@ -187,6 +179,23 @@ auto dispatchMessageDefaultOptions(
     THandler& handler) -> decltype(handler.handle(msg))
 {
     return dispatchMessage<mqtt5::options::DefaultOptions>(id, idx, msg, handler);
+}
+
+/// @brief Dispatch message object to its appropriate handling function.
+/// @details Same as other dispatchMessageDefaultOptions(), 
+///     but without @b idx parameter.
+/// @param[in] id Numeric message ID.
+/// @param[in] msg Message object held by reference to its interface class.
+/// @param[in] handler Reference to handling object.
+/// @see dispatchMessageDefaultOptions()
+/// @note Defined in mqtt5/dispatch/DispatchMessage.h
+template<typename TMsg, typename THandler>
+auto dispatchMessageDefaultOptions(
+    mqtt5::MsgId id,
+    TMsg& msg,
+    THandler& handler) -> decltype(handler.handle(msg))
+{
+    return dispatchMessage<mqtt5::options::DefaultOptions>(id, msg, handler);
 }
 
 /// @brief Message dispatcher class to be used with

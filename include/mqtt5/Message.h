@@ -213,6 +213,17 @@ public:
     );
     
 
+protected:
+    /// @brief Check that flags are zeroed
+    bool flagsZeroed() const
+    {
+        return 
+            (transportField_flags().field_retain().value() == 0U) &&
+            (static_cast<unsigned>(transportField_flags().field_qos().value()) == 0U) &&
+            (transportField_flags().field_dup().value() == 0U);
+    }
+    
+
 };
 
 } // namespace mqtt5

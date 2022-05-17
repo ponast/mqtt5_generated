@@ -92,6 +92,11 @@ auto dispatchClientInputMessage(
         using MsgType = mqtt5::message::Pingresp<InterfaceType, TProtOptions>;
         return handler.handle(static_cast<MsgType&>(msg));
     }
+    case mqtt5::MsgId_Disconnect:
+    {
+        using MsgType = mqtt5::message::ServerDisconnect<InterfaceType, TProtOptions>;
+        return handler.handle(static_cast<MsgType&>(msg));
+    }
     case mqtt5::MsgId_Auth:
     {
         using MsgType = mqtt5::message::Auth<InterfaceType, TProtOptions>;

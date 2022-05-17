@@ -43,6 +43,15 @@ struct BareMetalDefaultOptionsT : public TBase
             >;
         
         /// @brief Extra options for @ref
+        ///     mqtt5::field::ClientDisconnectPropertyList
+        ///     field.
+        using ClientDisconnectPropertyList =
+            std::tuple<
+                comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
+                typename TBase::field::ClientDisconnectPropertyList
+            >;
+        
+        /// @brief Extra options for @ref
         ///     mqtt5::field::ConnackPropertyList field.
         using ConnackPropertyList =
             std::tuple<
@@ -56,15 +65,6 @@ struct BareMetalDefaultOptionsT : public TBase
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::ConnectPropertyList
-            >;
-        
-        /// @brief Extra options for @ref
-        ///     mqtt5::field::DisconnectPropertyList
-        ///     field.
-        using DisconnectPropertyList =
-            std::tuple<
-                comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::DisconnectPropertyList
             >;
         
         /// @brief Extra options for @ref
@@ -90,6 +90,15 @@ struct BareMetalDefaultOptionsT : public TBase
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::PublishPropertyList
+            >;
+        
+        /// @brief Extra options for @ref
+        ///     mqtt5::field::ServerDisconnectPropertyList
+        ///     field.
+        using ServerDisconnectPropertyList =
+            std::tuple<
+                comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
+                typename TBase::field::ServerDisconnectPropertyList
             >;
         
         /// @brief Extra options for @ref

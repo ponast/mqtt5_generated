@@ -12,7 +12,7 @@
 #include "mqtt5/MsgId.h"
 #include "mqtt5/field/FieldBase.h"
 #include "mqtt5/field/PacketId.h"
-#include "mqtt5/field/Topic.h"
+#include "mqtt5/field/TopicFilter.h"
 #include "mqtt5/field/UnsubscribePropertyList.h"
 #include "mqtt5/message/UnsubscribeCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
@@ -50,14 +50,14 @@ struct UnsubscribeFields
     class List : public
         comms::field::ArrayList<
             mqtt5::field::FieldBase<>,
-            mqtt5::field::Topic<TOpt>,
+            mqtt5::field::TopicFilter<TOpt>,
             typename TOpt::message::UnsubscribeFields::List
         >
     {
         using Base =
             comms::field::ArrayList<
                 mqtt5::field::FieldBase<>,
-                mqtt5::field::Topic<TOpt>,
+                mqtt5::field::TopicFilter<TOpt>,
                 typename TOpt::message::UnsubscribeFields::List
             >;
     public:
@@ -130,10 +130,40 @@ public:
     static const std::size_t MsgMinLen = Base::doMinLength();
     static_assert(MsgMinLen == 3U, "Unexpected min serialisation length");
     
+    /// @brief Default constructor
+    Unsubscribe()
+    {
+        auto& qosField = Base::transportField_flags().field_qos();
+        using QosFieldType = typename std::decay<decltype(qosField)>::type;
+        using QosValueType = typename QosFieldType::ValueType;
+        
+        qosField.value() = QosValueType::AtLeastOnceDelivery;
+    }
+    
     /// @brief Name of the message.
     static const char* doName()
     {
         return mqtt5::message::UnsubscribeCommon::name();
+    }
+    
+    /// @brief Custom validity check
+    bool doValid() const
+    {
+        if (!Base::doValid()) {
+            return false;
+        }
+        
+        auto& qosField = Base::transportField_flags().field_qos();
+        using QosFieldType = typename std::decay<decltype(qosField)>::type;
+        using QosValueType = typename QosFieldType::ValueType;
+        
+        if ((Base::transportField_flags().field_retain().value() != 0U) ||
+            (qosField.value() != QosValueType::AtLeastOnceDelivery) ||
+            (Base::transportField_flags().field_dup().value() != 0U)) {
+            return false;
+        }
+        
+        return !field_list().value().empty();
     }
     
 

@@ -9,7 +9,7 @@
 #include "comms/CompileControl.h"
 #include "comms/field/Variant.h"
 #include "comms/options.h"
-#include "mqtt5/field/DisconnectPropertyCommon.h"
+#include "mqtt5/field/ClientDisconnectPropertyCommon.h"
 #include "mqtt5/field/FieldBase.h"
 #include "mqtt5/field/ReasonStr.h"
 #include "mqtt5/field/ServerRef.h"
@@ -25,10 +25,10 @@ namespace field
 
 
 /// @brief Scope for all the member fields of
-///     @ref DisconnectProperty field.
+///     @ref ClientDisconnectProperty field.
 /// @tparam TOpt Protocol options.
 template <typename TOpt = mqtt5::options::DefaultOptions>
-struct DisconnectPropertyMembers
+struct ClientDisconnectPropertyMembers
 {
     /// @brief Definition of <b>"Session Expiry Interval"</b> field.
     using SessionExpiryInterval =
@@ -72,17 +72,17 @@ struct DisconnectPropertyMembers
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>
-class DisconnectProperty : public
+class ClientDisconnectProperty : public
     comms::field::Variant<
         mqtt5::field::FieldBase<>,
-        typename DisconnectPropertyMembers<TOpt>::All,
+        typename ClientDisconnectPropertyMembers<TOpt>::All,
         TExtraOpts...
     >
 {
     using Base =
         comms::field::Variant<
             mqtt5::field::FieldBase<>,
-            typename DisconnectPropertyMembers<TOpt>::All,
+            typename ClientDisconnectPropertyMembers<TOpt>::All,
             TExtraOpts...
         >;
 public:
@@ -94,16 +94,16 @@ public:
     ///     The generated values, types and access functions are:
     ///     @li @b FieldIdx_sessionExpiryInterval index, @b Field_sessionExpiryInterval type,
     ///         @b initField_sessionExpiryInterval() and @b accessField_sessionExpiryInterval() access functions -
-    ///         for mqtt5::field::DisconnectPropertyMembers::SessionExpiryInterval member field.
+    ///         for mqtt5::field::ClientDisconnectPropertyMembers::SessionExpiryInterval member field.
     ///     @li @b FieldIdx_reasonStr index, @b Field_reasonStr type,
     ///         @b initField_reasonStr() and @b accessField_reasonStr() access functions -
-    ///         for mqtt5::field::DisconnectPropertyMembers::ReasonStr member field.
+    ///         for mqtt5::field::ClientDisconnectPropertyMembers::ReasonStr member field.
     ///     @li @b FieldIdx_userProperty index, @b Field_userProperty type,
     ///         @b initField_userProperty() and @b accessField_userProperty() access functions -
-    ///         for mqtt5::field::DisconnectPropertyMembers::UserProperty member field.
+    ///         for mqtt5::field::ClientDisconnectPropertyMembers::UserProperty member field.
     ///     @li @b FieldIdx_serverRef index, @b Field_serverRef type,
     ///         @b initField_serverRef() and @b accessField_serverRef() access functions -
-    ///         for mqtt5::field::DisconnectPropertyMembers::ServerRef member field.
+    ///         for mqtt5::field::ClientDisconnectPropertyMembers::ServerRef member field.
     COMMS_VARIANT_MEMBERS_NAMES(
         sessionExpiryInterval,
         reasonStr,
@@ -168,7 +168,7 @@ public:
     /// @brief Name of the field.
     static const char* name()
     {
-        return mqtt5::field::DisconnectPropertyCommon::name();
+        return mqtt5::field::ClientDisconnectPropertyCommon::name();
     }
     
 

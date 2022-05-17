@@ -15,7 +15,7 @@
 #include "mqtt5/field/FieldBase.h"
 #include "mqtt5/field/PacketId.h"
 #include "mqtt5/field/PublishPropertyList.h"
-#include "mqtt5/field/Topic.h"
+#include "mqtt5/field/TopicName.h"
 #include "mqtt5/message/PublishCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -34,9 +34,9 @@ namespace message
 template <typename TOpt = mqtt5::options::DefaultOptions>
 struct PublishFields
 {
-    /// @brief Definition of <b>"Topic"</b> field.
-    using Topic =
-        mqtt5::field::Topic<
+    /// @brief Definition of <b>"TopicName"</b> field.
+    using TopicName =
+        mqtt5::field::TopicName<
             TOpt
         >;
     
@@ -98,7 +98,7 @@ struct PublishFields
     
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
-        Topic,
+        TopicName,
         PacketId,
         Properties,
         Payload
@@ -118,7 +118,8 @@ class Publish : public
         comms::option::def::StaticNumIdImpl<mqtt5::MsgId_Publish>,
         comms::option::def::FieldsImpl<typename PublishFields<TOpt>::All>,
         comms::option::def::MsgType<Publish<TMsgBase, TOpt> >,
-        comms::option::def::HasName
+        comms::option::def::HasName,
+        comms::option::def::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -128,7 +129,8 @@ class Publish : public
             comms::option::def::StaticNumIdImpl<mqtt5::MsgId_Publish>,
             comms::option::def::FieldsImpl<typename PublishFields<TOpt>::All>,
             comms::option::def::MsgType<Publish<TMsgBase, TOpt> >,
-            comms::option::def::HasName
+            comms::option::def::HasName,
+            comms::option::def::HasCustomRefresh
         >;
 
 public:
@@ -138,8 +140,8 @@ public:
     ///     for details.
     ///
     ///     The generated values, types and functions are:
-    ///     @li @b FieldIdx_topic index, @b Field_topic type and @b field_topic() access fuction
-    ///         for @ref PublishFields::Topic field.
+    ///     @li @b FieldIdx_topicName index, @b Field_topicName type and @b field_topicName() access fuction
+    ///         for @ref PublishFields::TopicName field.
     ///     @li @b FieldIdx_packetId index, @b Field_packetId type and @b field_packetId() access fuction
     ///         for @ref PublishFields::PacketId field.
     ///     @li @b FieldIdx_properties index, @b Field_properties type and @b field_properties() access fuction
@@ -147,7 +149,7 @@ public:
     ///     @li @b FieldIdx_payload index, @b Field_payload type and @b field_payload() access fuction
     ///         for @ref PublishFields::Payload field.
     COMMS_MSG_FIELDS_NAMES(
-        topic,
+        topicName,
         packetId,
         properties,
         payload
@@ -161,6 +163,44 @@ public:
     static const char* doName()
     {
         return mqtt5::message::PublishCommon::name();
+    }
+    
+    /// @brief Custom read functionality
+    template <typename TIter>
+    comms::ErrorStatus doRead(TIter& iter, std::size_t len)
+    {
+        refresh_packetId(); // make sure the mode of "packet ID" is correct
+        return Base::doRead(iter, len);
+    }
+    
+    
+    /// @brief Custom refresh functionality
+    bool doRefresh()
+    {
+        bool updated = Base::doRefresh();
+        return refresh_packetId() || updated;
+    }
+    
+    
+
+private:
+    bool refresh_packetId()
+    {
+        auto& qosField = Base::transportField_flags().field_qos();
+        using QosFieldType = typename std::decay<decltype(qosField)>::type;
+        using QosValueType = typename QosFieldType::ValueType;
+        
+        auto mode = comms::field::OptionalMode::Missing;
+        if (QosValueType::AtMostOnceDelivery < qosField.value()) {
+            mode = comms::field::OptionalMode::Exists;
+        }
+        
+        if (field_packetId().getMode() == mode) {
+            return false;
+        }
+        
+        field_packetId().setMode(mode);
+        return true;
     }
     
 

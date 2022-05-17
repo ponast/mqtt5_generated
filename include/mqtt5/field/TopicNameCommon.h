@@ -2,7 +2,7 @@
 
 /// @file
 /// @brief Contains common template parameters independent functionality of
-///    @ref mqtt5::field::Topic field.
+///    @ref mqtt5::field::TopicName field.
 
 #pragma once
 
@@ -16,13 +16,13 @@ namespace field
 
 
 /// @brief Common types and functions for
-///     @ref mqtt5::field::Topic field.
-struct TopicCommon : public mqtt5::field::StringCommon
+///     @ref mqtt5::field::TopicName field.
+struct TopicNameCommon : public mqtt5::field::StringCommon
 {
-    /// @brief Name of the @ref mqtt5::field::Topic field.
+    /// @brief Name of the @ref mqtt5::field::TopicName field.
     static const char* name()
     {
-        return "Topic";
+        return "TopicName";
     }
     
 };

@@ -14,7 +14,7 @@
 #include "mqtt5/field/PacketIdCommon.h"
 #include "mqtt5/field/QosCommon.h"
 #include "mqtt5/field/SubscribePropertyListCommon.h"
-#include "mqtt5/field/TopicCommon.h"
+#include "mqtt5/field/TopicFilterCommon.h"
 
 namespace mqtt5
 {
@@ -49,8 +49,8 @@ struct SubscribeFieldsCommon
         struct ElementMembersCommon
         {
             /// @brief Common types and functions for
-            ///     @ref mqtt5::message::SubscribeFields::ListMembers::ElementMembers::Topic field.
-            using TopicCommon = mqtt5::field::TopicCommon;
+            ///     @ref mqtt5::message::SubscribeFields::ListMembers::ElementMembers::TopicFilter field.
+            using TopicFilterCommon = mqtt5::field::TopicFilterCommon;
             
             /// @brief Scope for all the common definitions of the member fields of
             ///     @ref mqtt5::message::SubscribeFields::ListMembers::ElementMembers::Options field.

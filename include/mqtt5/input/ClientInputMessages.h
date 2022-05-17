@@ -14,6 +14,7 @@
 #include "mqtt5/message/Publish.h"
 #include "mqtt5/message/Pubrec.h"
 #include "mqtt5/message/Pubrel.h"
+#include "mqtt5/message/ServerDisconnect.h"
 #include "mqtt5/message/Suback.h"
 #include "mqtt5/message/Unsuback.h"
 #include "mqtt5/options/DefaultOptions.h"
@@ -39,6 +40,7 @@ using ClientInputMessages =
         mqtt5::message::Suback<TBase, TOpt>,
         mqtt5::message::Unsuback<TBase, TOpt>,
         mqtt5::message::Pingresp<TBase, TOpt>,
+        mqtt5::message::ServerDisconnect<TBase, TOpt>,
         mqtt5::message::Auth<TBase, TOpt>
     >;
 

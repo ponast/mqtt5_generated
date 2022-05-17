@@ -21,6 +21,16 @@ struct ClientDefaultOptionsT : public TBase
     struct message : public TBase::message
     {
         /// @brief Extra options for @ref
+        ///     mqtt5::message::ClientDisconnect
+        ///     message.
+        using ClientDisconnect =
+            std::tuple<
+                comms::option::app::NoReadImpl,
+                comms::option::app::NoDispatchImpl,
+                typename TBase::message::ClientDisconnect
+            >;
+        
+        /// @brief Extra options for @ref
         ///     mqtt5::message::Connack message.
         using Connack =
             std::tuple<
@@ -39,15 +49,6 @@ struct ClientDefaultOptionsT : public TBase
             >;
         
         /// @brief Extra options for @ref
-        ///     mqtt5::message::Disconnect message.
-        using Disconnect =
-            std::tuple<
-                comms::option::app::NoReadImpl,
-                comms::option::app::NoDispatchImpl,
-                typename TBase::message::Disconnect
-            >;
-        
-        /// @brief Extra options for @ref
         ///     mqtt5::message::Pingreq message.
         using Pingreq =
             std::tuple<
@@ -63,6 +64,16 @@ struct ClientDefaultOptionsT : public TBase
                 comms::option::app::NoWriteImpl,
                 comms::option::app::NoRefreshImpl,
                 typename TBase::message::Pingresp
+            >;
+        
+        /// @brief Extra options for @ref
+        ///     mqtt5::message::ServerDisconnect
+        ///     message.
+        using ServerDisconnect =
+            std::tuple<
+                comms::option::app::NoWriteImpl,
+                comms::option::app::NoRefreshImpl,
+                typename TBase::message::ServerDisconnect
             >;
         
         /// @brief Extra options for @ref

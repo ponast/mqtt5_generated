@@ -20,7 +20,7 @@
 #include "mqtt5/field/PacketId.h"
 #include "mqtt5/field/Qos.h"
 #include "mqtt5/field/SubscribePropertyList.h"
-#include "mqtt5/field/Topic.h"
+#include "mqtt5/field/TopicFilter.h"
 #include "mqtt5/message/SubscribeCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -61,9 +61,9 @@ struct SubscribeFields
         ///     @ref Element field.
         struct ElementMembers
         {
-            /// @brief Definition of <b>"Topic"</b> field.
-            using Topic =
-                mqtt5::field::Topic<
+            /// @brief Definition of <b>"TopicFilter"</b> field.
+            using TopicFilter =
+                mqtt5::field::TopicFilter<
                     TOpt
                 >;
             
@@ -278,7 +278,7 @@ struct SubscribeFields
             /// @brief All members bundled in @b std::tuple.
             using All =
                 std::tuple<
-                   Topic,
+                   TopicFilter,
                    Options
                 >;
         };
@@ -302,12 +302,12 @@ struct SubscribeFields
             ///     for details.
             ///
             ///     The generated values, types and access functions are:
-            ///     @li @b FieldIdx_topic index, @b Field_topic type and @b field_topic() access function -
-            ///         for mqtt5::message::SubscribeFields::ListMembers::ElementMembers::Topic member field.
+            ///     @li @b FieldIdx_topicFilter index, @b Field_topicFilter type and @b field_topicFilter() access function -
+            ///         for mqtt5::message::SubscribeFields::ListMembers::ElementMembers::TopicFilter member field.
             ///     @li @b FieldIdx_options index, @b Field_options type and @b field_options() access function -
             ///         for mqtt5::message::SubscribeFields::ListMembers::ElementMembers::Options member field.
             COMMS_FIELD_MEMBERS_NAMES(
-                topic,
+                topicFilter,
                 options
             );
             
@@ -408,10 +408,40 @@ public:
     static const std::size_t MsgMinLen = Base::doMinLength();
     static_assert(MsgMinLen == 3U, "Unexpected min serialisation length");
     
+    /// @brief Default constructor
+    Subscribe()
+    {
+        auto& qosField = Base::transportField_flags().field_qos();
+        using QosFieldType = typename std::decay<decltype(qosField)>::type;
+        using QosValueType = typename QosFieldType::ValueType;
+        
+        qosField.value() = QosValueType::AtLeastOnceDelivery;
+    }
+    
     /// @brief Name of the message.
     static const char* doName()
     {
         return mqtt5::message::SubscribeCommon::name();
+    }
+    
+    /// @brief Custom validity check
+    bool doValid() const
+    {
+        if (!Base::doValid()) {
+            return false;
+        }
+        
+        auto& qosField = Base::transportField_flags().field_qos();
+        using QosFieldType = typename std::decay<decltype(qosField)>::type;
+        using QosValueType = typename QosFieldType::ValueType;
+        
+        if ((Base::transportField_flags().field_retain().value() != 0U) ||
+            (qosField.value() != QosValueType::AtLeastOnceDelivery) ||
+            (Base::transportField_flags().field_dup().value() != 0U)) {
+            return false;
+        }
+        
+        return !field_list().value().empty();
     }
     
 

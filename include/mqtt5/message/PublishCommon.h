@@ -7,7 +7,7 @@
 #pragma once
 
 #include "mqtt5/field/PublishPropertyListCommon.h"
-#include "mqtt5/field/TopicCommon.h"
+#include "mqtt5/field/TopicNameCommon.h"
 
 namespace mqtt5
 {
@@ -22,8 +22,8 @@ namespace message
 struct PublishFieldsCommon
 {
     /// @brief Common types and functions for
-    ///     @ref mqtt5::message::PublishFields::Topic field.
-    using TopicCommon = mqtt5::field::TopicCommon;
+    ///     @ref mqtt5::message::PublishFields::TopicName field.
+    using TopicNameCommon = mqtt5::field::TopicNameCommon;
     
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PublishFields::PacketId field.
