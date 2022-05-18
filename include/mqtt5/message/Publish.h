@@ -118,7 +118,8 @@ class Publish : public
         comms::option::def::StaticNumIdImpl<mqtt5::MsgId_Publish>,
         comms::option::def::FieldsImpl<typename PublishFields<TOpt>::All>,
         comms::option::def::MsgType<Publish<TMsgBase, TOpt> >,
-        comms::option::def::HasName
+        comms::option::def::HasName,
+        comms::option::def::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -128,7 +129,8 @@ class Publish : public
             comms::option::def::StaticNumIdImpl<mqtt5::MsgId_Publish>,
             comms::option::def::FieldsImpl<typename PublishFields<TOpt>::All>,
             comms::option::def::MsgType<Publish<TMsgBase, TOpt> >,
-            comms::option::def::HasName
+            comms::option::def::HasName,
+            comms::option::def::HasCustomRefresh
         >;
 
 public:
@@ -161,6 +163,44 @@ public:
     static const char* doName()
     {
         return mqtt5::message::PublishCommon::name();
+    }
+    
+    /// @brief Custom read functionality
+    template <typename TIter>
+    comms::ErrorStatus doRead(TIter& iter, std::size_t len)
+    {
+        refresh_packetId(); // make sure the mode of "packet ID" is correct
+        return Base::doRead(iter, len);
+    }
+    
+    
+    /// @brief Custom refresh functionality
+    bool doRefresh()
+    {
+        bool updated = Base::doRefresh();
+        return refresh_packetId() || updated;
+    }
+    
+    
+
+private:
+    bool refresh_packetId()
+    {
+        auto& qosField = Base::transportField_flags().field_qos();
+        using QosFieldType = typename std::decay<decltype(qosField)>::type;
+        using QosValueType = typename QosFieldType::ValueType;
+        
+        auto mode = comms::field::OptionalMode::Missing;
+        if (QosValueType::AtMostOnceDelivery < qosField.value()) {
+            mode = comms::field::OptionalMode::Exists;
+        }
+        
+        if (field_packetId().getMode() == mode) {
+            return false;
+        }
+        
+        field_packetId().setMode(mode);
+        return true;
     }
     
 

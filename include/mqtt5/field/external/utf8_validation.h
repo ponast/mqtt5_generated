@@ -13,8 +13,7 @@ namespace utf8
 
     static bool is_ascii_control( Codepoint arg )
     {
-        char const arg_trunc = static_cast< char >( arg );
-        return arg < 0x80 and ( arg <= 0x1f or arg >= 0x7f );
+        return arg <= 0x1f or ( arg >= 0x7f and arg < 0x80 );
     }
     //____________________________________________________________________________________
 
@@ -43,17 +42,18 @@ namespace utf8
     {
         if ( * iter == '\0' )
         {
-            throw Fault::End_of_string( "next_codepoint(): Reached end of string" );
+            return utf8_invalid;
         }
 
-        const_octet_iter begin = iter;
-        uint32_t         state = utf8_accept;
-        Codepoint        cp    = 0;
+        uint32_t  state = utf8_accept;
+        Codepoint cp    = 0;
         do
         {
             ::utf8::decode( & state, & cp, *(iter++));
             if ( state == utf8_accept ) return cp;
-        } while ( *iter != '\0' and state != utf8_reject );
+        }
+        while ( *iter != '\0' and state != utf8_reject );
+
         return utf8_invalid;
     }
     //____________________________________________________________________________________

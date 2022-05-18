@@ -594,7 +594,8 @@ class Connect : public
         comms::option::def::StaticNumIdImpl<mqtt5::MsgId_Connect>,
         comms::option::def::FieldsImpl<typename ConnectFields<TOpt>::All>,
         comms::option::def::MsgType<Connect<TMsgBase, TOpt> >,
-        comms::option::def::HasName
+        comms::option::def::HasName,
+        comms::option::def::HasCustomRefresh
     >
 {
     // Redefinition of the base class type
@@ -605,7 +606,8 @@ class Connect : public
             comms::option::def::StaticNumIdImpl<mqtt5::MsgId_Connect>,
             comms::option::def::FieldsImpl<typename ConnectFields<TOpt>::All>,
             comms::option::def::MsgType<Connect<TMsgBase, TOpt> >,
-            comms::option::def::HasName
+            comms::option::def::HasName,
+            comms::option::def::HasCustomRefresh
         >;
 
 public:
@@ -660,6 +662,90 @@ public:
     {
         return mqtt5::message::ConnectCommon::name();
     }
+    
+    /// @brief Custom read functionality
+    template <typename TIter>
+    comms::ErrorStatus doRead(TIter& iter, std::size_t len)
+    {
+        auto es = Base::template doReadUntilAndUpdateLen<FieldIdx_clientId>(iter, len);
+        if (es != comms::ErrorStatus::Success) {
+            return es;
+        }
+        
+        doRefresh();
+        return Base::template doReadFrom<FieldIdx_clientId>(iter, len);
+    }
+    
+    
+    /// @brief Updated validity check
+    bool doValid() const
+    {
+        if ((!Base::doValid()) || (!Base::flagsZeroed())) {
+            return false;
+        }
+        
+        return 
+            (!field_flags().field_high().getBitValue_passwordFlag()) ||
+            (field_flags().field_high().getBitValue_userNameFlag());
+    }
+    
+    /// @brief Custom refresh functionality
+    bool doRefresh()
+    {
+        bool updated = Base::doRefresh();
+        updated = refresh_willProperties() || updated;
+        updated = refresh_willTopic() || updated;
+        updated = refresh_willMessage() || updated;
+        updated = refresh_userName() || updated;
+        updated = refresh_password() || updated;
+        return updated;
+    }
+    
+    
+
+private:
+    template <typename TOptField>
+    static bool refreshOptionalField(bool exists, TOptField& optField)
+    {
+        auto mode = comms::field::OptionalMode::Missing;
+        if (exists) {
+            mode = comms::field::OptionalMode::Exists;
+        }
+        
+        if (optField.getMode() == mode) {
+            return false;
+        }
+        
+        optField.setMode(mode);
+        return true;
+    }
+    
+    bool refresh_willProperties()
+    {
+        return refreshOptionalField(field_flags().field_low().getBitValue_willFlag(), field_willProperties());
+    }
+    
+    bool refresh_willTopic()
+    {
+        return refreshOptionalField(field_flags().field_low().getBitValue_willFlag(), field_willTopic());
+    }
+    
+    bool refresh_willMessage()
+    {
+        return refreshOptionalField(field_flags().field_low().getBitValue_willFlag(), field_willMessage());
+    }
+    
+    bool refresh_userName()
+    {
+        return refreshOptionalField(field_flags().field_high().getBitValue_userNameFlag(), field_userName());
+    }
+    
+    bool refresh_password()
+    {
+        return refreshOptionalField(field_flags().field_high().getBitValue_passwordFlag(), field_password());
+    }
+    
+    
     
 
 };

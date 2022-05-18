@@ -155,6 +155,12 @@ public:
         return mqtt5::message::ConnackCommon::name();
     }
     
+    /// @brief Updated validity check
+    bool doValid() const
+    {
+        return Base::doValid() && Base::flagsZeroed();
+    }
+    
 
 };
 

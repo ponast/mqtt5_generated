@@ -136,6 +136,12 @@ public:
         return mqtt5::message::UnsubackCommon::name();
     }
     
+    /// @brief Updated validity check
+    bool doValid() const
+    {
+        return Base::doValid() && Base::flagsZeroed();
+    }
+    
 
 };
 

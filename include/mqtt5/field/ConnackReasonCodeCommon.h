@@ -38,7 +38,7 @@ struct ConnackReasonCodeCommon
         NotAuthorized = 135, ///< value <b>Not authorized</b>. 
         ServerUnavailable = 136, ///< value <b>Server unavailable</b>. 
         ServerBusy = 137, ///< value <b>Server busy</b>. 
-        Banned = 138, ///< value @b Banned. 
+        Banned = 138, ///< value <b>Banned</b>. 
         BadAuthMethod = 140, ///< value <b>Bad auth method</b>. 
         TopicNameInvalid = 144, ///< value <b>Topic Name invalid</b>. 
         PacketTooLarge = 149, ///< value <b>Packet too large</b>. 
