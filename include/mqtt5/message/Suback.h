@@ -136,16 +136,6 @@ public:
         return mqtt5::message::SubackCommon::name();
     }
     
-    /// @brief Updated validity check
-    bool doValid() const
-    {
-        if ((!Base::doValid()) || (!Base::flagsZeroed())) {
-            return false;
-        }
-        
-        return !field_list().value().empty();
-    }
-    
 
 };
 

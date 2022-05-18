@@ -53,13 +53,6 @@ public:
         return mqtt5::field::ProtocolNameCommon::name();
     }
     
-    /// @brief Custom validity check
-    bool valid() const
-    {
-        return Base::value() == ProtocolName().value();
-    }
-    
-    
 
 };
 

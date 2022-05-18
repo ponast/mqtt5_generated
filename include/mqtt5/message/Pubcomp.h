@@ -115,12 +115,6 @@ public:
         return mqtt5::message::PubcompCommon::name();
     }
     
-    /// @brief Updated validity check
-    bool doValid() const
-    {
-        return Base::doValid() && Base::flagsZeroed();
-    }
-    
 
 };
 

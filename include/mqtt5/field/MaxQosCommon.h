@@ -56,11 +56,12 @@ struct MaxQosMembersCommon
         {
             AtMostOnceDelivery = 0, ///< value @b AtMostOnceDelivery. 
             AtLeastOnceDelivery = 1, ///< value @b AtLeastOnceDelivery. 
+            ExactlyOnceDelivery = 2, ///< value @b ExactlyOnceDelivery. 
             
             // --- Extra values generated for convenience ---
             FirstValue = 0, ///< First defined value.
-            LastValue = 1, ///< Last defined value.
-            ValuesLimit = 2, ///< Upper limit for defined values.
+            LastValue = 2, ///< Last defined value.
+            ValuesLimit = 3, ///< Upper limit for defined values.
         };
         
         /// @brief Single value name info entry
@@ -93,7 +94,8 @@ struct MaxQosMembersCommon
         {
             static const char* Map[] = {
                 "AtMostOnceDelivery",
-                "AtLeastOnceDelivery"
+                "AtLeastOnceDelivery",
+                "ExactlyOnceDelivery"
             };
             static const std::size_t MapSize = std::extent<decltype(Map)>::value;
             

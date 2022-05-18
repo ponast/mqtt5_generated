@@ -12,8 +12,6 @@
 #include "mqtt5/field/StringCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
 
-#include "external/utf8_validation.h"
-
 namespace mqtt5
 {
 
@@ -46,13 +44,6 @@ public:
     {
         return mqtt5::field::StringCommon::name();
     }
-    
-    /// @brief Custom validity check
-    bool valid() const
-    {
-        return ::utf8::valid_mqtt_string( String().value().c_str() );
-    }
-    
     
 
 };

@@ -40,13 +40,6 @@ public:
         return mqtt5::field::TopicNameCommon::name();
     }
     
-    /// @brief Custom validity check
-    bool valid() const
-    {
-        return ::utf8::valid_mqtt_topic_name( TopicName().value().c_str() );
-    }
-    
-    
 
 };
 

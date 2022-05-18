@@ -194,12 +194,12 @@ struct ConnectFieldsCommon
     struct WillPropertyMembersCommon
     {
         /// @brief Common definitions of the member fields of
-        ///     @ref mqtt5::message::ConnectFields::WillPropertyMembers::WillProperty field.
-        using WillPropertyMembersCommon = mqtt5::field::WillPropertyListMembersCommon;
+        ///     @ref mqtt5::message::ConnectFields::WillPropertyMembers::List field.
+        using ListMembersCommon = mqtt5::field::WillPropertyListMembersCommon;
         
         /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::WillPropertyMembers::WillProperty field.
-        using WillPropertyCommon = mqtt5::field::WillPropertyListCommon;
+        ///     @ref mqtt5::message::ConnectFields::WillPropertyMembers::List field.
+        using ListCommon = mqtt5::field::WillPropertyListCommon;
         
     };
     
@@ -220,10 +220,10 @@ struct ConnectFieldsCommon
     struct WillTopicMembersCommon
     {
         /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::WillTopicMembers::TopicName field.
-        struct TopicNameCommon : public mqtt5::field::StringCommon
+        ///     @ref mqtt5::message::ConnectFields::WillTopicMembers::Value field.
+        struct ValueCommon : public mqtt5::field::StringCommon
         {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::WillTopicMembers::TopicName field.
+            /// @brief Name of the @ref mqtt5::message::ConnectFields::WillTopicMembers::Value field.
             static const char* name()
             {
                 return "Will Topic";
@@ -250,10 +250,10 @@ struct ConnectFieldsCommon
     struct WillMessageMembersCommon
     {
         /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::WillMessageMembers::WillMessage field.
-        struct WillMessageCommon : public mqtt5::field::BinDataCommon
+        ///     @ref mqtt5::message::ConnectFields::WillMessageMembers::Value field.
+        struct ValueCommon : public mqtt5::field::BinDataCommon
         {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::WillMessageMembers::WillMessage field.
+            /// @brief Name of the @ref mqtt5::message::ConnectFields::WillMessageMembers::Value field.
             static const char* name()
             {
                 return "Will Message";
@@ -280,10 +280,10 @@ struct ConnectFieldsCommon
     struct UserNameMembersCommon
     {
         /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::UserNameMembers::UserName field.
-        struct UserNameCommon : public mqtt5::field::StringCommon
+        ///     @ref mqtt5::message::ConnectFields::UserNameMembers::Value field.
+        struct ValueCommon : public mqtt5::field::StringCommon
         {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::UserNameMembers::UserName field.
+            /// @brief Name of the @ref mqtt5::message::ConnectFields::UserNameMembers::Value field.
             static const char* name()
             {
                 return "User Name";
@@ -310,13 +310,13 @@ struct ConnectFieldsCommon
     struct PasswordMembersCommon
     {
         /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::PasswordMembers::Password field.
-        struct PasswordCommon : public mqtt5::field::BinDataCommon
+        ///     @ref mqtt5::message::ConnectFields::PasswordMembers::Value field.
+        struct ValueCommon : public mqtt5::field::BinDataCommon
         {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::PasswordMembers::Password field.
+            /// @brief Name of the @ref mqtt5::message::ConnectFields::PasswordMembers::Value field.
             static const char* name()
             {
-                return "Password";
+                return "Value";
             }
             
         };

@@ -90,14 +90,14 @@ struct MaxQosMembers
         comms::field::EnumValue<
             mqtt5::field::FieldBase<>,
             mqtt5::field::MaxQosMembersCommon::ValueCommon::ValueType,
-            comms::option::def::ValidNumValueRange<0, 1>
+            comms::option::def::ValidNumValueRange<0, 2>
         >
     {
         using Base =
             comms::field::EnumValue<
                 mqtt5::field::FieldBase<>,
                 mqtt5::field::MaxQosMembersCommon::ValueCommon::ValueType,
-                comms::option::def::ValidNumValueRange<0, 1>
+                comms::option::def::ValidNumValueRange<0, 2>
             >;
     public:
         /// @brief Re-definition of the value type.
