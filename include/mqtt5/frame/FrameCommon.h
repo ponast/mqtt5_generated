@@ -36,22 +36,22 @@ struct FrameLayersCommon
                 /// @brief Re-definition of the value type used by
                 ///     mqtt5::frame::FrameLayers::IdAndFlagsMembers::IdAndFlagsFieldMembers::Flags field.
                 using ValueType = std::uint8_t;
-                
+
                 /// @brief Name of the @ref mqtt5::frame::FrameLayers::IdAndFlagsMembers::IdAndFlagsFieldMembers::Flags field.
                 static const char* name()
                 {
                     return "Flags";
                 }
-                
+
                 /// @brief Compile time detection of special values presence.
                 static constexpr bool hasSpecials()
                 {
                     return false;
                 }
-                
-                
+
+
             };
-            
+
             /// @brief Common types and functions for
             ///     @ref mqtt5::frame::FrameLayers::IdAndFlagsMembers::IdAndFlagsFieldMembers::Id field.
             struct IdCommon : public mqtt5::field::MsgIdCommon
@@ -61,11 +61,11 @@ struct FrameLayersCommon
                 {
                     return "Id";
                 }
-                
+
             };
-            
+
         };
-        
+
         /// @brief Common types and functions for
         ///     @ref mqtt5::frame::FrameLayers::IdAndFlagsMembers::IdAndFlagsField field.
         struct IdAndFlagsFieldCommon
@@ -75,11 +75,11 @@ struct FrameLayersCommon
             {
                 return "ID + Flags";
             }
-            
+
         };
-        
+
     };
-    
+
     /// @brief Scope for all the common definitions of the fields defined in
     ///     @ref mqtt5::frame::FrameLayers::SizeMembers struct.
     struct SizeMembersCommon
@@ -91,24 +91,24 @@ struct FrameLayersCommon
             /// @brief Re-definition of the value type used by
             ///     mqtt5::frame::FrameLayers::SizeMembers::Size field.
             using ValueType = std::uint32_t;
-            
+
             /// @brief Name of the @ref mqtt5::frame::FrameLayers::SizeMembers::Size field.
             static const char* name()
             {
                 return "Size";
             }
-            
+
             /// @brief Compile time detection of special values presence.
             static constexpr bool hasSpecials()
             {
                 return false;
             }
-            
-            
+
+
         };
-        
+
     };
-    
+
 };
 
 } // namespace frame

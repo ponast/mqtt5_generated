@@ -1,0 +1,8 @@
+#!/bin/bash
+# Usage: compile path/to/dsl/project/root
+
+# Compile dsl project
+commsdsl2comms $1/dsl/schema.xml -c $1/src/ -o ./
+
+# Remove trailing space for each line of the generated sources
+find . -name '*.h' -print0 | xargs -r0 sed -e 's/[[:blank:]]\+$//' -i

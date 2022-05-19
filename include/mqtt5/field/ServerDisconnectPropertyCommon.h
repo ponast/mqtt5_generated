@@ -24,27 +24,27 @@ struct ServerDisconnectPropertyMembersCommon
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ServerDisconnectPropertyMembers::ReasonStr field.
     using ReasonStrMembersCommon = mqtt5::field::ReasonStrMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ServerDisconnectPropertyMembers::ReasonStr field.
     using ReasonStrCommon = mqtt5::field::ReasonStrCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ServerDisconnectPropertyMembers::UserProperty field.
     using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ServerDisconnectPropertyMembers::UserProperty field.
     using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ServerDisconnectPropertyMembers::ServerRef field.
     using ServerRefMembersCommon = mqtt5::field::ServerRefMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ServerDisconnectPropertyMembers::ServerRef field.
     using ServerRefCommon = mqtt5::field::ServerRefCommon;
-    
+
 };
 
 /// @brief Common types and functions for
@@ -56,7 +56,7 @@ struct ServerDisconnectPropertyCommon
     {
         return "";
     }
-    
+
 };
 
 } // namespace field

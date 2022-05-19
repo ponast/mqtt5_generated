@@ -34,22 +34,22 @@ struct ServerDisconnectPropertyMembers
         mqtt5::field::ReasonStr<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
         mqtt5::field::UserProperty<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Server Reference"</b> field.
     using ServerRef =
         mqtt5::field::ServerRef<
             TOpt
         >;
-    
-    
+
+
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
@@ -97,12 +97,12 @@ public:
         userProperty,
         serverRef
     );
-    
+
     /// @brief Optimized currFieldExec functionality.
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
     template <typename TFunc>
-    void currFieldExec(TFunc&& func) 
+    void currFieldExec(TFunc&& func)
     {
         switch (Base::currentField()) {
         case FieldIdx_reasonStr:
@@ -121,7 +121,7 @@ public:
             break;
         }
     }
-    
+
     /// @brief Optimized currFieldExec functionality (const variant).
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
@@ -145,13 +145,13 @@ public:
             break;
         }
     }
-    
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::ServerDisconnectPropertyCommon::name();
     }
-    
+
 
 private:
     template <std::size_t TIdx, typename TField, typename TFunc>
@@ -163,7 +163,7 @@ private:
             func.template operator()<TIdx>(std::forward<TField>(f)); // All other compilers
         #endif // #ifdef _MSC_VER
     }
-    
+
 
 };
 

@@ -25,35 +25,35 @@ struct ClientDisconnectPropertyMembersCommon
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::SessionExpiryInterval field.
     using SessionExpiryIntervalMembersCommon = mqtt5::field::SessionExpiryIntervalMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::SessionExpiryInterval field.
     using SessionExpiryIntervalCommon = mqtt5::field::SessionExpiryIntervalCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ReasonStr field.
     using ReasonStrMembersCommon = mqtt5::field::ReasonStrMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ReasonStr field.
     using ReasonStrCommon = mqtt5::field::ReasonStrCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::UserProperty field.
     using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::UserProperty field.
     using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ServerRef field.
     using ServerRefMembersCommon = mqtt5::field::ServerRefMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ServerRef field.
     using ServerRefCommon = mqtt5::field::ServerRefCommon;
-    
+
 };
 
 /// @brief Common types and functions for
@@ -65,7 +65,7 @@ struct ClientDisconnectPropertyCommon
     {
         return "";
     }
-    
+
 };
 
 } // namespace field

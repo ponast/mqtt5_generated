@@ -27,22 +27,22 @@ struct UserPropertyMembersCommon
         /// @brief Re-definition of the value type used by
         ///     mqtt5::field::UserPropertyMembers::Id field.
         using ValueType = std::uint32_t;
-        
+
         /// @brief Name of the @ref mqtt5::field::UserPropertyMembers::Id field.
         static const char* name()
         {
             return "Id";
         }
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return false;
         }
-        
-        
+
+
     };
-    
+
     /// @brief Scope for all the common definitions of the member fields of
     ///     @ref mqtt5::field::UserPropertyMembers::Value field.
     struct ValueMembersCommon
@@ -56,9 +56,9 @@ struct UserPropertyMembersCommon
             {
                 return "First";
             }
-            
+
         };
-        
+
         /// @brief Common types and functions for
         ///     @ref mqtt5::field::UserPropertyMembers::ValueMembers::Second field.
         struct SecondCommon : public mqtt5::field::StringCommon
@@ -68,11 +68,11 @@ struct UserPropertyMembersCommon
             {
                 return "Second";
             }
-            
+
         };
-        
+
     };
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::UserPropertyMembers::Value field.
     struct ValueCommon
@@ -82,9 +82,9 @@ struct UserPropertyMembersCommon
         {
             return "Value";
         }
-        
+
     };
-    
+
 };
 
 /// @brief Common types and functions for
@@ -96,7 +96,7 @@ struct UserPropertyCommon
     {
         return "User Property";
     }
-    
+
 };
 
 } // namespace field

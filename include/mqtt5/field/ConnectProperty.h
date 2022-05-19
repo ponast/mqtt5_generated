@@ -40,64 +40,64 @@ struct ConnectPropertyMembers
         mqtt5::field::SessionExpiryInterval<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Receive Maximum"</b> field.
     using ReceiveMax =
         mqtt5::field::ReceiveMax<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Maximum Packet Size"</b> field.
     using MaxPacketSize =
         mqtt5::field::MaxPacketSize<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Topic Alias Maximum"</b> field.
     using TopicAliasMax =
         mqtt5::field::TopicAliasMax<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Request Response Information"</b> field.
     using RequestResponseInfo =
         mqtt5::field::RequestResponseInfo<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Request Problem Information"</b> field.
     using RequestProblemInfo =
         mqtt5::field::RequestProblemInfo<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
         mqtt5::field::UserProperty<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Authentication Method"</b> field.
     using AuthMethod =
         mqtt5::field::AuthMethod<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Authentication Data"</b> field.
     using AuthData =
         mqtt5::field::AuthData<
             TOpt
         >;
-    
-    
+
+
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
@@ -175,12 +175,12 @@ public:
         authMethod,
         authData
     );
-    
+
     /// @brief Optimized currFieldExec functionality.
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
     template <typename TFunc>
-    void currFieldExec(TFunc&& func) 
+    void currFieldExec(TFunc&& func)
     {
         switch (Base::currentField()) {
         case FieldIdx_sessionExpiryInterval:
@@ -217,7 +217,7 @@ public:
             break;
         }
     }
-    
+
     /// @brief Optimized currFieldExec functionality (const variant).
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
@@ -259,13 +259,13 @@ public:
             break;
         }
     }
-    
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::ConnectPropertyCommon::name();
     }
-    
+
 
 private:
     template <std::size_t TIdx, typename TField, typename TFunc>
@@ -277,7 +277,7 @@ private:
             func.template operator()<TIdx>(std::forward<TField>(f)); // All other compilers
         #endif // #ifdef _MSC_VER
     }
-    
+
 
 };
 

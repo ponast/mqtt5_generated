@@ -53,20 +53,20 @@ struct RequestProblemInfoMembers
     public:
         /// @brief Re-definition of the value type.
         using ValueType = typename Base::ValueType;
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return mqtt5::field::RequestProblemInfoMembersCommon::IdCommon::hasSpecials();
         }
-        
-        
+
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::field::RequestProblemInfoMembersCommon::IdCommon::name();
         }
-        
+
         /// @brief Generated refresh functionality.
         bool refresh()
         {
@@ -76,14 +76,14 @@ struct RequestProblemInfoMembers
             };
             Base::value() = static_cast<ValueType>(23);
             return true;
-            
+
         }
-        
-        
-    
+
+
+
     };
-    
-    
+
+
     /// @brief Definition of <b>"Value"</b> field.
     class Value : public
         mqtt5::field::EnableEnum<
@@ -100,11 +100,11 @@ struct RequestProblemInfoMembers
         {
             return mqtt5::field::RequestProblemInfoMembersCommon::ValueCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
@@ -145,14 +145,14 @@ public:
         id,
         value
     );
-    
-    
+
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::RequestProblemInfoCommon::name();
     }
-    
+
 
 };
 

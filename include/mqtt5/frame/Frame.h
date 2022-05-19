@@ -38,7 +38,7 @@ struct FrameLayers
         comms::protocol::MsgDataLayer<
             typename TOpt::frame::FrameLayers::Data
         >;
-    
+
     /// @brief Scope for field(s) of @ref Size layer.
     struct SizeMembers
     {
@@ -59,33 +59,33 @@ struct FrameLayers
         public:
             /// @brief Re-definition of the value type.
             using ValueType = typename Base::ValueType;
-            
+
             /// @brief Compile time detection of special values presence.
             static constexpr bool hasSpecials()
             {
                 return mqtt5::frame::FrameLayersCommon::SizeMembersCommon::SizeCommon::hasSpecials();
             }
-            
-            
+
+
             /// @brief Name of the field.
             static const char* name()
             {
                 return mqtt5::frame::FrameLayersCommon::SizeMembersCommon::SizeCommon::name();
             }
-            
-        
+
+
         };
-        
-        
+
+
     };
-    
+
     /// @brief Definition of layer "Size".
     using Size =
         comms::protocol::MsgSizeLayer<
             typename SizeMembers::Size,
             Data
         >;
-    
+
     /// @brief Scope for field(s) of @ref IdAndFlags layer.
     struct IdAndFlagsMembers
     {
@@ -110,24 +110,24 @@ struct FrameLayers
             public:
                 /// @brief Re-definition of the value type.
                 using ValueType = typename Base::ValueType;
-                
+
                 /// @brief Compile time detection of special values presence.
                 static constexpr bool hasSpecials()
                 {
                     return mqtt5::frame::FrameLayersCommon::IdAndFlagsMembersCommon::IdAndFlagsFieldMembersCommon::FlagsCommon::hasSpecials();
                 }
-                
-                
+
+
                 /// @brief Name of the field.
                 static const char* name()
                 {
                     return mqtt5::frame::FrameLayersCommon::IdAndFlagsMembersCommon::IdAndFlagsFieldMembersCommon::FlagsCommon::name();
                 }
-                
-            
+
+
             };
-            
-            
+
+
             /// @brief Definition of <b>"Id"</b> field.
             class Id : public
                 mqtt5::field::MsgId<
@@ -146,11 +146,11 @@ struct FrameLayers
                 {
                     return mqtt5::frame::FrameLayersCommon::IdAndFlagsMembersCommon::IdAndFlagsFieldMembersCommon::IdCommon::name();
                 }
-                
-            
+
+
             };
-            
-            
+
+
             /// @brief All members bundled in @b std::tuple.
             using All =
                 std::tuple<
@@ -158,7 +158,7 @@ struct FrameLayers
                    Id
                 >;
         };
-        
+
         /// @brief Definition of <b>"ID + Flags"</b> field.
         class IdAndFlagsField : public
             comms::field::Bitfield<
@@ -186,19 +186,19 @@ struct FrameLayers
                 flags,
                 id
             );
-            
+
             /// @brief Name of the field.
             static const char* name()
             {
                 return mqtt5::frame::FrameLayersCommon::IdAndFlagsMembersCommon::IdAndFlagsFieldCommon::name();
             }
-            
-        
+
+
         };
-        
-        
+
+
     };
-    
+
     /// @brief Definition of layer "IdAndFlags".
     template <typename TMessage, typename TAllMessages>
     using IdAndFlags =
@@ -209,11 +209,11 @@ struct FrameLayers
             Size,
             typename TOpt::frame::FrameLayers::IdAndFlags
         >;
-    
+
     /// @brief Final protocol stack definition.
     template<typename TMessage, typename TAllMessages>
     using Stack = IdAndFlags<TMessage, TAllMessages>;
-    
+
 };
 
 /// @brief Definition of <b>"Frame"</b> frame class.

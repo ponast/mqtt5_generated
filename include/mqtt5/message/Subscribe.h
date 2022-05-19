@@ -44,15 +44,15 @@ struct SubscribeFields
         mqtt5::field::PacketId<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Subscribe Properties"</b> field.
     using Properties =
         mqtt5::field::SubscribePropertyList<
             TOpt
         >;
-    
-    
+
+
     /// @brief Scope for all the member fields of
     ///     @ref List field.
     struct ListMembers
@@ -66,8 +66,8 @@ struct SubscribeFields
                 mqtt5::field::TopicFilter<
                     TOpt
                 >;
-            
-            
+
+
             /// @brief Scope for all the member fields of
             ///     @ref Options field.
             struct OptionsMembers
@@ -78,8 +78,8 @@ struct SubscribeFields
                         TOpt,
                         comms::option::def::FixedBitLength<2U>
                     >;
-                
-                
+
+
                 /// @brief Definition of <b>""</b> field.
                 class Bits : public
                     comms::field::BitmaskValue<
@@ -105,7 +105,7 @@ struct SubscribeFields
                         NL,
                         RAP
                     );
-                    
+
                     /// @brief Retrieve name of the bit.
                     /// @see @ref mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::BitsCommon::bitName().
                     static const char* bitName(BitIdx idx)
@@ -114,17 +114,17 @@ struct SubscribeFields
                             mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::BitsCommon::bitName(
                                 static_cast<std::size_t>(idx));
                     }
-                    
+
                     /// @brief Name of the field.
                     static const char* name()
                     {
                         return mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::BitsCommon::name();
                     }
-                    
-                
+
+
                 };
-                
-                
+
+
                 /// @brief Definition of <b>"Retain Handling"</b> field.
                 /// @see @ref mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::RetainHandlingCommon::ValueType
                 class RetainHandling : public
@@ -145,45 +145,45 @@ struct SubscribeFields
                 public:
                     /// @brief Re-definition of the value type.
                     using ValueType = typename Base::ValueType;
-                    
+
                     /// @brief Single value name info entry.
                     using ValueNameInfo = mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::RetainHandlingCommon::ValueNameInfo;
-                    
+
                     /// @brief Type returned from @ref valueNamesMap() member function.
                     /// @see @ref mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::RetainHandlingCommon::ValueNamesMapInfo.
                     using ValueNamesMapInfo = mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::RetainHandlingCommon::ValueNamesMapInfo;
-                    
+
                     /// @brief Retrieve name of the enum value.
                     /// @see @ref mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::RetainHandlingCommon::valueName().
                     static const char* valueName(ValueType val)
                     {
                         return mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::RetainHandlingCommon::valueName(val);
                     }
-                    
+
                     /// @brief Retrieve name of the @b current value
                     const char* valueName() const
                     {
                         return valueName(Base::value());
                     }
-                    
+
                     /// @brief Retrieve map of enum value names.
                     /// @see @ref mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::RetainHandlingCommon::valueNamesMap().
                     static ValueNamesMapInfo valueNamesMap()
                     {
                         return mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::RetainHandlingCommon::valueNamesMap();
                     }
-                    
-                    
+
+
                     /// @brief Name of the field.
                     static const char* name()
                     {
                         return mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::RetainHandlingCommon::name();
                     }
-                    
-                
+
+
                 };
-                
-                
+
+
                 /// @brief Definition of <b>"Reserved"</b> field.
                 class Reserved : public
                     comms::field::IntValue<
@@ -203,24 +203,24 @@ struct SubscribeFields
                 public:
                     /// @brief Re-definition of the value type.
                     using ValueType = typename Base::ValueType;
-                    
+
                     /// @brief Compile time detection of special values presence.
                     static constexpr bool hasSpecials()
                     {
                         return mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::ReservedCommon::hasSpecials();
                     }
-                    
-                    
+
+
                     /// @brief Name of the field.
                     static const char* name()
                     {
                         return mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsMembersCommon::ReservedCommon::name();
                     }
-                    
-                
+
+
                 };
-                
-                
+
+
                 /// @brief All members bundled in @b std::tuple.
                 using All =
                     std::tuple<
@@ -230,7 +230,7 @@ struct SubscribeFields
                        Reserved
                     >;
             };
-            
+
             /// @brief Definition of <b>"Options"</b> field.
             class Options : public
                 comms::field::Bitfield<
@@ -264,17 +264,17 @@ struct SubscribeFields
                     retainHandling,
                     reserved
                 );
-                
+
                 /// @brief Name of the field.
                 static const char* name()
                 {
                     return mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementMembersCommon::OptionsCommon::name();
                 }
-                
-            
+
+
             };
-            
-            
+
+
             /// @brief All members bundled in @b std::tuple.
             using All =
                 std::tuple<
@@ -282,7 +282,7 @@ struct SubscribeFields
                    Options
                 >;
         };
-        
+
         /// @brief Definition of <b>""</b> field.
         class Element : public
             comms::field::Bundle<
@@ -310,20 +310,20 @@ struct SubscribeFields
                 topicFilter,
                 options
             );
-            
-            
+
+
             /// @brief Name of the field.
             static const char* name()
             {
                 return mqtt5::message::SubscribeFieldsCommon::ListMembersCommon::ElementCommon::name();
             }
-            
-        
+
+
         };
-        
-        
+
+
     };
-    
+
     /// @brief Definition of <b>"List"</b> field.
     class List : public
         comms::field::ArrayList<
@@ -344,11 +344,11 @@ struct SubscribeFields
         {
             return mqtt5::message::SubscribeFieldsCommon::ListCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
         PacketId,
@@ -403,47 +403,47 @@ public:
         properties,
         list
     );
-    
+
     // Compile time check for serialisation length.
     static const std::size_t MsgMinLen = Base::doMinLength();
     static_assert(MsgMinLen == 3U, "Unexpected min serialisation length");
-    
+
     /// @brief Default constructor
     Subscribe()
     {
         auto& qosField = Base::transportField_flags().field_qos();
         using QosFieldType = typename std::decay<decltype(qosField)>::type;
         using QosValueType = typename QosFieldType::ValueType;
-        
+
         qosField.value() = QosValueType::AtLeastOnceDelivery;
     }
-    
+
     /// @brief Name of the message.
     static const char* doName()
     {
         return mqtt5::message::SubscribeCommon::name();
     }
-    
+
     /// @brief Custom validity check
     bool doValid() const
     {
         if (!Base::doValid()) {
             return false;
         }
-        
+
         auto& qosField = Base::transportField_flags().field_qos();
         using QosFieldType = typename std::decay<decltype(qosField)>::type;
         using QosValueType = typename QosFieldType::ValueType;
-        
+
         if ((Base::transportField_flags().field_retain().value() != 0U) ||
             (qosField.value() != QosValueType::AtLeastOnceDelivery) ||
             (Base::transportField_flags().field_dup().value() != 0U)) {
             return false;
         }
-        
+
         return !field_list().value().empty();
     }
-    
+
 
 };
 

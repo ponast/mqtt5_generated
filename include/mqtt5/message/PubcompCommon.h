@@ -17,7 +17,7 @@ namespace message
 {
 
 
-/// @brief Common types and functions for fields of 
+/// @brief Common types and functions for fields of
 ///     @ref mqtt5::message::Pubcomp message.
 /// @see mqtt5::message::PubcompFields
 struct PubcompFieldsCommon
@@ -25,22 +25,22 @@ struct PubcompFieldsCommon
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PubcompFields::PacketId field.
     using PacketIdCommon = mqtt5::field::PacketIdCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PubcompFields::ReasonCode field.
     using ReasonCodeCommon = mqtt5::field::PubackReasonCodeCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::PubcompFields::Properties field.
     using PropertiesMembersCommon = mqtt5::field::PubackPropertyListMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PubcompFields::Properties field.
     using PropertiesCommon = mqtt5::field::PubackPropertyListCommon;
-    
+
 };
 
-/// @brief Common types and functions of 
+/// @brief Common types and functions of
 ///     @ref mqtt5::message::Pubcomp message.
 struct PubcompCommon
 {
@@ -49,7 +49,7 @@ struct PubcompCommon
     {
         return "PUBCOMP";
     }
-    
+
 };
 
 } // namespace message

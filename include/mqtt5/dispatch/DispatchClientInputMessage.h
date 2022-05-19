@@ -151,7 +151,7 @@ auto dispatchClientInputMessageDefaultOptions(
 }
 
 /// @brief Dispatch message object to its appropriate handling function.
-/// @details Same as other dispatchClientInputMessageDefaultOptions(), 
+/// @details Same as other dispatchClientInputMessageDefaultOptions(),
 ///     but receives extra @b idx parameter.
 /// @param[in] id Numeric message ID.
 /// @param[in] idx Index of the message among messages with the same ID.

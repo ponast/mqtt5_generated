@@ -182,7 +182,7 @@ auto dispatchMessageDefaultOptions(
 }
 
 /// @brief Dispatch message object to its appropriate handling function.
-/// @details Same as other dispatchMessageDefaultOptions(), 
+/// @details Same as other dispatchMessageDefaultOptions(),
 ///     but without @b idx parameter.
 /// @param[in] id Numeric message ID.
 /// @param[in] msg Message object held by reference to its interface class.

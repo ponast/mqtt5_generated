@@ -16,7 +16,7 @@ namespace message
 {
 
 
-/// @brief Common types and functions for fields of 
+/// @brief Common types and functions for fields of
 ///     @ref mqtt5::message::Unsuback message.
 /// @see mqtt5::message::UnsubackFields
 struct UnsubackFieldsCommon
@@ -24,15 +24,15 @@ struct UnsubackFieldsCommon
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::UnsubackFields::PacketId field.
     using PacketIdCommon = mqtt5::field::PacketIdCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::UnsubackFields::Properties field.
     using PropertiesMembersCommon = mqtt5::field::UnsubackPropertyListMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::UnsubackFields::Properties field.
     using PropertiesCommon = mqtt5::field::UnsubackPropertyListCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::UnsubackFields::List field.
     struct ListCommon
@@ -42,12 +42,12 @@ struct UnsubackFieldsCommon
         {
             return "List";
         }
-        
+
     };
-    
+
 };
 
-/// @brief Common types and functions of 
+/// @brief Common types and functions of
 ///     @ref mqtt5::message::Unsuback message.
 struct UnsubackCommon
 {
@@ -56,7 +56,7 @@ struct UnsubackCommon
     {
         return "UNSUBACK";
     }
-    
+
 };
 
 } // namespace message

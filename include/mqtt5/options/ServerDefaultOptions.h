@@ -29,7 +29,7 @@ struct ServerDefaultOptionsT : public TBase
                 comms::option::app::NoRefreshImpl,
                 typename TBase::message::ClientDisconnect
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::message::Connack message.
         using Connack =
@@ -38,7 +38,7 @@ struct ServerDefaultOptionsT : public TBase
                 comms::option::app::NoDispatchImpl,
                 typename TBase::message::Connack
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::message::Connect message.
         using Connect =
@@ -47,7 +47,7 @@ struct ServerDefaultOptionsT : public TBase
                 comms::option::app::NoRefreshImpl,
                 typename TBase::message::Connect
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::message::Pingreq message.
         using Pingreq =
@@ -56,7 +56,7 @@ struct ServerDefaultOptionsT : public TBase
                 comms::option::app::NoRefreshImpl,
                 typename TBase::message::Pingreq
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::message::Pingresp message.
         using Pingresp =
@@ -65,7 +65,7 @@ struct ServerDefaultOptionsT : public TBase
                 comms::option::app::NoDispatchImpl,
                 typename TBase::message::Pingresp
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::message::ServerDisconnect
         ///     message.
@@ -75,7 +75,7 @@ struct ServerDefaultOptionsT : public TBase
                 comms::option::app::NoDispatchImpl,
                 typename TBase::message::ServerDisconnect
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::message::Suback message.
         using Suback =
@@ -84,7 +84,7 @@ struct ServerDefaultOptionsT : public TBase
                 comms::option::app::NoDispatchImpl,
                 typename TBase::message::Suback
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::message::Subscribe message.
         using Subscribe =
@@ -93,7 +93,7 @@ struct ServerDefaultOptionsT : public TBase
                 comms::option::app::NoRefreshImpl,
                 typename TBase::message::Subscribe
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::message::Unsuback message.
         using Unsuback =
@@ -102,7 +102,7 @@ struct ServerDefaultOptionsT : public TBase
                 comms::option::app::NoDispatchImpl,
                 typename TBase::message::Unsuback
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::message::Unsubscribe message.
         using Unsubscribe =
@@ -111,10 +111,10 @@ struct ServerDefaultOptionsT : public TBase
                 comms::option::app::NoRefreshImpl,
                 typename TBase::message::Unsubscribe
             >;
-        
+
     }; // struct message
-    
-    
+
+
 };
 
 /// @brief Alias to @ref ServerDefaultOptionsT with default template parameter.

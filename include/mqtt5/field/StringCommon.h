@@ -22,7 +22,7 @@ struct StringCommon
     {
         return "String";
     }
-    
+
 };
 
 } // namespace field

@@ -23,19 +23,19 @@ struct HandshakePropertyMembersCommon
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::HandshakePropertyMembers::ReasonStr field.
     using ReasonStrMembersCommon = mqtt5::field::ReasonStrMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::HandshakePropertyMembers::ReasonStr field.
     using ReasonStrCommon = mqtt5::field::ReasonStrCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::HandshakePropertyMembers::UserProperty field.
     using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::HandshakePropertyMembers::UserProperty field.
     using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
-    
+
 };
 
 /// @brief Common types and functions for
@@ -47,7 +47,7 @@ struct HandshakePropertyCommon
     {
         return "";
     }
-    
+
 };
 
 } // namespace field

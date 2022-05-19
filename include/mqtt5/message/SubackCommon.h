@@ -16,7 +16,7 @@ namespace message
 {
 
 
-/// @brief Common types and functions for fields of 
+/// @brief Common types and functions for fields of
 ///     @ref mqtt5::message::Suback message.
 /// @see mqtt5::message::SubackFields
 struct SubackFieldsCommon
@@ -24,15 +24,15 @@ struct SubackFieldsCommon
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::SubackFields::PacketId field.
     using PacketIdCommon = mqtt5::field::PacketIdCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::SubackFields::Properties field.
     using PropertiesMembersCommon = mqtt5::field::SubackPropertyListMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::SubackFields::Properties field.
     using PropertiesCommon = mqtt5::field::SubackPropertyListCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::SubackFields::List field.
     struct ListCommon
@@ -42,12 +42,12 @@ struct SubackFieldsCommon
         {
             return "List";
         }
-        
+
     };
-    
+
 };
 
-/// @brief Common types and functions of 
+/// @brief Common types and functions of
 ///     @ref mqtt5::message::Suback message.
 struct SubackCommon
 {
@@ -56,7 +56,7 @@ struct SubackCommon
     {
         return "SUBACK";
     }
-    
+
 };
 
 } // namespace message

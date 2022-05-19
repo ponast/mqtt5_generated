@@ -16,7 +16,7 @@ namespace message
 {
 
 
-/// @brief Common types and functions for fields of 
+/// @brief Common types and functions for fields of
 ///     @ref mqtt5::message::Publish message.
 /// @see mqtt5::message::PublishFields
 struct PublishFieldsCommon
@@ -24,7 +24,7 @@ struct PublishFieldsCommon
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PublishFields::TopicName field.
     using TopicNameCommon = mqtt5::field::TopicNameCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PublishFields::PacketId field.
     struct PacketIdCommon
@@ -34,17 +34,17 @@ struct PublishFieldsCommon
         {
             return "Packet ID";
         }
-        
+
     };
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::PublishFields::Properties field.
     using PropertiesMembersCommon = mqtt5::field::PublishPropertyListMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PublishFields::Properties field.
     using PropertiesCommon = mqtt5::field::PublishPropertyListCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PublishFields::Payload field.
     struct PayloadCommon
@@ -54,12 +54,12 @@ struct PublishFieldsCommon
         {
             return "Payload";
         }
-        
+
     };
-    
+
 };
 
-/// @brief Common types and functions of 
+/// @brief Common types and functions of
 ///     @ref mqtt5::message::Publish message.
 struct PublishCommon
 {
@@ -68,7 +68,7 @@ struct PublishCommon
     {
         return "PUBLISH";
     }
-    
+
 };
 
 } // namespace message

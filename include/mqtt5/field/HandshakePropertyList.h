@@ -44,24 +44,24 @@ struct HandshakePropertyListMembers
     public:
         /// @brief Re-definition of the value type.
         using ValueType = typename Base::ValueType;
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return mqtt5::field::HandshakePropertyListMembersCommon::LengthCommon::hasSpecials();
         }
-        
-        
+
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::field::HandshakePropertyListMembersCommon::LengthCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
 };
 
 /// @brief Definition of <b>"Handshake Properties"</b> field.
@@ -91,7 +91,7 @@ public:
     {
         return mqtt5::field::HandshakePropertyListCommon::name();
     }
-    
+
 
 };
 

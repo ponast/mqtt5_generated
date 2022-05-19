@@ -22,7 +22,7 @@ struct BinDataCommon
     {
         return "BinData";
     }
-    
+
 };
 
 } // namespace field

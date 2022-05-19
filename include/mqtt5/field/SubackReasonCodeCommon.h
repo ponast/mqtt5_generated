@@ -27,39 +27,39 @@ struct SubackReasonCodeCommon
     ///     @ref mqtt5::field::SubackReasonCode field.
     enum class ValueType : std::uint8_t
     {
-        GrantedQos0 = 0, ///< value <b>Granted QoS0</b>. 
-        GrantedQos1 = 1, ///< value <b>Granted QoS1</b>. 
-        GrantedQos2 = 2, ///< value <b>Granted QoS2</b>. 
-        UnspecifiedError = 128, ///< value <b>Unspecified error</b>. 
-        ImplSpecificError = 131, ///< value <b>Impl. Specific Error</b>. 
-        NotAuthorized = 135, ///< value <b>Not authorized</b>. 
-        TopicFilterInvalid = 143, ///< value <b>Topic Filter invalid</b>. 
-        PacketIdInUse = 145, ///< value <b>Packet ID in use</b>. 
-        QuotaExceeded = 151, ///< value <b>Quota exceeded</b>. 
-        SharedSubNotSuppored = 158, ///< value <b>Shared Sub not supported</b>. 
-        SubIdsNotSupported = 161, ///< value <b>Sub IDs not supported</b>. 
-        WildcardSubsNotSupported = 162, ///< value <b>Wildcard Subs not supported</b>. 
-        
+        GrantedQos0 = 0, ///< value <b>Granted QoS0</b>.
+        GrantedQos1 = 1, ///< value <b>Granted QoS1</b>.
+        GrantedQos2 = 2, ///< value <b>Granted QoS2</b>.
+        UnspecifiedError = 128, ///< value <b>Unspecified error</b>.
+        ImplSpecificError = 131, ///< value <b>Impl. Specific Error</b>.
+        NotAuthorized = 135, ///< value <b>Not authorized</b>.
+        TopicFilterInvalid = 143, ///< value <b>Topic Filter invalid</b>.
+        PacketIdInUse = 145, ///< value <b>Packet ID in use</b>.
+        QuotaExceeded = 151, ///< value <b>Quota exceeded</b>.
+        SharedSubNotSuppored = 158, ///< value <b>Shared Sub not supported</b>.
+        SubIdsNotSupported = 161, ///< value <b>Sub IDs not supported</b>.
+        WildcardSubsNotSupported = 162, ///< value <b>Wildcard Subs not supported</b>.
+
         // --- Extra values generated for convenience ---
         FirstValue = 0, ///< First defined value.
         LastValue = 162, ///< Last defined value.
         ValuesLimit = 163, ///< Upper limit for defined values.
     };
-    
+
     /// @brief Single value name info entry
     using ValueNameInfo = std::pair<ValueType, const char*>;
-    
+
     /// @brief Type returned from @ref valueNamesMap() member function.
     /// @details The @b first value of the pair is pointer to the map array,
     ///     The @b second value of the pair is the size of the array.
     using ValueNamesMapInfo = std::pair<const ValueNameInfo*, std::size_t>;
-    
+
     /// @brief Name of the @ref mqtt5::field::SubackReasonCode field.
     static const char* name()
     {
         return "Reason Code";
     }
-    
+
     /// @brief Retrieve name of the enum value
     static const char* valueName(ValueType val)
     {
@@ -72,14 +72,14 @@ struct SubackReasonCodeCommon
             {
                 return info.first < v;
             });
-        
+
         if ((iter == endIter) || (iter->first != val)) {
             return nullptr;
         }
-        
+
         return iter->second;
     }
-    
+
     /// @brief Retrieve map of enum value names
     static ValueNamesMapInfo valueNamesMap()
     {
@@ -98,11 +98,11 @@ struct SubackReasonCodeCommon
             std::make_pair(ValueType::WildcardSubsNotSupported, "Wildcard Subs not supported")
         };
         static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-        
+
         return std::make_pair(&Map[0], MapSize);
     }
-    
-    
+
+
 };
 
 /// @brief Values enumerator for

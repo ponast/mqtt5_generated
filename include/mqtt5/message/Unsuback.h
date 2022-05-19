@@ -37,15 +37,15 @@ struct UnsubackFields
         mqtt5::field::PacketId<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Handshake Properties"</b> field.
     using Properties =
         mqtt5::field::UnsubackPropertyList<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"List"</b> field.
     class List : public
         comms::field::ArrayList<
@@ -66,11 +66,11 @@ struct UnsubackFields
         {
             return mqtt5::message::UnsubackFieldsCommon::ListCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
         PacketId,
@@ -125,23 +125,23 @@ public:
         properties,
         list
     );
-    
+
     // Compile time check for serialisation length.
     static const std::size_t MsgMinLen = Base::doMinLength();
     static_assert(MsgMinLen == 3U, "Unexpected min serialisation length");
-    
+
     /// @brief Name of the message.
     static const char* doName()
     {
         return mqtt5::message::UnsubackCommon::name();
     }
-    
+
     /// @brief Updated validity check
     bool doValid() const
     {
         return Base::doValid() && Base::flagsZeroed();
     }
-    
+
 
 };
 

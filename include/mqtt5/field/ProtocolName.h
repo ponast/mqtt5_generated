@@ -46,20 +46,20 @@ public:
         static const std::size_t StrSize = std::extent<decltype(Str)>::value;
         Base::value() = typename Base::ValueType(&Str[0], StrSize - 1);
     }
-    
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::ProtocolNameCommon::name();
     }
-    
+
     /// @brief Custom validity check
     bool valid() const
     {
         return Base::value() == ProtocolName().value();
     }
-    
-    
+
+
 
 };
 

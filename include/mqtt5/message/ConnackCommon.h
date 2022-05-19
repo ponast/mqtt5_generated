@@ -17,7 +17,7 @@ namespace message
 {
 
 
-/// @brief Common types and functions for fields of 
+/// @brief Common types and functions for fields of
 ///     @ref mqtt5::message::Connack message.
 /// @see mqtt5::message::ConnackFields
 struct ConnackFieldsCommon
@@ -31,7 +31,7 @@ struct ConnackFieldsCommon
         {
             return "Flags";
         }
-        
+
         /// @brief Retrieve name of the bit of
         ///     @ref mqtt5::message::ConnackFields::Flags field.
         static const char* bitName(std::size_t idx)
@@ -39,33 +39,33 @@ struct ConnackFieldsCommon
             static const char* Map[] = {
                 "Session Present"
             };
-        
+
             static const std::size_t MapSize = std::extent<decltype(Map)>::value;
             if (MapSize <= idx) {
                 return nullptr;
             }
-        
+
             return Map[idx];
         }
-        
-        
+
+
     };
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnackFields::ReasonCode field.
     using ReasonCodeCommon = mqtt5::field::ConnackReasonCodeCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ConnackFields::Properties field.
     using PropertiesMembersCommon = mqtt5::field::ConnackPropertyListMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnackFields::Properties field.
     using PropertiesCommon = mqtt5::field::ConnackPropertyListCommon;
-    
+
 };
 
-/// @brief Common types and functions of 
+/// @brief Common types and functions of
 ///     @ref mqtt5::message::Connack message.
 struct ConnackCommon
 {
@@ -74,7 +74,7 @@ struct ConnackCommon
     {
         return "CONNACK";
     }
-    
+
 };
 
 } // namespace message

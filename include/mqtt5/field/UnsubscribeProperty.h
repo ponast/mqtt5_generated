@@ -32,8 +32,8 @@ struct UnsubscribePropertyMembers
         mqtt5::field::UserProperty<
             TOpt
         >;
-    
-    
+
+
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
@@ -71,12 +71,12 @@ public:
     COMMS_VARIANT_MEMBERS_NAMES(
         userProperty
     );
-    
+
     /// @brief Optimized currFieldExec functionality.
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
     template <typename TFunc>
-    void currFieldExec(TFunc&& func) 
+    void currFieldExec(TFunc&& func)
     {
         switch (Base::currentField()) {
         case FieldIdx_userProperty:
@@ -89,7 +89,7 @@ public:
             break;
         }
     }
-    
+
     /// @brief Optimized currFieldExec functionality (const variant).
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
@@ -107,13 +107,13 @@ public:
             break;
         }
     }
-    
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::UnsubscribePropertyCommon::name();
     }
-    
+
 
 private:
     template <std::size_t TIdx, typename TField, typename TFunc>
@@ -125,7 +125,7 @@ private:
             func.template operator()<TIdx>(std::forward<TField>(f)); // All other compilers
         #endif // #ifdef _MSC_VER
     }
-    
+
 
 };
 

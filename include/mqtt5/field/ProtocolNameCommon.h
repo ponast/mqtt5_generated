@@ -22,7 +22,7 @@ struct ProtocolNameCommon
     {
         return "Protocol Name";
     }
-    
+
 };
 
 } // namespace field

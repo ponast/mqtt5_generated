@@ -26,22 +26,22 @@ struct ServerDisconnectPropertyListMembersCommon
         /// @brief Re-definition of the value type used by
         ///     mqtt5::field::ServerDisconnectPropertyListMembers::Length field.
         using ValueType = std::uint32_t;
-        
+
         /// @brief Name of the @ref mqtt5::field::ServerDisconnectPropertyListMembers::Length field.
         static const char* name()
         {
             return "Length";
         }
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return false;
         }
-        
-        
+
+
     };
-    
+
 };
 
 /// @brief Common types and functions for
@@ -53,7 +53,7 @@ struct ServerDisconnectPropertyListCommon
     {
         return "Server Disconnect Properties";
     }
-    
+
 };
 
 } // namespace field

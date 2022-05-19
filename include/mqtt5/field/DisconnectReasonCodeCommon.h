@@ -27,56 +27,56 @@ struct DisconnectReasonCodeCommon
     ///     @ref mqtt5::field::DisconnectReasonCode field.
     enum class ValueType : std::uint8_t
     {
-        NormalDisconnection = 0, ///< value <b>Normal Disconnection</b>. 
-        DisconnectWithWill = 4, ///< value <b>Disconnect w/ Will</b>. 
-        UnspecifiedError = 128, ///< value <b>Unspecified error</b>. 
-        MalformedPacket = 129, ///< value <b>Malformed Packet</b>. 
-        ProtocolError = 130, ///< value <b>Protocol Error</b>. 
-        ImplSpecificError = 131, ///< value <b>Impl. Specific Error</b>. 
-        NotAuthorized = 135, ///< value <b>Not authorized</b>. 
-        ServerBusy = 137, ///< value <b>Server busy</b>. 
-        ServerShuttingDown = 139, ///< value <b>Server shutting down</b>. 
-        KeepAliveTimeout = 141, ///< value <b>Keep Alive timeout</b>. 
-        SessionTakenOver = 142, ///< value <b>Session taken over</b>. 
-        TopicFilterInvalid = 143, ///< value <b>Topic Filter invalid</b>. 
-        TopicNameInvalid = 144, ///< value <b>Topic Name invalid</b>. 
-        ReceiveMaxExceeded = 147, ///< value <b>Receive Max exceeded</b>. 
-        TopicAliasInvalid = 148, ///< value <b>Topic Alias invalid</b>. 
-        PacketTooLarge = 149, ///< value <b>Packet too large</b>. 
-        MsgRateTooHigh = 150, ///< value <b>Message rate too high</b>. 
-        QuotaExceeded = 151, ///< value <b>Quota exceeded</b>. 
-        AdministrativeAction = 152, ///< value <b>Administrative action</b>. 
-        PayloadFormatInvalid = 153, ///< value <b>Payload format invalid</b>. 
-        RetainNotSupported = 154, ///< value <b>Retain not supported</b>. 
-        QosNotSupported = 155, ///< value <b>QoS not supported</b>. 
-        UseAnotherServer = 156, ///< value <b>Use another server</b>. 
-        ServerMoved = 157, ///< value <b>Server moved</b>. 
-        SharedSubNotSuppored = 158, ///< value <b>Shared Sub not supported</b>. 
-        ConnectionRateExceeded = 159, ///< value <b>Connection rate exceeded</b>. 
-        MaxConnectTime = 160, ///< value <b>Maximum connect time</b>. 
-        SubIdsNotSupported = 161, ///< value <b>Sub IDs not supported</b>. 
-        WildcardSubsNotSupported = 162, ///< value <b>Wildcard Subs not supported</b>. 
-        
+        NormalDisconnection = 0, ///< value <b>Normal Disconnection</b>.
+        DisconnectWithWill = 4, ///< value <b>Disconnect w/ Will</b>.
+        UnspecifiedError = 128, ///< value <b>Unspecified error</b>.
+        MalformedPacket = 129, ///< value <b>Malformed Packet</b>.
+        ProtocolError = 130, ///< value <b>Protocol Error</b>.
+        ImplSpecificError = 131, ///< value <b>Impl. Specific Error</b>.
+        NotAuthorized = 135, ///< value <b>Not authorized</b>.
+        ServerBusy = 137, ///< value <b>Server busy</b>.
+        ServerShuttingDown = 139, ///< value <b>Server shutting down</b>.
+        KeepAliveTimeout = 141, ///< value <b>Keep Alive timeout</b>.
+        SessionTakenOver = 142, ///< value <b>Session taken over</b>.
+        TopicFilterInvalid = 143, ///< value <b>Topic Filter invalid</b>.
+        TopicNameInvalid = 144, ///< value <b>Topic Name invalid</b>.
+        ReceiveMaxExceeded = 147, ///< value <b>Receive Max exceeded</b>.
+        TopicAliasInvalid = 148, ///< value <b>Topic Alias invalid</b>.
+        PacketTooLarge = 149, ///< value <b>Packet too large</b>.
+        MsgRateTooHigh = 150, ///< value <b>Message rate too high</b>.
+        QuotaExceeded = 151, ///< value <b>Quota exceeded</b>.
+        AdministrativeAction = 152, ///< value <b>Administrative action</b>.
+        PayloadFormatInvalid = 153, ///< value <b>Payload format invalid</b>.
+        RetainNotSupported = 154, ///< value <b>Retain not supported</b>.
+        QosNotSupported = 155, ///< value <b>QoS not supported</b>.
+        UseAnotherServer = 156, ///< value <b>Use another server</b>.
+        ServerMoved = 157, ///< value <b>Server moved</b>.
+        SharedSubNotSuppored = 158, ///< value <b>Shared Sub not supported</b>.
+        ConnectionRateExceeded = 159, ///< value <b>Connection rate exceeded</b>.
+        MaxConnectTime = 160, ///< value <b>Maximum connect time</b>.
+        SubIdsNotSupported = 161, ///< value <b>Sub IDs not supported</b>.
+        WildcardSubsNotSupported = 162, ///< value <b>Wildcard Subs not supported</b>.
+
         // --- Extra values generated for convenience ---
         FirstValue = 0, ///< First defined value.
         LastValue = 162, ///< Last defined value.
         ValuesLimit = 163, ///< Upper limit for defined values.
     };
-    
+
     /// @brief Single value name info entry
     using ValueNameInfo = std::pair<ValueType, const char*>;
-    
+
     /// @brief Type returned from @ref valueNamesMap() member function.
     /// @details The @b first value of the pair is pointer to the map array,
     ///     The @b second value of the pair is the size of the array.
     using ValueNamesMapInfo = std::pair<const ValueNameInfo*, std::size_t>;
-    
+
     /// @brief Name of the @ref mqtt5::field::DisconnectReasonCode field.
     static const char* name()
     {
         return "Reason Code";
     }
-    
+
     /// @brief Retrieve name of the enum value
     static const char* valueName(ValueType val)
     {
@@ -89,14 +89,14 @@ struct DisconnectReasonCodeCommon
             {
                 return info.first < v;
             });
-        
+
         if ((iter == endIter) || (iter->first != val)) {
             return nullptr;
         }
-        
+
         return iter->second;
     }
-    
+
     /// @brief Retrieve map of enum value names
     static ValueNamesMapInfo valueNamesMap()
     {
@@ -132,11 +132,11 @@ struct DisconnectReasonCodeCommon
             std::make_pair(ValueType::WildcardSubsNotSupported, "Wildcard Subs not supported")
         };
         static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-        
+
         return std::make_pair(&Map[0], MapSize);
     }
-    
-    
+
+
 };
 
 /// @brief Values enumerator for

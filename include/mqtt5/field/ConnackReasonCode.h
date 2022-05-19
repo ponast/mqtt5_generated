@@ -39,48 +39,48 @@ class ConnackReasonCode : public
 public:
     /// @brief Re-definition of the value type.
     using ValueType = typename Base::ValueType;
-    
+
     /// @brief Single value name info entry.
     using ValueNameInfo = mqtt5::field::ConnackReasonCodeCommon::ValueNameInfo;
-    
+
     /// @brief Type returned from @ref valueNamesMap() member function.
     /// @see @ref mqtt5::field::ConnackReasonCodeCommon::ValueNamesMapInfo.
     using ValueNamesMapInfo = mqtt5::field::ConnackReasonCodeCommon::ValueNamesMapInfo;
-    
+
     /// @brief Retrieve name of the enum value.
     /// @see @ref mqtt5::field::ConnackReasonCodeCommon::valueName().
     static const char* valueName(ValueType val)
     {
         return mqtt5::field::ConnackReasonCodeCommon::valueName(val);
     }
-    
+
     /// @brief Retrieve name of the @b current value
     const char* valueName() const
     {
         return valueName(Base::value());
     }
-    
+
     /// @brief Retrieve map of enum value names.
     /// @see @ref mqtt5::field::ConnackReasonCodeCommon::valueNamesMap().
     static ValueNamesMapInfo valueNamesMap()
     {
         return mqtt5::field::ConnackReasonCodeCommon::valueNamesMap();
     }
-    
-    
+
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::ConnackReasonCodeCommon::name();
     }
-    
+
     /// @brief Generated validity check functionality.
     bool valid() const
     {
         if (!Base::valid()) {
             return false;
         }
-        
+
         static const ValueType Values[] = {
             ValueType::Success,
             ValueType::UnspecifiedError,
@@ -105,19 +105,19 @@ public:
             ValueType::ServerMoved,
             ValueType::ConnectionRateExceeded
         };
-        
+
         auto iter =
             std::lower_bound(std::begin(Values), std::end(Values), Base::value());
-        
+
         if ((iter == std::end(Values)) || (*iter != Base::value())) {
             return false;
         }
-        
+
         return true;
-        
+
     }
-    
-    
+
+
 
 };
 

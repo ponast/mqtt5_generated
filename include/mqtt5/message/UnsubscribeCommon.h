@@ -16,7 +16,7 @@ namespace message
 {
 
 
-/// @brief Common types and functions for fields of 
+/// @brief Common types and functions for fields of
 ///     @ref mqtt5::message::Unsubscribe message.
 /// @see mqtt5::message::UnsubscribeFields
 struct UnsubscribeFieldsCommon
@@ -24,15 +24,15 @@ struct UnsubscribeFieldsCommon
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::UnsubscribeFields::PacketId field.
     using PacketIdCommon = mqtt5::field::PacketIdCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::UnsubscribeFields::Properties field.
     using PropertiesMembersCommon = mqtt5::field::UnsubscribePropertyListMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::UnsubscribeFields::Properties field.
     using PropertiesCommon = mqtt5::field::UnsubscribePropertyListCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::UnsubscribeFields::List field.
     struct ListCommon
@@ -42,12 +42,12 @@ struct UnsubscribeFieldsCommon
         {
             return "List";
         }
-        
+
     };
-    
+
 };
 
-/// @brief Common types and functions of 
+/// @brief Common types and functions of
 ///     @ref mqtt5::message::Unsubscribe message.
 struct UnsubscribeCommon
 {
@@ -56,7 +56,7 @@ struct UnsubscribeCommon
     {
         return "UNSUBSCRIBE";
     }
-    
+
 };
 
 } // namespace message

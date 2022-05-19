@@ -53,20 +53,20 @@ struct WildcardSubAvailMembers
     public:
         /// @brief Re-definition of the value type.
         using ValueType = typename Base::ValueType;
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return mqtt5::field::WildcardSubAvailMembersCommon::IdCommon::hasSpecials();
         }
-        
-        
+
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::field::WildcardSubAvailMembersCommon::IdCommon::name();
         }
-        
+
         /// @brief Generated refresh functionality.
         bool refresh()
         {
@@ -76,14 +76,14 @@ struct WildcardSubAvailMembers
             };
             Base::value() = static_cast<ValueType>(40);
             return true;
-            
+
         }
-        
-        
-    
+
+
+
     };
-    
-    
+
+
     /// @brief Definition of <b>"Value"</b> field.
     class Value : public
         mqtt5::field::EnableEnum<
@@ -100,11 +100,11 @@ struct WildcardSubAvailMembers
         {
             return mqtt5::field::WildcardSubAvailMembersCommon::ValueCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
@@ -145,14 +145,14 @@ public:
         id,
         value
     );
-    
-    
+
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::WildcardSubAvailCommon::name();
     }
-    
+
 
 };
 

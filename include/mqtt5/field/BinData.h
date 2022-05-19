@@ -47,7 +47,7 @@ public:
     {
         return mqtt5::field::BinDataCommon::name();
     }
-    
+
 
 };
 

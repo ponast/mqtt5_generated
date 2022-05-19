@@ -56,7 +56,7 @@ struct ConnackFields
         COMMS_BITMASK_BITS_SEQ(
             sp
         );
-        
+
         /// @brief Retrieve name of the bit.
         /// @see @ref mqtt5::message::ConnackFieldsCommon::FlagsCommon::bitName().
         static const char* bitName(BitIdx idx)
@@ -65,31 +65,31 @@ struct ConnackFields
                 mqtt5::message::ConnackFieldsCommon::FlagsCommon::bitName(
                     static_cast<std::size_t>(idx));
         }
-        
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::message::ConnackFieldsCommon::FlagsCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
     /// @brief Definition of <b>"Reason Code"</b> field.
     using ReasonCode =
         mqtt5::field::ConnackReasonCode<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Connack Properties"</b> field.
     using Properties =
         mqtt5::field::ConnackPropertyList<
             TOpt
         >;
-    
-    
+
+
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
         Flags,
@@ -144,23 +144,23 @@ public:
         reasonCode,
         properties
     );
-    
+
     // Compile time check for serialisation length.
     static const std::size_t MsgMinLen = Base::doMinLength();
     static_assert(MsgMinLen == 3U, "Unexpected min serialisation length");
-    
+
     /// @brief Name of the message.
     static const char* doName()
     {
         return mqtt5::message::ConnackCommon::name();
     }
-    
+
     /// @brief Updated validity check
     bool doValid() const
     {
         return Base::doValid() && Base::flagsZeroed();
     }
-    
+
 
 };
 

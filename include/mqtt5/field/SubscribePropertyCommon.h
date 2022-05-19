@@ -23,19 +23,19 @@ struct SubscribePropertyMembersCommon
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::SubscribePropertyMembers::SubscriptionId field.
     using SubscriptionIdMembersCommon = mqtt5::field::SubscriptionIdMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::SubscribePropertyMembers::SubscriptionId field.
     using SubscriptionIdCommon = mqtt5::field::SubscriptionIdCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::SubscribePropertyMembers::UserProperty field.
     using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::SubscribePropertyMembers::UserProperty field.
     using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
-    
+
 };
 
 /// @brief Common types and functions for
@@ -47,7 +47,7 @@ struct SubscribePropertyCommon
     {
         return "";
     }
-    
+
 };
 
 } // namespace field

@@ -29,67 +29,67 @@ struct PublishPropertyMembersCommon
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::PublishPropertyMembers::PayloadFormatIndicator field.
     using PayloadFormatIndicatorMembersCommon = mqtt5::field::PayloadFormatIndicatorMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::PublishPropertyMembers::PayloadFormatIndicator field.
     using PayloadFormatIndicatorCommon = mqtt5::field::PayloadFormatIndicatorCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::PublishPropertyMembers::MessageExpiryInterval field.
     using MessageExpiryIntervalMembersCommon = mqtt5::field::MessageExpiryIntervalMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::PublishPropertyMembers::MessageExpiryInterval field.
     using MessageExpiryIntervalCommon = mqtt5::field::MessageExpiryIntervalCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::PublishPropertyMembers::TopicAlias field.
     using TopicAliasMembersCommon = mqtt5::field::TopicAliasMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::PublishPropertyMembers::TopicAlias field.
     using TopicAliasCommon = mqtt5::field::TopicAliasCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::PublishPropertyMembers::ResponseTopic field.
     using ResponseTopicMembersCommon = mqtt5::field::ResponseTopicMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::PublishPropertyMembers::ResponseTopic field.
     using ResponseTopicCommon = mqtt5::field::ResponseTopicCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::PublishPropertyMembers::CorrelationData field.
     using CorrelationDataMembersCommon = mqtt5::field::CorrelationDataMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::PublishPropertyMembers::CorrelationData field.
     using CorrelationDataCommon = mqtt5::field::CorrelationDataCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::PublishPropertyMembers::UserProperty field.
     using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::PublishPropertyMembers::UserProperty field.
     using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::PublishPropertyMembers::SubscriptionId field.
     using SubscriptionIdMembersCommon = mqtt5::field::SubscriptionIdMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::PublishPropertyMembers::SubscriptionId field.
     using SubscriptionIdCommon = mqtt5::field::SubscriptionIdCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::PublishPropertyMembers::ContentType field.
     using ContentTypeMembersCommon = mqtt5::field::ContentTypeMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::PublishPropertyMembers::ContentType field.
     using ContentTypeCommon = mqtt5::field::ContentTypeCommon;
-    
+
 };
 
 /// @brief Common types and functions for
@@ -101,7 +101,7 @@ struct PublishPropertyCommon
     {
         return "";
     }
-    
+
 };
 
 } // namespace field

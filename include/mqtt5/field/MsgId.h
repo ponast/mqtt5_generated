@@ -41,41 +41,41 @@ class MsgId : public
 public:
     /// @brief Re-definition of the value type.
     using ValueType = typename Base::ValueType;
-    
+
     /// @brief Single value name info entry.
     using ValueNameInfo = mqtt5::field::MsgIdCommon::ValueNameInfo;
-    
+
     /// @brief Type returned from @ref valueNamesMap() member function.
     /// @see @ref mqtt5::field::MsgIdCommon::ValueNamesMapInfo.
     using ValueNamesMapInfo = mqtt5::field::MsgIdCommon::ValueNamesMapInfo;
-    
+
     /// @brief Retrieve name of the enum value.
     /// @see @ref mqtt5::field::MsgIdCommon::valueName().
     static const char* valueName(ValueType val)
     {
         return mqtt5::field::MsgIdCommon::valueName(val);
     }
-    
+
     /// @brief Retrieve name of the @b current value
     const char* valueName() const
     {
         return valueName(Base::value());
     }
-    
+
     /// @brief Retrieve map of enum value names.
     /// @see @ref mqtt5::field::MsgIdCommon::valueNamesMap().
     static ValueNamesMapInfo valueNamesMap()
     {
         return mqtt5::field::MsgIdCommon::valueNamesMap();
     }
-    
-    
+
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::MsgIdCommon::name();
     }
-    
+
 
 };
 

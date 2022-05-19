@@ -33,7 +33,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::AuthPropertyList
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::BinData field.
         using BinData =
@@ -41,7 +41,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::BinData
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::ClientDisconnectPropertyList
         ///     field.
@@ -50,7 +50,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::ClientDisconnectPropertyList
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::ConnackPropertyList field.
         using ConnackPropertyList =
@@ -58,7 +58,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::ConnackPropertyList
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::ConnectPropertyList field.
         using ConnectPropertyList =
@@ -66,7 +66,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::ConnectPropertyList
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::HandshakePropertyList
         ///     field.
@@ -75,7 +75,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::HandshakePropertyList
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::ProtocolName field.
         using ProtocolName =
@@ -83,7 +83,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::ProtocolName
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::PublishPropertyList field.
         using PublishPropertyList =
@@ -91,7 +91,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::PublishPropertyList
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::ServerDisconnectPropertyList
         ///     field.
@@ -100,7 +100,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::ServerDisconnectPropertyList
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::String field.
         using String =
@@ -108,7 +108,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::String
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::SubscribePropertyList
         ///     field.
@@ -117,7 +117,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::SubscribePropertyList
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::UnsubscribePropertyList
         ///     field.
@@ -126,7 +126,7 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::UnsubscribePropertyList
             >;
-        
+
         /// @brief Extra options for @ref
         ///     mqtt5::field::WillPropertyList field.
         using WillPropertyList =
@@ -134,9 +134,9 @@ struct BareMetalDefaultOptionsT : public TBase
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                 typename TBase::field::WillPropertyList
             >;
-        
+
     }; // struct field
-    
+
     /// @brief Extra options for messages.
     struct message : public TBase::message
     {
@@ -152,9 +152,9 @@ struct BareMetalDefaultOptionsT : public TBase
                     comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                     typename TBase::message::PublishFields::Payload
                 >;
-            
+
         };
-        
+
         /// @brief Extra options for fields of
         ///     @ref mqtt5::message::Suback message.
         struct SubackFields : public TBase::message::SubackFields
@@ -167,9 +167,9 @@ struct BareMetalDefaultOptionsT : public TBase
                     comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                     typename TBase::message::SubackFields::List
                 >;
-            
+
         };
-        
+
         /// @brief Extra options for fields of
         ///     @ref mqtt5::message::Subscribe message.
         struct SubscribeFields : public TBase::message::SubscribeFields
@@ -182,9 +182,9 @@ struct BareMetalDefaultOptionsT : public TBase
                     comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                     typename TBase::message::SubscribeFields::List
                 >;
-            
+
         };
-        
+
         /// @brief Extra options for fields of
         ///     @ref mqtt5::message::Unsuback message.
         struct UnsubackFields : public TBase::message::UnsubackFields
@@ -197,9 +197,9 @@ struct BareMetalDefaultOptionsT : public TBase
                     comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                     typename TBase::message::UnsubackFields::List
                 >;
-            
+
         };
-        
+
         /// @brief Extra options for fields of
         ///     @ref mqtt5::message::Unsubscribe message.
         struct UnsubscribeFields : public TBase::message::UnsubscribeFields
@@ -212,11 +212,11 @@ struct BareMetalDefaultOptionsT : public TBase
                     comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                     typename TBase::message::UnsubscribeFields::List
                 >;
-            
+
         };
-        
+
     }; // struct message
-    
+
     /// @brief Extra options for frames.
     struct frame : public TBase::frame
     {
@@ -231,13 +231,13 @@ struct BareMetalDefaultOptionsT : public TBase
                     comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE * 8>,
                     typename TBase::frame::FrameLayers::Data
                 >;
-            
-            
+
+
         }; // struct FrameLayers
-        
+
     }; // struct frame
-    
-    
+
+
 };
 
 /// @brief Alias to @ref BareMetalDefaultOptionsT with default template parameter.

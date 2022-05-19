@@ -36,22 +36,22 @@ struct PubcompFields
         mqtt5::field::PacketId<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Reason Code"</b> field.
     using ReasonCode =
         mqtt5::field::PubackReasonCode<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Handshake Properties"</b> field.
     using Properties =
         mqtt5::field::PubackPropertyList<
             TOpt
         >;
-    
-    
+
+
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
         PacketId,
@@ -104,23 +104,23 @@ public:
         reasonCode,
         properties
     );
-    
+
     // Compile time check for serialisation length.
     static const std::size_t MsgMinLen = Base::doMinLength();
     static_assert(MsgMinLen == 4U, "Unexpected min serialisation length");
-    
+
     /// @brief Name of the message.
     static const char* doName()
     {
         return mqtt5::message::PubcompCommon::name();
     }
-    
+
     /// @brief Updated validity check
     bool doValid() const
     {
         return Base::doValid() && Base::flagsZeroed();
     }
-    
+
 
 };
 

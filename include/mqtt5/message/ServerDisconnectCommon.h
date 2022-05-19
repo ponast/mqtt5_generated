@@ -16,7 +16,7 @@ namespace message
 {
 
 
-/// @brief Common types and functions for fields of 
+/// @brief Common types and functions for fields of
 ///     @ref mqtt5::message::ServerDisconnect message.
 /// @see mqtt5::message::ServerDisconnectFields
 struct ServerDisconnectFieldsCommon
@@ -24,18 +24,18 @@ struct ServerDisconnectFieldsCommon
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ServerDisconnectFields::ReasonCode field.
     using ReasonCodeCommon = mqtt5::field::DisconnectReasonCodeCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ServerDisconnectFields::Properties field.
     using PropertiesMembersCommon = mqtt5::field::ServerDisconnectPropertyListMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ServerDisconnectFields::Properties field.
     using PropertiesCommon = mqtt5::field::ServerDisconnectPropertyListCommon;
-    
+
 };
 
-/// @brief Common types and functions of 
+/// @brief Common types and functions of
 ///     @ref mqtt5::message::ServerDisconnect message.
 struct ServerDisconnectCommon
 {
@@ -44,7 +44,7 @@ struct ServerDisconnectCommon
     {
         return "DISCONNECT";
     }
-    
+
 };
 
 } // namespace message

@@ -24,7 +24,7 @@ struct TopicNameCommon : public mqtt5::field::StringCommon
     {
         return "TopicName";
     }
-    
+
 };
 
 } // namespace field

@@ -43,41 +43,41 @@ class AuthReasonCode : public
 public:
     /// @brief Re-definition of the value type.
     using ValueType = typename Base::ValueType;
-    
+
     /// @brief Single value name info entry.
     using ValueNameInfo = mqtt5::field::AuthReasonCodeCommon::ValueNameInfo;
-    
+
     /// @brief Type returned from @ref valueNamesMap() member function.
     /// @see @ref mqtt5::field::AuthReasonCodeCommon::ValueNamesMapInfo.
     using ValueNamesMapInfo = mqtt5::field::AuthReasonCodeCommon::ValueNamesMapInfo;
-    
+
     /// @brief Retrieve name of the enum value.
     /// @see @ref mqtt5::field::AuthReasonCodeCommon::valueName().
     static const char* valueName(ValueType val)
     {
         return mqtt5::field::AuthReasonCodeCommon::valueName(val);
     }
-    
+
     /// @brief Retrieve name of the @b current value
     const char* valueName() const
     {
         return valueName(Base::value());
     }
-    
+
     /// @brief Retrieve map of enum value names.
     /// @see @ref mqtt5::field::AuthReasonCodeCommon::valueNamesMap().
     static ValueNamesMapInfo valueNamesMap()
     {
         return mqtt5::field::AuthReasonCodeCommon::valueNamesMap();
     }
-    
-    
+
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::AuthReasonCodeCommon::name();
     }
-    
+
 
 };
 

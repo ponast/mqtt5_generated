@@ -39,57 +39,57 @@ struct PublishPropertyMembers
         mqtt5::field::PayloadFormatIndicator<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Message Expiry Interval"</b> field.
     using MessageExpiryInterval =
         mqtt5::field::MessageExpiryInterval<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Topic Alias"</b> field.
     using TopicAlias =
         mqtt5::field::TopicAlias<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Response Topic"</b> field.
     using ResponseTopic =
         mqtt5::field::ResponseTopic<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Correlation Data"</b> field.
     using CorrelationData =
         mqtt5::field::CorrelationData<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
         mqtt5::field::UserProperty<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Subscription ID"</b> field.
     using SubscriptionId =
         mqtt5::field::SubscriptionId<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Content Type"</b> field.
     using ContentType =
         mqtt5::field::ContentType<
             TOpt
         >;
-    
-    
+
+
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
@@ -162,12 +162,12 @@ public:
         subscriptionId,
         contentType
     );
-    
+
     /// @brief Optimized currFieldExec functionality.
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
     template <typename TFunc>
-    void currFieldExec(TFunc&& func) 
+    void currFieldExec(TFunc&& func)
     {
         switch (Base::currentField()) {
         case FieldIdx_payloadFormatIndicator:
@@ -201,7 +201,7 @@ public:
             break;
         }
     }
-    
+
     /// @brief Optimized currFieldExec functionality (const variant).
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
@@ -240,13 +240,13 @@ public:
             break;
         }
     }
-    
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::PublishPropertyCommon::name();
     }
-    
+
 
 private:
     template <std::size_t TIdx, typename TField, typename TFunc>
@@ -258,7 +258,7 @@ private:
             func.template operator()<TIdx>(std::forward<TField>(f)); // All other compilers
         #endif // #ifdef _MSC_VER
     }
-    
+
 
 };
 

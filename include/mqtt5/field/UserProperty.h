@@ -53,20 +53,20 @@ struct UserPropertyMembers
     public:
         /// @brief Re-definition of the value type.
         using ValueType = typename Base::ValueType;
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return mqtt5::field::UserPropertyMembersCommon::IdCommon::hasSpecials();
         }
-        
-        
+
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::field::UserPropertyMembersCommon::IdCommon::name();
         }
-        
+
         /// @brief Generated refresh functionality.
         bool refresh()
         {
@@ -76,14 +76,14 @@ struct UserPropertyMembers
             };
             Base::value() = static_cast<ValueType>(38);
             return true;
-            
+
         }
-        
-        
-    
+
+
+
     };
-    
-    
+
+
     /// @brief Scope for all the member fields of
     ///     @ref Value field.
     struct ValueMembers
@@ -104,11 +104,11 @@ struct UserPropertyMembers
             {
                 return mqtt5::field::UserPropertyMembersCommon::ValueMembersCommon::FirstCommon::name();
             }
-            
-        
+
+
         };
-        
-        
+
+
         /// @brief Definition of <b>"Second"</b> field.
         class Second : public
             mqtt5::field::String<
@@ -125,11 +125,11 @@ struct UserPropertyMembers
             {
                 return mqtt5::field::UserPropertyMembersCommon::ValueMembersCommon::SecondCommon::name();
             }
-            
-        
+
+
         };
-        
-        
+
+
         /// @brief All members bundled in @b std::tuple.
         using All =
             std::tuple<
@@ -137,7 +137,7 @@ struct UserPropertyMembers
                Second
             >;
     };
-    
+
     /// @brief Definition of <b>"Value"</b> field.
     class Value : public
         comms::field::Bundle<
@@ -165,18 +165,18 @@ struct UserPropertyMembers
             first,
             second
         );
-        
-        
+
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::field::UserPropertyMembersCommon::ValueCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
@@ -217,14 +217,14 @@ public:
         id,
         value
     );
-    
-    
+
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::UserPropertyCommon::name();
     }
-    
+
 
 };
 

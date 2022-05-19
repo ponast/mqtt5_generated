@@ -44,24 +44,24 @@ struct SubscribePropertyListMembers
     public:
         /// @brief Re-definition of the value type.
         using ValueType = typename Base::ValueType;
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return mqtt5::field::SubscribePropertyListMembersCommon::LengthCommon::hasSpecials();
         }
-        
-        
+
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::field::SubscribePropertyListMembersCommon::LengthCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
 };
 
 /// @brief Definition of <b>"Subscribe Properties"</b> field.
@@ -91,7 +91,7 @@ public:
     {
         return mqtt5::field::SubscribePropertyListCommon::name();
     }
-    
+
 
 };
 

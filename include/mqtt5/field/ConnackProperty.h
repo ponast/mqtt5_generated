@@ -48,120 +48,120 @@ struct ConnackPropertyMembers
         mqtt5::field::SessionExpiryInterval<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Receive Maximum"</b> field.
     using ReceiveMax =
         mqtt5::field::ReceiveMax<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Maximum QoS"</b> field.
     using MaxQos =
         mqtt5::field::MaxQos<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Retain Available"</b> field.
     using RetainAvailable =
         mqtt5::field::RetainAvailable<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Maximum Packet Size"</b> field.
     using MaxPacketSize =
         mqtt5::field::MaxPacketSize<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Assigned Client ID"</b> field.
     using AssignedClientId =
         mqtt5::field::AssignedClientId<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Topic Alias Maximum"</b> field.
     using TopicAliasMax =
         mqtt5::field::TopicAliasMax<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Reason String"</b> field.
     using ReasonStr =
         mqtt5::field::ReasonStr<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
         mqtt5::field::UserProperty<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Wildcard Subscription Available"</b> field.
     using WildcardSubAvail =
         mqtt5::field::WildcardSubAvail<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Subscription ID Available"</b> field.
     using SubIdAvail =
         mqtt5::field::SubIdAvail<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Shared Subscription Available"</b> field.
     using SharedSubAvail =
         mqtt5::field::SharedSubAvail<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Server Keep Alive"</b> field.
     using ServerKeepAlive =
         mqtt5::field::ServerKeepAlive<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Response Information"</b> field.
     using ResponseInfo =
         mqtt5::field::ResponseInfo<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Server Reference"</b> field.
     using ServerRef =
         mqtt5::field::ServerRef<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Authentication Method"</b> field.
     using AuthMethod =
         mqtt5::field::AuthMethod<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Authentication Data"</b> field.
     using AuthData =
         mqtt5::field::AuthData<
             TOpt
         >;
-    
-    
+
+
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
@@ -279,12 +279,12 @@ public:
         authMethod,
         authData
     );
-    
+
     /// @brief Optimized currFieldExec functionality.
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
     template <typename TFunc>
-    void currFieldExec(TFunc&& func) 
+    void currFieldExec(TFunc&& func)
     {
         switch (Base::currentField()) {
         case FieldIdx_sessionExpiryInterval:
@@ -345,7 +345,7 @@ public:
             break;
         }
     }
-    
+
     /// @brief Optimized currFieldExec functionality (const variant).
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
@@ -411,13 +411,13 @@ public:
             break;
         }
     }
-    
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::ConnackPropertyCommon::name();
     }
-    
+
 
 private:
     template <std::size_t TIdx, typename TField, typename TFunc>
@@ -429,7 +429,7 @@ private:
             func.template operator()<TIdx>(std::forward<TField>(f)); // All other compilers
         #endif // #ifdef _MSC_VER
     }
-    
+
 
 };
 

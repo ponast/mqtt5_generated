@@ -22,11 +22,11 @@ struct UnsubscribePropertyMembersCommon
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::UnsubscribePropertyMembers::UserProperty field.
     using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::UnsubscribePropertyMembers::UserProperty field.
     using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
-    
+
 };
 
 /// @brief Common types and functions for
@@ -38,7 +38,7 @@ struct UnsubscribePropertyCommon
     {
         return "";
     }
-    
+
 };
 
 } // namespace field

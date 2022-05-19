@@ -13,7 +13,7 @@ namespace mqtt5
 {
 
 
-/// @brief Common types and functions for fields of 
+/// @brief Common types and functions for fields of
 ///     @ref mqtt5::Message interface.
 /// @see mqtt5::MessageFields
 struct MessageFieldsCommon
@@ -31,7 +31,7 @@ struct MessageFieldsCommon
             {
                 return "";
             }
-            
+
             /// @brief Retrieve name of the bit of
             ///     @ref mqtt5::MessageFields::FlagsMembers::Retain field.
             static const char* bitName(std::size_t idx)
@@ -39,22 +39,22 @@ struct MessageFieldsCommon
                 static const char* Map[] = {
                     "retain"
                 };
-            
+
                 static const std::size_t MapSize = std::extent<decltype(Map)>::value;
                 if (MapSize <= idx) {
                     return nullptr;
                 }
-            
+
                 return Map[idx];
             }
-            
-            
+
+
         };
-        
+
         /// @brief Common types and functions for
         ///     @ref mqtt5::MessageFields::FlagsMembers::Qos field.
         using QosCommon = mqtt5::field::QosCommon;
-        
+
         /// @brief Common types and functions for
         ///     @ref mqtt5::MessageFields::FlagsMembers::Dup field.
         struct DupCommon
@@ -64,7 +64,7 @@ struct MessageFieldsCommon
             {
                 return "";
             }
-            
+
             /// @brief Retrieve name of the bit of
             ///     @ref mqtt5::MessageFields::FlagsMembers::Dup field.
             static const char* bitName(std::size_t idx)
@@ -72,20 +72,20 @@ struct MessageFieldsCommon
                 static const char* Map[] = {
                     "dup"
                 };
-            
+
                 static const std::size_t MapSize = std::extent<decltype(Map)>::value;
                 if (MapSize <= idx) {
                     return nullptr;
                 }
-            
+
                 return Map[idx];
             }
-            
-            
+
+
         };
-        
+
     };
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::MessageFields::Flags field.
     struct FlagsCommon
@@ -95,9 +95,9 @@ struct MessageFieldsCommon
         {
             return "Flags";
         }
-        
+
     };
-    
+
 };
 } // namespace mqtt5
 

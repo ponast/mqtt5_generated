@@ -53,20 +53,20 @@ struct MaxQosMembers
     public:
         /// @brief Re-definition of the value type.
         using ValueType = typename Base::ValueType;
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return mqtt5::field::MaxQosMembersCommon::IdCommon::hasSpecials();
         }
-        
-        
+
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::field::MaxQosMembersCommon::IdCommon::name();
         }
-        
+
         /// @brief Generated refresh functionality.
         bool refresh()
         {
@@ -76,14 +76,14 @@ struct MaxQosMembers
             };
             Base::value() = static_cast<ValueType>(36);
             return true;
-            
+
         }
-        
-        
-    
+
+
+
     };
-    
-    
+
+
     /// @brief Definition of <b>"Value"</b> field.
     /// @see @ref mqtt5::field::MaxQosMembersCommon::ValueCommon::ValueType
     class Value : public
@@ -102,45 +102,45 @@ struct MaxQosMembers
     public:
         /// @brief Re-definition of the value type.
         using ValueType = typename Base::ValueType;
-        
+
         /// @brief Single value name info entry.
         using ValueNameInfo = mqtt5::field::MaxQosMembersCommon::ValueCommon::ValueNameInfo;
-        
+
         /// @brief Type returned from @ref valueNamesMap() member function.
         /// @see @ref mqtt5::field::MaxQosMembersCommon::ValueCommon::ValueNamesMapInfo.
         using ValueNamesMapInfo = mqtt5::field::MaxQosMembersCommon::ValueCommon::ValueNamesMapInfo;
-        
+
         /// @brief Retrieve name of the enum value.
         /// @see @ref mqtt5::field::MaxQosMembersCommon::ValueCommon::valueName().
         static const char* valueName(ValueType val)
         {
             return mqtt5::field::MaxQosMembersCommon::ValueCommon::valueName(val);
         }
-        
+
         /// @brief Retrieve name of the @b current value
         const char* valueName() const
         {
             return valueName(Base::value());
         }
-        
+
         /// @brief Retrieve map of enum value names.
         /// @see @ref mqtt5::field::MaxQosMembersCommon::ValueCommon::valueNamesMap().
         static ValueNamesMapInfo valueNamesMap()
         {
             return mqtt5::field::MaxQosMembersCommon::ValueCommon::valueNamesMap();
         }
-        
-        
+
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::field::MaxQosMembersCommon::ValueCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
@@ -181,14 +181,14 @@ public:
         id,
         value
     );
-    
-    
+
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::MaxQosCommon::name();
     }
-    
+
 
 };
 

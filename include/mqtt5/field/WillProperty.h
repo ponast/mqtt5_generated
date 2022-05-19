@@ -38,50 +38,50 @@ struct WillPropertyMembers
         mqtt5::field::WillDelayInterval<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Property Format Indicator"</b> field.
     using PayloadFormatIndicator =
         mqtt5::field::PayloadFormatIndicator<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Message Expiry Interval"</b> field.
     using MessageExpiryInterval =
         mqtt5::field::MessageExpiryInterval<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Content Type"</b> field.
     using ContentType =
         mqtt5::field::ContentType<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Response Topic"</b> field.
     using ResponseTopic =
         mqtt5::field::ResponseTopic<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Correlation Data"</b> field.
     using CorrelationData =
         mqtt5::field::CorrelationData<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
         mqtt5::field::UserProperty<
             TOpt
         >;
-    
-    
+
+
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
@@ -149,12 +149,12 @@ public:
         correlationData,
         userProperty
     );
-    
+
     /// @brief Optimized currFieldExec functionality.
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
     template <typename TFunc>
-    void currFieldExec(TFunc&& func) 
+    void currFieldExec(TFunc&& func)
     {
         switch (Base::currentField()) {
         case FieldIdx_willDelayInterval:
@@ -185,7 +185,7 @@ public:
             break;
         }
     }
-    
+
     /// @brief Optimized currFieldExec functionality (const variant).
     /// @details Replaces the currFieldExec() member function defined
     ///    by @b comms::field::Variant.
@@ -221,13 +221,13 @@ public:
             break;
         }
     }
-    
+
     /// @brief Name of the field.
     static const char* name()
     {
         return mqtt5::field::WillPropertyCommon::name();
     }
-    
+
 
 private:
     template <std::size_t TIdx, typename TField, typename TFunc>
@@ -239,7 +239,7 @@ private:
             func.template operator()<TIdx>(std::forward<TField>(f)); // All other compilers
         #endif // #ifdef _MSC_VER
     }
-    
+
 
 };
 

@@ -16,7 +16,7 @@ namespace message
 {
 
 
-/// @brief Common types and functions for fields of 
+/// @brief Common types and functions for fields of
 ///     @ref mqtt5::message::Auth message.
 /// @see mqtt5::message::AuthFields
 struct AuthFieldsCommon
@@ -24,18 +24,18 @@ struct AuthFieldsCommon
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::AuthFields::ReasonCode field.
     using ReasonCodeCommon = mqtt5::field::AuthReasonCodeCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::AuthFields::Properties field.
     using PropertiesMembersCommon = mqtt5::field::AuthPropertyListMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::AuthFields::Properties field.
     using PropertiesCommon = mqtt5::field::AuthPropertyListCommon;
-    
+
 };
 
-/// @brief Common types and functions of 
+/// @brief Common types and functions of
 ///     @ref mqtt5::message::Auth message.
 struct AuthCommon
 {
@@ -44,7 +44,7 @@ struct AuthCommon
     {
         return "AUTH";
     }
-    
+
 };
 
 } // namespace message

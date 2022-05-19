@@ -30,75 +30,75 @@ struct ConnectPropertyMembersCommon
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::SessionExpiryInterval field.
     using SessionExpiryIntervalMembersCommon = mqtt5::field::SessionExpiryIntervalMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::SessionExpiryInterval field.
     using SessionExpiryIntervalCommon = mqtt5::field::SessionExpiryIntervalCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::ReceiveMax field.
     using ReceiveMaxMembersCommon = mqtt5::field::ReceiveMaxMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::ReceiveMax field.
     using ReceiveMaxCommon = mqtt5::field::ReceiveMaxCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::MaxPacketSize field.
     using MaxPacketSizeMembersCommon = mqtt5::field::MaxPacketSizeMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::MaxPacketSize field.
     using MaxPacketSizeCommon = mqtt5::field::MaxPacketSizeCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::TopicAliasMax field.
     using TopicAliasMaxMembersCommon = mqtt5::field::TopicAliasMaxMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::TopicAliasMax field.
     using TopicAliasMaxCommon = mqtt5::field::TopicAliasMaxCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::RequestResponseInfo field.
     using RequestResponseInfoMembersCommon = mqtt5::field::RequestResponseInfoMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::RequestResponseInfo field.
     using RequestResponseInfoCommon = mqtt5::field::RequestResponseInfoCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::RequestProblemInfo field.
     using RequestProblemInfoMembersCommon = mqtt5::field::RequestProblemInfoMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::RequestProblemInfo field.
     using RequestProblemInfoCommon = mqtt5::field::RequestProblemInfoCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::UserProperty field.
     using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::UserProperty field.
     using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::AuthMethod field.
     using AuthMethodMembersCommon = mqtt5::field::AuthMethodMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::AuthMethod field.
     using AuthMethodCommon = mqtt5::field::AuthMethodCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::AuthData field.
     using AuthDataMembersCommon = mqtt5::field::AuthDataMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::AuthData field.
     using AuthDataCommon = mqtt5::field::AuthDataCommon;
-    
+
 };
 
 /// @brief Common types and functions for
@@ -110,7 +110,7 @@ struct ConnectPropertyCommon
     {
         return "";
     }
-    
+
 };
 
 } // namespace field

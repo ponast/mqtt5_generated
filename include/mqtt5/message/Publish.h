@@ -39,8 +39,8 @@ struct PublishFields
         mqtt5::field::TopicName<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Packet ID"</b> field.
     class PacketId : public
         comms::field::Optional<
@@ -59,18 +59,18 @@ struct PublishFields
         {
             return mqtt5::message::PublishFieldsCommon::PacketIdCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
     /// @brief Definition of <b>"Publish Properties"</b> field.
     using Properties =
         mqtt5::field::PublishPropertyList<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Payload"</b> field.
     class Payload : public
         comms::field::ArrayList<
@@ -91,11 +91,11 @@ struct PublishFields
         {
             return mqtt5::message::PublishFieldsCommon::PayloadCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
         TopicName,
@@ -154,17 +154,17 @@ public:
         properties,
         payload
     );
-    
+
     // Compile time check for serialisation length.
     static const std::size_t MsgMinLen = Base::doMinLength();
     static_assert(MsgMinLen == 3U, "Unexpected min serialisation length");
-    
+
     /// @brief Name of the message.
     static const char* doName()
     {
         return mqtt5::message::PublishCommon::name();
     }
-    
+
     /// @brief Custom read functionality
     template <typename TIter>
     comms::ErrorStatus doRead(TIter& iter, std::size_t len)
@@ -172,16 +172,16 @@ public:
         refresh_packetId(); // make sure the mode of "packet ID" is correct
         return Base::doRead(iter, len);
     }
-    
-    
+
+
     /// @brief Custom refresh functionality
     bool doRefresh()
     {
         bool updated = Base::doRefresh();
         return refresh_packetId() || updated;
     }
-    
-    
+
+
 
 private:
     bool refresh_packetId()
@@ -189,20 +189,20 @@ private:
         auto& qosField = Base::transportField_flags().field_qos();
         using QosFieldType = typename std::decay<decltype(qosField)>::type;
         using QosValueType = typename QosFieldType::ValueType;
-        
+
         auto mode = comms::field::OptionalMode::Missing;
         if (QosValueType::AtMostOnceDelivery < qosField.value()) {
             mode = comms::field::OptionalMode::Exists;
         }
-        
+
         if (field_packetId().getMode() == mode) {
             return false;
         }
-        
+
         field_packetId().setMode(mode);
         return true;
     }
-    
+
 
 };
 

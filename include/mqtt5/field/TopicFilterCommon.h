@@ -24,7 +24,7 @@ struct TopicFilterCommon : public mqtt5::field::StringCommon
     {
         return "TopicFilter";
     }
-    
+
 };
 
 } // namespace field

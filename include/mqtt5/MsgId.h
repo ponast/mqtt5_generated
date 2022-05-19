@@ -28,7 +28,7 @@ enum MsgId : std::uint8_t
     MsgId_Pingresp = 13, ///< message id of <b>PINGRESP</b> message. ,
     MsgId_Disconnect = 14, ///< message id of <b>DISCONNECT</b> message. ,
     MsgId_Auth = 15, ///< message id of <b>AUTH</b> message. ,
-    
+
     // --- Extra values generated for convenience ---,
     MsgId_FirstValue = 1, ///< First defined value.,
     MsgId_LastValue = 15, ///< Last defined value.,

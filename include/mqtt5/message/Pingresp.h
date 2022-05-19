@@ -65,13 +65,13 @@ public:
     static const std::size_t MsgMaxLen = Base::doMaxLength();
     static_assert(MsgMinLen == 0U, "Unexpected min serialisation length");
     static_assert(MsgMaxLen == 0U, "Unexpected max serialisation length");
-    
+
     /// @brief Name of the message.
     static const char* doName()
     {
         return mqtt5::message::PingrespCommon::name();
     }
-    
+
 
 };
 

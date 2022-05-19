@@ -35,15 +35,15 @@ struct AuthFields
         mqtt5::field::AuthReasonCode<
             TOpt
         >;
-    
-    
+
+
     /// @brief Definition of <b>"Auth Properties"</b> field.
     using Properties =
         mqtt5::field::AuthPropertyList<
             TOpt
         >;
-    
-    
+
+
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
         ReasonCode,
@@ -92,17 +92,17 @@ public:
         reasonCode,
         properties
     );
-    
+
     // Compile time check for serialisation length.
     static const std::size_t MsgMinLen = Base::doMinLength();
     static_assert(MsgMinLen == 2U, "Unexpected min serialisation length");
-    
+
     /// @brief Name of the message.
     static const char* doName()
     {
         return mqtt5::message::AuthCommon::name();
     }
-    
+
 
 };
 

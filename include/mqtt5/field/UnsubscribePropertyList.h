@@ -44,24 +44,24 @@ struct UnsubscribePropertyListMembers
     public:
         /// @brief Re-definition of the value type.
         using ValueType = typename Base::ValueType;
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return mqtt5::field::UnsubscribePropertyListMembersCommon::LengthCommon::hasSpecials();
         }
-        
-        
+
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::field::UnsubscribePropertyListMembersCommon::LengthCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
 };
 
 /// @brief Definition of <b>"Unsubscribe Properties"</b> field.
@@ -91,7 +91,7 @@ public:
     {
         return mqtt5::field::UnsubscribePropertyListCommon::name();
     }
-    
+
 
 };
 

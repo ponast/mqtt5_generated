@@ -51,7 +51,7 @@ struct MessageFields
             COMMS_BITMASK_BITS_SEQ(
                 bit
             );
-            
+
             /// @brief Retrieve name of the bit.
             /// @see @ref mqtt5::MessageFieldsCommon::FlagsMembersCommon::RetainCommon::bitName().
             static const char* bitName(BitIdx idx)
@@ -60,25 +60,25 @@ struct MessageFields
                     mqtt5::MessageFieldsCommon::FlagsMembersCommon::RetainCommon::bitName(
                         static_cast<std::size_t>(idx));
             }
-            
+
             /// @brief Name of the field.
             static const char* name()
             {
                 return mqtt5::MessageFieldsCommon::FlagsMembersCommon::RetainCommon::name();
             }
-            
-        
+
+
         };
-        
-        
+
+
         /// @brief Definition of <b>"Qos"</b> field.
         using Qos =
             mqtt5::field::Qos<
                 mqtt5::options::DefaultOptions,
                 comms::option::def::FixedBitLength<2U>
             >;
-        
-        
+
+
         /// @brief Definition of <b>""</b> field.
         class Dup : public
             comms::field::BitmaskValue<
@@ -104,7 +104,7 @@ struct MessageFields
             COMMS_BITMASK_BITS_SEQ(
                 bit
             );
-            
+
             /// @brief Retrieve name of the bit.
             /// @see @ref mqtt5::MessageFieldsCommon::FlagsMembersCommon::DupCommon::bitName().
             static const char* bitName(BitIdx idx)
@@ -113,17 +113,17 @@ struct MessageFields
                     mqtt5::MessageFieldsCommon::FlagsMembersCommon::DupCommon::bitName(
                         static_cast<std::size_t>(idx));
             }
-            
+
             /// @brief Name of the field.
             static const char* name()
             {
                 return mqtt5::MessageFieldsCommon::FlagsMembersCommon::DupCommon::name();
             }
-            
-        
+
+
         };
-        
-        
+
+
         /// @brief All members bundled in @b std::tuple.
         using All =
             std::tuple<
@@ -132,7 +132,7 @@ struct MessageFields
                Dup
             >;
     };
-    
+
     /// @brief Definition of <b>"Flags"</b> field.
     class Flags : public
         comms::field::Bitfield<
@@ -163,17 +163,17 @@ struct MessageFields
             qos,
             dup
         );
-        
+
         /// @brief Name of the field.
         static const char* name()
         {
             return mqtt5::MessageFieldsCommon::FlagsCommon::name();
         }
-        
-    
+
+
     };
-    
-    
+
+
     /// @brief All the fields bundled in std::tuple.
     using All = std::tuple<
         Flags
@@ -211,18 +211,18 @@ public:
     COMMS_MSG_TRANSPORT_FIELDS_NAMES(
         flags
     );
-    
+
 
 protected:
     /// @brief Check that flags are zeroed
     bool flagsZeroed() const
     {
-        return 
+        return
             (transportField_flags().field_retain().value() == 0U) &&
             (static_cast<unsigned>(transportField_flags().field_qos().value()) == 0U) &&
             (transportField_flags().field_dup().value() == 0U);
     }
-    
+
 
 };
 

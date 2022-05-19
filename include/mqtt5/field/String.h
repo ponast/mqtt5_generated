@@ -46,14 +46,14 @@ public:
     {
         return mqtt5::field::StringCommon::name();
     }
-    
+
     /// @brief Custom validity check
     bool valid() const
     {
         return ::utf8::valid_mqtt_string( String().value().c_str() );
     }
-    
-    
+
+
 
 };
 

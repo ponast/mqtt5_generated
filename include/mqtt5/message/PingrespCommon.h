@@ -13,7 +13,7 @@ namespace message
 {
 
 
-/// @brief Common types and functions of 
+/// @brief Common types and functions of
 ///     @ref mqtt5::message::Pingresp message.
 struct PingrespCommon
 {
@@ -22,7 +22,7 @@ struct PingrespCommon
     {
         return "PINGRESP";
     }
-    
+
 };
 
 } // namespace message

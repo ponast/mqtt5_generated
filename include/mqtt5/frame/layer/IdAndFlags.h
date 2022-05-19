@@ -68,7 +68,7 @@ public:
     {
         return static_cast<MsgIdType>(field.field_id().value());
     }
-    
+
     /// @brief Set the flags to message object
     template <typename TMsg>
     static void beforeRead(const Field& field, TMsg& msg)

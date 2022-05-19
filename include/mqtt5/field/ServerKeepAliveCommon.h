@@ -26,22 +26,22 @@ struct ServerKeepAliveMembersCommon
         /// @brief Re-definition of the value type used by
         ///     mqtt5::field::ServerKeepAliveMembers::Id field.
         using ValueType = std::uint32_t;
-        
+
         /// @brief Name of the @ref mqtt5::field::ServerKeepAliveMembers::Id field.
         static const char* name()
         {
             return "Id";
         }
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return false;
         }
-        
-        
+
+
     };
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ServerKeepAliveMembers::Value field.
     struct ValueCommon
@@ -49,22 +49,22 @@ struct ServerKeepAliveMembersCommon
         /// @brief Re-definition of the value type used by
         ///     mqtt5::field::ServerKeepAliveMembers::Value field.
         using ValueType = std::uint16_t;
-        
+
         /// @brief Name of the @ref mqtt5::field::ServerKeepAliveMembers::Value field.
         static const char* name()
         {
             return "Value";
         }
-        
+
         /// @brief Compile time detection of special values presence.
         static constexpr bool hasSpecials()
         {
             return false;
         }
-        
-        
+
+
     };
-    
+
 };
 
 /// @brief Common types and functions for
@@ -76,7 +76,7 @@ struct ServerKeepAliveCommon
     {
         return "Server Keep Alive";
     }
-    
+
 };
 
 } // namespace field

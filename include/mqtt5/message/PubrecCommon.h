@@ -17,7 +17,7 @@ namespace message
 {
 
 
-/// @brief Common types and functions for fields of 
+/// @brief Common types and functions for fields of
 ///     @ref mqtt5::message::Pubrec message.
 /// @see mqtt5::message::PubrecFields
 struct PubrecFieldsCommon
@@ -25,22 +25,22 @@ struct PubrecFieldsCommon
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PubrecFields::PacketId field.
     using PacketIdCommon = mqtt5::field::PacketIdCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PubrecFields::ReasonCode field.
     using ReasonCodeCommon = mqtt5::field::PubackReasonCodeCommon;
-    
+
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::PubrecFields::Properties field.
     using PropertiesMembersCommon = mqtt5::field::PubackPropertyListMembersCommon;
-    
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PubrecFields::Properties field.
     using PropertiesCommon = mqtt5::field::PubackPropertyListCommon;
-    
+
 };
 
-/// @brief Common types and functions of 
+/// @brief Common types and functions of
 ///     @ref mqtt5::message::Pubrec message.
 struct PubrecCommon
 {
@@ -49,7 +49,7 @@ struct PubrecCommon
     {
         return "PUBREC";
     }
-    
+
 };
 
 } // namespace message
