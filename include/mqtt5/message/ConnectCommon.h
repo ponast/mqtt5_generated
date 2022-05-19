@@ -190,24 +190,24 @@ struct ConnectFieldsCommon
     };
 
     /// @brief Scope for all the common definitions of the member fields of
-    ///     @ref mqtt5::message::ConnectFields::WillProperty field.
-    struct WillPropertyMembersCommon
+    ///     @ref mqtt5::message::ConnectFields::WillProperties field.
+    struct WillPropertiesMembersCommon
     {
         /// @brief Common definitions of the member fields of
-        ///     @ref mqtt5::message::ConnectFields::WillPropertyMembers::List field.
+        ///     @ref mqtt5::message::ConnectFields::WillPropertiesMembers::List field.
         using ListMembersCommon = mqtt5::field::WillPropertyListMembersCommon;
 
         /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::WillPropertyMembers::List field.
+        ///     @ref mqtt5::message::ConnectFields::WillPropertiesMembers::List field.
         using ListCommon = mqtt5::field::WillPropertyListCommon;
 
     };
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::message::ConnectFields::WillProperty field.
-    struct WillPropertyCommon
+    ///     @ref mqtt5::message::ConnectFields::WillProperties field.
+    struct WillPropertiesCommon
     {
-        /// @brief Name of the @ref mqtt5::message::ConnectFields::WillProperty field.
+        /// @brief Name of the @ref mqtt5::message::ConnectFields::WillProperties field.
         static const char* name()
         {
             return "Will Properties";

@@ -329,8 +329,8 @@ struct ConnectFields
 
 
     /// @brief Scope for all the member fields of
-    ///     @ref WillProperty field.
-    struct WillPropertyMembers
+    ///     @ref WillProperties field.
+    struct WillPropertiesMembers
     {
         /// @brief Definition of <b>"Will Properties"</b> field.
         using List =
@@ -342,22 +342,22 @@ struct ConnectFields
     };
 
     /// @brief Definition of <b>"Will Properties"</b> field.
-    class WillProperty : public
+    class WillProperties : public
         comms::field::Optional<
-            typename WillPropertyMembers::List,
+            typename WillPropertiesMembers::List,
             comms::option::def::MissingByDefault
         >
     {
         using Base =
             comms::field::Optional<
-                typename WillPropertyMembers::List,
+                typename WillPropertiesMembers::List,
                 comms::option::def::MissingByDefault
             >;
     public:
         /// @brief Name of the field.
         static const char* name()
         {
-            return mqtt5::message::ConnectFieldsCommon::WillPropertyCommon::name();
+            return mqtt5::message::ConnectFieldsCommon::WillPropertiesCommon::name();
         }
 
 
@@ -572,7 +572,7 @@ struct ConnectFields
         KeepAlive,
         Properties,
         ClientId,
-        WillProperty,
+        WillProperties,
         WillTopic,
         WillMessage,
         UserName,
@@ -629,8 +629,8 @@ public:
     ///         for @ref ConnectFields::Properties field.
     ///     @li @b FieldIdx_clientId index, @b Field_clientId type and @b field_clientId() access fuction
     ///         for @ref ConnectFields::ClientId field.
-    ///     @li @b FieldIdx_willProperty index, @b Field_willProperty type and @b field_willProperty() access fuction
-    ///         for @ref ConnectFields::WillProperty field.
+    ///     @li @b FieldIdx_willProperties index, @b Field_willProperties type and @b field_willProperties() access fuction
+    ///         for @ref ConnectFields::WillProperties field.
     ///     @li @b FieldIdx_willTopic index, @b Field_willTopic type and @b field_willTopic() access fuction
     ///         for @ref ConnectFields::WillTopic field.
     ///     @li @b FieldIdx_willMessage index, @b Field_willMessage type and @b field_willMessage() access fuction
@@ -646,7 +646,7 @@ public:
         keepAlive,
         properties,
         clientId,
-        willProperty,
+        willProperties,
         willTopic,
         willMessage,
         userName,
