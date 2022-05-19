@@ -1,5 +1,6 @@
-#include <limits>
+#pragma once
 
+#include <limits>
 #include "utf8_decode.h"
 
 namespace utf8
@@ -11,19 +12,19 @@ namespace utf8
     using const_octet_iter = Octet const *;
     //____________________________________________________________________________________
 
-    static bool is_ascii_control( Codepoint arg )
+    bool inline is_ascii_control( Codepoint arg )
     {
         return arg <= 0x1f or ( arg >= 0x7f and arg < 0x80 );
     }
     //____________________________________________________________________________________
 
-    static bool valid_mqtt_string_codepoint( Codepoint arg )
+    bool inline valid_mqtt_string_codepoint( Codepoint arg )
     {
         return not is_ascii_control( arg );
     }
     //____________________________________________________________________________________
 
-    bool valid_mqtt_topic_filter_codepoint( Codepoint prv, Codepoint cur, Codepoint nxt )
+    bool inline valid_mqtt_topic_filter_codepoint( Codepoint prv, Codepoint cur, Codepoint nxt )
     {
         return valid_mqtt_string_codepoint( cur )
             and (( cur != '#' and cur != '+')
@@ -32,13 +33,13 @@ namespace utf8
     }
     //____________________________________________________________________________________
 
-    static bool valid_mqtt_topic_name_codepoint( Codepoint arg )
+    bool inline valid_mqtt_topic_name_codepoint( Codepoint arg )
     {
         return valid_mqtt_string_codepoint( arg ) and arg != '#' and arg != '+';
     }
     //____________________________________________________________________________________
 
-    static Codepoint next_codepoint( const_octet_iter & iter )
+    Codepoint inline next_codepoint( const_octet_iter & iter )
     {
         if ( * iter == '\0' )
         {
@@ -58,7 +59,7 @@ namespace utf8
     }
     //____________________________________________________________________________________
 
-    static bool valid_mqtt_string( const_octet_iter arg )
+    bool inline valid_mqtt_string( const_octet_iter arg )
     {
         const_octet_iter iter = arg;
         while ( * iter != '\0' )
@@ -73,7 +74,7 @@ namespace utf8
     }
     //____________________________________________________________________________________
 
-    static bool valid_mqtt_topic_filter( const_octet_iter arg )
+    bool inline valid_mqtt_topic_filter( const_octet_iter arg )
     {
         const_octet_iter iter = arg;
         Codepoint prev_cp = '/';
@@ -91,7 +92,7 @@ namespace utf8
     }
     //____________________________________________________________________________________
 
-    static bool valid_mqtt_topic_name( const_octet_iter arg )
+    bool inline valid_mqtt_topic_name( const_octet_iter arg )
     {
         const_octet_iter iter = arg;
         while ( * iter != '\0' )
