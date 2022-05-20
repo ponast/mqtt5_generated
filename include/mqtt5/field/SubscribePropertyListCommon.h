@@ -7,6 +7,7 @@
 #pragma once
 
 #include <cstdint>
+#include "mqtt5/field/SubscribePropertyCommon.h"
 
 namespace mqtt5
 {
@@ -19,6 +20,14 @@ namespace field
 ///     @ref mqtt5::field::SubscribePropertyList field.
 struct SubscribePropertyListMembersCommon
 {
+    /// @brief Common definitions of the member fields of
+    ///     @ref mqtt5::field::SubscribePropertyListMembers::SubscribeProperty field.
+    using SubscribePropertyMembersCommon = mqtt5::field::SubscribePropertyMembersCommon;
+
+    /// @brief Common types and functions for
+    ///     @ref mqtt5::field::SubscribePropertyListMembers::SubscribeProperty field.
+    using SubscribePropertyCommon = mqtt5::field::SubscribePropertyCommon;
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::SubscribePropertyListMembers::Length field.
     struct LengthCommon

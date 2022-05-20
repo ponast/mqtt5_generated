@@ -35,6 +35,7 @@ struct CorrelationDataMembers
             std::uint32_t,
             comms::option::def::FailOnInvalid<>,
             comms::option::def::VarLength<1U, 4U>,
+            comms::option::def::UnitsBytes,
             comms::option::def::DefaultNumValue<9>,
             comms::option::def::ValidNumValue<9>,
             comms::option::def::HasCustomRefresh
@@ -46,6 +47,7 @@ struct CorrelationDataMembers
                 std::uint32_t,
                 comms::option::def::FailOnInvalid<>,
                 comms::option::def::VarLength<1U, 4U>,
+                comms::option::def::UnitsBytes,
                 comms::option::def::DefaultNumValue<9>,
                 comms::option::def::ValidNumValue<9>,
                 comms::option::def::HasCustomRefresh

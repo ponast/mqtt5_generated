@@ -11,8 +11,8 @@
 #include "comms/options.h"
 #include "mqtt5/field/ClientDisconnectPropertyCommon.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/ReasonStr.h"
-#include "mqtt5/field/ServerRef.h"
+#include "mqtt5/field/ReasonString.h"
+#include "mqtt5/field/ServerReference.h"
 #include "mqtt5/field/SessionExpiryInterval.h"
 #include "mqtt5/field/UserProperty.h"
 #include "mqtt5/options/DefaultOptions.h"
@@ -38,8 +38,8 @@ struct ClientDisconnectPropertyMembers
 
 
     /// @brief Definition of <b>"Reason String"</b> field.
-    using ReasonStr =
-        mqtt5::field::ReasonStr<
+    using ReasonString =
+        mqtt5::field::ReasonString<
             TOpt
         >;
 
@@ -52,8 +52,8 @@ struct ClientDisconnectPropertyMembers
 
 
     /// @brief Definition of <b>"Server Reference"</b> field.
-    using ServerRef =
-        mqtt5::field::ServerRef<
+    using ServerReference =
+        mqtt5::field::ServerReference<
             TOpt
         >;
 
@@ -62,9 +62,9 @@ struct ClientDisconnectPropertyMembers
     using All =
         std::tuple<
            SessionExpiryInterval,
-           ReasonStr,
+           ReasonString,
            UserProperty,
-           ServerRef
+           ServerReference
         >;
 };
 
@@ -95,20 +95,20 @@ public:
     ///     @li @b FieldIdx_sessionExpiryInterval index, @b Field_sessionExpiryInterval type,
     ///         @b initField_sessionExpiryInterval() and @b accessField_sessionExpiryInterval() access functions -
     ///         for mqtt5::field::ClientDisconnectPropertyMembers::SessionExpiryInterval member field.
-    ///     @li @b FieldIdx_reasonStr index, @b Field_reasonStr type,
-    ///         @b initField_reasonStr() and @b accessField_reasonStr() access functions -
-    ///         for mqtt5::field::ClientDisconnectPropertyMembers::ReasonStr member field.
+    ///     @li @b FieldIdx_reasonString index, @b Field_reasonString type,
+    ///         @b initField_reasonString() and @b accessField_reasonString() access functions -
+    ///         for mqtt5::field::ClientDisconnectPropertyMembers::ReasonString member field.
     ///     @li @b FieldIdx_userProperty index, @b Field_userProperty type,
     ///         @b initField_userProperty() and @b accessField_userProperty() access functions -
     ///         for mqtt5::field::ClientDisconnectPropertyMembers::UserProperty member field.
-    ///     @li @b FieldIdx_serverRef index, @b Field_serverRef type,
-    ///         @b initField_serverRef() and @b accessField_serverRef() access functions -
-    ///         for mqtt5::field::ClientDisconnectPropertyMembers::ServerRef member field.
+    ///     @li @b FieldIdx_serverReference index, @b Field_serverReference type,
+    ///         @b initField_serverReference() and @b accessField_serverReference() access functions -
+    ///         for mqtt5::field::ClientDisconnectPropertyMembers::ServerReference member field.
     COMMS_VARIANT_MEMBERS_NAMES(
         sessionExpiryInterval,
-        reasonStr,
+        reasonString,
         userProperty,
-        serverRef
+        serverReference
     );
 
     /// @brief Optimized currFieldExec functionality.
@@ -121,14 +121,14 @@ public:
         case FieldIdx_sessionExpiryInterval:
             memFieldDispatch<FieldIdx_sessionExpiryInterval>(accessField_sessionExpiryInterval(), std::forward<TFunc>(func));
             break;
-        case FieldIdx_reasonStr:
-            memFieldDispatch<FieldIdx_reasonStr>(accessField_reasonStr(), std::forward<TFunc>(func));
+        case FieldIdx_reasonString:
+            memFieldDispatch<FieldIdx_reasonString>(accessField_reasonString(), std::forward<TFunc>(func));
             break;
         case FieldIdx_userProperty:
             memFieldDispatch<FieldIdx_userProperty>(accessField_userProperty(), std::forward<TFunc>(func));
             break;
-        case FieldIdx_serverRef:
-            memFieldDispatch<FieldIdx_serverRef>(accessField_serverRef(), std::forward<TFunc>(func));
+        case FieldIdx_serverReference:
+            memFieldDispatch<FieldIdx_serverReference>(accessField_serverReference(), std::forward<TFunc>(func));
             break;
         default:
             static constexpr bool Invalid_field_execution = false;
@@ -148,14 +148,14 @@ public:
         case FieldIdx_sessionExpiryInterval:
             memFieldDispatch<FieldIdx_sessionExpiryInterval>(accessField_sessionExpiryInterval(), std::forward<TFunc>(func));
             break;
-        case FieldIdx_reasonStr:
-            memFieldDispatch<FieldIdx_reasonStr>(accessField_reasonStr(), std::forward<TFunc>(func));
+        case FieldIdx_reasonString:
+            memFieldDispatch<FieldIdx_reasonString>(accessField_reasonString(), std::forward<TFunc>(func));
             break;
         case FieldIdx_userProperty:
             memFieldDispatch<FieldIdx_userProperty>(accessField_userProperty(), std::forward<TFunc>(func));
             break;
-        case FieldIdx_serverRef:
-            memFieldDispatch<FieldIdx_serverRef>(accessField_serverRef(), std::forward<TFunc>(func));
+        case FieldIdx_serverReference:
+            memFieldDispatch<FieldIdx_serverReference>(accessField_serverReference(), std::forward<TFunc>(func));
             break;
         default:
             static constexpr bool Invalid_field_execution = false;

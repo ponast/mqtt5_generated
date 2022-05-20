@@ -28,7 +28,8 @@ class VarLenInt : public
         mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
         std::uint32_t,
         TExtraOpts...,
-        comms::option::def::VarLength<1U, 4U>
+        comms::option::def::VarLength<1U, 4U>,
+        comms::option::def::UnitsBytes
     >
 {
     using Base =
@@ -36,7 +37,8 @@ class VarLenInt : public
             mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
             std::uint32_t,
             TExtraOpts...,
-            comms::option::def::VarLength<1U, 4U>
+            comms::option::def::VarLength<1U, 4U>,
+            comms::option::def::UnitsBytes
         >;
 public:
     /// @brief Re-definition of the value type.

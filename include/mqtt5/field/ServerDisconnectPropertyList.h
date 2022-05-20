@@ -27,19 +27,28 @@ namespace field
 template <typename TOpt = mqtt5::options::DefaultOptions>
 struct ServerDisconnectPropertyListMembers
 {
+    /// @brief Definition of <b>""</b> field.
+    using ServerDisconnectProperty =
+        mqtt5::field::ServerDisconnectProperty<
+            TOpt
+        >;
+
+
     /// @brief Definition of <b>"Length"</b> field.
     class Length : public
         comms::field::IntValue<
             mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
             std::uint32_t,
-            comms::option::def::VarLength<1U, 4U>
+            comms::option::def::VarLength<1U, 4U>,
+            comms::option::def::UnitsBytes
         >
     {
         using Base =
             comms::field::IntValue<
                 mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
                 std::uint32_t,
-                comms::option::def::VarLength<1U, 4U>
+                comms::option::def::VarLength<1U, 4U>,
+                comms::option::def::UnitsBytes
             >;
     public:
         /// @brief Re-definition of the value type.
@@ -71,7 +80,7 @@ template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts
 class ServerDisconnectPropertyList : public
     comms::field::ArrayList<
         mqtt5::field::FieldBase<>,
-        mqtt5::field::ServerDisconnectProperty<TOpt>,
+        typename ServerDisconnectPropertyListMembers<TOpt>::ServerDisconnectProperty,
         TExtraOpts...,
         typename TOpt::field::ServerDisconnectPropertyList,
         comms::option::def::SequenceSerLengthFieldPrefix<typename ServerDisconnectPropertyListMembers<TOpt>::Length>
@@ -80,7 +89,7 @@ class ServerDisconnectPropertyList : public
     using Base =
         comms::field::ArrayList<
             mqtt5::field::FieldBase<>,
-            mqtt5::field::ServerDisconnectProperty<TOpt>,
+            typename ServerDisconnectPropertyListMembers<TOpt>::ServerDisconnectProperty,
             TExtraOpts...,
             typename TOpt::field::ServerDisconnectPropertyList,
             comms::option::def::SequenceSerLengthFieldPrefix<typename ServerDisconnectPropertyListMembers<TOpt>::Length>

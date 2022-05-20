@@ -2,7 +2,7 @@
 
 /// @file
 /// @brief Contains common template parameters independent functionality of
-///    @ref mqtt5::field::ReasonStr field.
+///    @ref mqtt5::field::ReasonString field.
 
 #pragma once
 
@@ -17,18 +17,18 @@ namespace field
 
 
 /// @brief Scope for all the common definitions of the member fields of
-///     @ref mqtt5::field::ReasonStr field.
-struct ReasonStrMembersCommon
+///     @ref mqtt5::field::ReasonString field.
+struct ReasonStringMembersCommon
 {
     /// @brief Common types and functions for
-    ///     @ref mqtt5::field::ReasonStrMembers::Id field.
+    ///     @ref mqtt5::field::ReasonStringMembers::Id field.
     struct IdCommon
     {
         /// @brief Re-definition of the value type used by
-        ///     mqtt5::field::ReasonStrMembers::Id field.
+        ///     mqtt5::field::ReasonStringMembers::Id field.
         using ValueType = std::uint32_t;
 
-        /// @brief Name of the @ref mqtt5::field::ReasonStrMembers::Id field.
+        /// @brief Name of the @ref mqtt5::field::ReasonStringMembers::Id field.
         static const char* name()
         {
             return "Id";
@@ -44,10 +44,10 @@ struct ReasonStrMembersCommon
     };
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::field::ReasonStrMembers::Value field.
+    ///     @ref mqtt5::field::ReasonStringMembers::Value field.
     struct ValueCommon : public mqtt5::field::StringCommon
     {
-        /// @brief Name of the @ref mqtt5::field::ReasonStrMembers::Value field.
+        /// @brief Name of the @ref mqtt5::field::ReasonStringMembers::Value field.
         static const char* name()
         {
             return "Value";
@@ -58,10 +58,10 @@ struct ReasonStrMembersCommon
 };
 
 /// @brief Common types and functions for
-///     @ref mqtt5::field::ReasonStr field.
-struct ReasonStrCommon
+///     @ref mqtt5::field::ReasonString field.
+struct ReasonStringCommon
 {
-    /// @brief Name of the @ref mqtt5::field::ReasonStr field.
+    /// @brief Name of the @ref mqtt5::field::ReasonString field.
     static const char* name()
     {
         return "Reason String";

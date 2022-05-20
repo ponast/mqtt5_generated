@@ -110,6 +110,14 @@ struct BareMetalDefaultOptionsT : public TBase
             >;
 
         /// @brief Extra options for @ref
+        ///     mqtt5::field::SubscribePayload field.
+        using SubscribePayload =
+            std::tuple<
+                comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
+                typename TBase::field::SubscribePayload
+            >;
+
+        /// @brief Extra options for @ref
         ///     mqtt5::field::SubscribePropertyList
         ///     field.
         using SubscribePropertyList =
@@ -166,21 +174,6 @@ struct BareMetalDefaultOptionsT : public TBase
                 std::tuple<
                     comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                     typename TBase::message::SubackFields::List
-                >;
-
-        };
-
-        /// @brief Extra options for fields of
-        ///     @ref mqtt5::message::Subscribe message.
-        struct SubscribeFields : public TBase::message::SubscribeFields
-        {
-            /// @brief Extra options for @ref
-            ///     mqtt5::message::SubscribeFields::List
-            ///     field.
-            using List =
-                std::tuple<
-                    comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                    typename TBase::message::SubscribeFields::List
                 >;
 
         };

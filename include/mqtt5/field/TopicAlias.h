@@ -34,7 +34,8 @@ struct TopicAliasMembers
             std::uint32_t,
             comms::option::def::FailOnInvalid<>,
             comms::option::def::VarLength<1U, 4U>,
-            comms::option::def::DefaultNumValue<34>,
+            comms::option::def::UnitsBytes,
+            comms::option::def::DefaultNumValue<35>,
             comms::option::def::ValidNumValue<35>,
             comms::option::def::HasCustomRefresh
         >
@@ -45,7 +46,8 @@ struct TopicAliasMembers
                 std::uint32_t,
                 comms::option::def::FailOnInvalid<>,
                 comms::option::def::VarLength<1U, 4U>,
-                comms::option::def::DefaultNumValue<34>,
+                comms::option::def::UnitsBytes,
+                comms::option::def::DefaultNumValue<35>,
                 comms::option::def::ValidNumValue<35>,
                 comms::option::def::HasCustomRefresh
             >;

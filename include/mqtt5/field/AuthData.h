@@ -35,6 +35,7 @@ struct AuthDataMembers
             std::uint32_t,
             comms::option::def::FailOnInvalid<>,
             comms::option::def::VarLength<1U, 4U>,
+            comms::option::def::UnitsBytes,
             comms::option::def::DefaultNumValue<22>,
             comms::option::def::ValidNumValue<22>,
             comms::option::def::HasCustomRefresh
@@ -46,6 +47,7 @@ struct AuthDataMembers
                 std::uint32_t,
                 comms::option::def::FailOnInvalid<>,
                 comms::option::def::VarLength<1U, 4U>,
+                comms::option::def::UnitsBytes,
                 comms::option::def::DefaultNumValue<22>,
                 comms::option::def::ValidNumValue<22>,
                 comms::option::def::HasCustomRefresh

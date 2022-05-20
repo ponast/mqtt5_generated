@@ -7,6 +7,7 @@
 #pragma once
 
 #include <cstdint>
+#include "mqtt5/field/ConnackPropertyCommon.h"
 
 namespace mqtt5
 {
@@ -19,6 +20,14 @@ namespace field
 ///     @ref mqtt5::field::ConnackPropertyList field.
 struct ConnackPropertyListMembersCommon
 {
+    /// @brief Common definitions of the member fields of
+    ///     @ref mqtt5::field::ConnackPropertyListMembers::ConnackProperty field.
+    using ConnackPropertyMembersCommon = mqtt5::field::ConnackPropertyMembersCommon;
+
+    /// @brief Common types and functions for
+    ///     @ref mqtt5::field::ConnackPropertyListMembers::ConnackProperty field.
+    using ConnackPropertyCommon = mqtt5::field::ConnackPropertyCommon;
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyListMembers::Length field.
     struct LengthCommon

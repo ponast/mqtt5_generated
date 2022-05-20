@@ -7,6 +7,7 @@
 #pragma once
 
 #include <cstdint>
+#include "mqtt5/field/ClientDisconnectPropertyCommon.h"
 
 namespace mqtt5
 {
@@ -19,6 +20,14 @@ namespace field
 ///     @ref mqtt5::field::ClientDisconnectPropertyList field.
 struct ClientDisconnectPropertyListMembersCommon
 {
+    /// @brief Common definitions of the member fields of
+    ///     @ref mqtt5::field::ClientDisconnectPropertyListMembers::ClientDisconnectProperty field.
+    using ClientDisconnectPropertyMembersCommon = mqtt5::field::ClientDisconnectPropertyMembersCommon;
+
+    /// @brief Common types and functions for
+    ///     @ref mqtt5::field::ClientDisconnectPropertyListMembers::ClientDisconnectProperty field.
+    using ClientDisconnectPropertyCommon = mqtt5::field::ClientDisconnectPropertyCommon;
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ClientDisconnectPropertyListMembers::Length field.
     struct LengthCommon

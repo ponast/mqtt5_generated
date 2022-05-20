@@ -35,6 +35,7 @@ struct SharedSubAvailMembers
             std::uint32_t,
             comms::option::def::FailOnInvalid<>,
             comms::option::def::VarLength<1U, 4U>,
+            comms::option::def::UnitsBytes,
             comms::option::def::DefaultNumValue<42>,
             comms::option::def::ValidNumValue<42>,
             comms::option::def::HasCustomRefresh
@@ -46,6 +47,7 @@ struct SharedSubAvailMembers
                 std::uint32_t,
                 comms::option::def::FailOnInvalid<>,
                 comms::option::def::VarLength<1U, 4U>,
+                comms::option::def::UnitsBytes,
                 comms::option::def::DefaultNumValue<42>,
                 comms::option::def::ValidNumValue<42>,
                 comms::option::def::HasCustomRefresh

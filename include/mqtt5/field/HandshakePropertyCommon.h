@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "mqtt5/field/ReasonStrCommon.h"
+#include "mqtt5/field/ReasonStringCommon.h"
 #include "mqtt5/field/UserPropertyCommon.h"
 
 namespace mqtt5
@@ -21,12 +21,12 @@ namespace field
 struct HandshakePropertyMembersCommon
 {
     /// @brief Common definitions of the member fields of
-    ///     @ref mqtt5::field::HandshakePropertyMembers::ReasonStr field.
-    using ReasonStrMembersCommon = mqtt5::field::ReasonStrMembersCommon;
+    ///     @ref mqtt5::field::HandshakePropertyMembers::ReasonString field.
+    using ReasonStringMembersCommon = mqtt5::field::ReasonStringMembersCommon;
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::field::HandshakePropertyMembers::ReasonStr field.
-    using ReasonStrCommon = mqtt5::field::ReasonStrCommon;
+    ///     @ref mqtt5::field::HandshakePropertyMembers::ReasonString field.
+    using ReasonStringCommon = mqtt5::field::ReasonStringCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::HandshakePropertyMembers::UserProperty field.

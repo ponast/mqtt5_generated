@@ -11,7 +11,7 @@
 #include "comms/options.h"
 #include "mqtt5/field/FieldBase.h"
 #include "mqtt5/field/HandshakePropertyCommon.h"
-#include "mqtt5/field/ReasonStr.h"
+#include "mqtt5/field/ReasonString.h"
 #include "mqtt5/field/UserProperty.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -29,8 +29,8 @@ template <typename TOpt = mqtt5::options::DefaultOptions>
 struct HandshakePropertyMembers
 {
     /// @brief Definition of <b>"Reason String"</b> field.
-    using ReasonStr =
-        mqtt5::field::ReasonStr<
+    using ReasonString =
+        mqtt5::field::ReasonString<
             TOpt
         >;
 
@@ -45,7 +45,7 @@ struct HandshakePropertyMembers
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
-           ReasonStr,
+           ReasonString,
            UserProperty
         >;
 };
@@ -74,14 +74,14 @@ public:
     ///     for details.
     ///
     ///     The generated values, types and access functions are:
-    ///     @li @b FieldIdx_reasonStr index, @b Field_reasonStr type,
-    ///         @b initField_reasonStr() and @b accessField_reasonStr() access functions -
-    ///         for mqtt5::field::HandshakePropertyMembers::ReasonStr member field.
+    ///     @li @b FieldIdx_reasonString index, @b Field_reasonString type,
+    ///         @b initField_reasonString() and @b accessField_reasonString() access functions -
+    ///         for mqtt5::field::HandshakePropertyMembers::ReasonString member field.
     ///     @li @b FieldIdx_userProperty index, @b Field_userProperty type,
     ///         @b initField_userProperty() and @b accessField_userProperty() access functions -
     ///         for mqtt5::field::HandshakePropertyMembers::UserProperty member field.
     COMMS_VARIANT_MEMBERS_NAMES(
-        reasonStr,
+        reasonString,
         userProperty
     );
 
@@ -92,8 +92,8 @@ public:
     void currFieldExec(TFunc&& func)
     {
         switch (Base::currentField()) {
-        case FieldIdx_reasonStr:
-            memFieldDispatch<FieldIdx_reasonStr>(accessField_reasonStr(), std::forward<TFunc>(func));
+        case FieldIdx_reasonString:
+            memFieldDispatch<FieldIdx_reasonString>(accessField_reasonString(), std::forward<TFunc>(func));
             break;
         case FieldIdx_userProperty:
             memFieldDispatch<FieldIdx_userProperty>(accessField_userProperty(), std::forward<TFunc>(func));
@@ -113,8 +113,8 @@ public:
     void currFieldExec(TFunc&& func) const
     {
         switch (Base::currentField()) {
-        case FieldIdx_reasonStr:
-            memFieldDispatch<FieldIdx_reasonStr>(accessField_reasonStr(), std::forward<TFunc>(func));
+        case FieldIdx_reasonString:
+            memFieldDispatch<FieldIdx_reasonString>(accessField_reasonString(), std::forward<TFunc>(func));
             break;
         case FieldIdx_userProperty:
             memFieldDispatch<FieldIdx_userProperty>(accessField_userProperty(), std::forward<TFunc>(func));

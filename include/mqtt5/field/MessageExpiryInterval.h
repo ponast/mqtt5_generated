@@ -34,6 +34,7 @@ struct MessageExpiryIntervalMembers
             std::uint32_t,
             comms::option::def::FailOnInvalid<>,
             comms::option::def::VarLength<1U, 4U>,
+            comms::option::def::UnitsBytes,
             comms::option::def::DefaultNumValue<2>,
             comms::option::def::ValidNumValue<2>,
             comms::option::def::HasCustomRefresh
@@ -45,6 +46,7 @@ struct MessageExpiryIntervalMembers
                 std::uint32_t,
                 comms::option::def::FailOnInvalid<>,
                 comms::option::def::VarLength<1U, 4U>,
+                comms::option::def::UnitsBytes,
                 comms::option::def::DefaultNumValue<2>,
                 comms::option::def::ValidNumValue<2>,
                 comms::option::def::HasCustomRefresh

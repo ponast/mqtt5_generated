@@ -13,7 +13,7 @@
 #include "mqtt5/field/AuthMethod.h"
 #include "mqtt5/field/AuthPropertyCommon.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/ReasonStr.h"
+#include "mqtt5/field/ReasonString.h"
 #include "mqtt5/field/UserProperty.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -45,8 +45,8 @@ struct AuthPropertyMembers
 
 
     /// @brief Definition of <b>"Reason String"</b> field.
-    using ReasonStr =
-        mqtt5::field::ReasonStr<
+    using ReasonString =
+        mqtt5::field::ReasonString<
             TOpt
         >;
 
@@ -63,7 +63,7 @@ struct AuthPropertyMembers
         std::tuple<
            AuthMethod,
            AuthData,
-           ReasonStr,
+           ReasonString,
            UserProperty
         >;
 };
@@ -98,16 +98,16 @@ public:
     ///     @li @b FieldIdx_authData index, @b Field_authData type,
     ///         @b initField_authData() and @b accessField_authData() access functions -
     ///         for mqtt5::field::AuthPropertyMembers::AuthData member field.
-    ///     @li @b FieldIdx_reasonStr index, @b Field_reasonStr type,
-    ///         @b initField_reasonStr() and @b accessField_reasonStr() access functions -
-    ///         for mqtt5::field::AuthPropertyMembers::ReasonStr member field.
+    ///     @li @b FieldIdx_reasonString index, @b Field_reasonString type,
+    ///         @b initField_reasonString() and @b accessField_reasonString() access functions -
+    ///         for mqtt5::field::AuthPropertyMembers::ReasonString member field.
     ///     @li @b FieldIdx_userProperty index, @b Field_userProperty type,
     ///         @b initField_userProperty() and @b accessField_userProperty() access functions -
     ///         for mqtt5::field::AuthPropertyMembers::UserProperty member field.
     COMMS_VARIANT_MEMBERS_NAMES(
         authMethod,
         authData,
-        reasonStr,
+        reasonString,
         userProperty
     );
 
@@ -124,8 +124,8 @@ public:
         case FieldIdx_authData:
             memFieldDispatch<FieldIdx_authData>(accessField_authData(), std::forward<TFunc>(func));
             break;
-        case FieldIdx_reasonStr:
-            memFieldDispatch<FieldIdx_reasonStr>(accessField_reasonStr(), std::forward<TFunc>(func));
+        case FieldIdx_reasonString:
+            memFieldDispatch<FieldIdx_reasonString>(accessField_reasonString(), std::forward<TFunc>(func));
             break;
         case FieldIdx_userProperty:
             memFieldDispatch<FieldIdx_userProperty>(accessField_userProperty(), std::forward<TFunc>(func));
@@ -151,8 +151,8 @@ public:
         case FieldIdx_authData:
             memFieldDispatch<FieldIdx_authData>(accessField_authData(), std::forward<TFunc>(func));
             break;
-        case FieldIdx_reasonStr:
-            memFieldDispatch<FieldIdx_reasonStr>(accessField_reasonStr(), std::forward<TFunc>(func));
+        case FieldIdx_reasonString:
+            memFieldDispatch<FieldIdx_reasonString>(accessField_reasonString(), std::forward<TFunc>(func));
             break;
         case FieldIdx_userProperty:
             memFieldDispatch<FieldIdx_userProperty>(accessField_userProperty(), std::forward<TFunc>(func));

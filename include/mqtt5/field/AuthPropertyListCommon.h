@@ -7,6 +7,7 @@
 #pragma once
 
 #include <cstdint>
+#include "mqtt5/field/AuthPropertyCommon.h"
 
 namespace mqtt5
 {
@@ -19,6 +20,14 @@ namespace field
 ///     @ref mqtt5::field::AuthPropertyList field.
 struct AuthPropertyListMembersCommon
 {
+    /// @brief Common definitions of the member fields of
+    ///     @ref mqtt5::field::AuthPropertyListMembers::AuthProperty field.
+    using AuthPropertyMembersCommon = mqtt5::field::AuthPropertyMembersCommon;
+
+    /// @brief Common types and functions for
+    ///     @ref mqtt5::field::AuthPropertyListMembers::AuthProperty field.
+    using AuthPropertyCommon = mqtt5::field::AuthPropertyCommon;
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::AuthPropertyListMembers::Length field.
     struct LengthCommon

@@ -7,6 +7,7 @@
 #pragma once
 
 #include <cstdint>
+#include "mqtt5/field/HandshakePropertyCommon.h"
 
 namespace mqtt5
 {
@@ -19,6 +20,14 @@ namespace field
 ///     @ref mqtt5::field::HandshakePropertyList field.
 struct HandshakePropertyListMembersCommon
 {
+    /// @brief Common definitions of the member fields of
+    ///     @ref mqtt5::field::HandshakePropertyListMembers::HandshakeProperty field.
+    using HandshakePropertyMembersCommon = mqtt5::field::HandshakePropertyMembersCommon;
+
+    /// @brief Common types and functions for
+    ///     @ref mqtt5::field::HandshakePropertyListMembers::HandshakeProperty field.
+    using HandshakePropertyCommon = mqtt5::field::HandshakePropertyCommon;
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::HandshakePropertyListMembers::Length field.
     struct LengthCommon

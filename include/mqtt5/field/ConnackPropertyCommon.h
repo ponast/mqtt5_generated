@@ -11,12 +11,12 @@
 #include "mqtt5/field/AuthMethodCommon.h"
 #include "mqtt5/field/MaxPacketSizeCommon.h"
 #include "mqtt5/field/MaxQosCommon.h"
-#include "mqtt5/field/ReasonStrCommon.h"
+#include "mqtt5/field/ReasonStringCommon.h"
 #include "mqtt5/field/ReceiveMaxCommon.h"
 #include "mqtt5/field/ResponseInfoCommon.h"
 #include "mqtt5/field/RetainAvailableCommon.h"
 #include "mqtt5/field/ServerKeepAliveCommon.h"
-#include "mqtt5/field/ServerRefCommon.h"
+#include "mqtt5/field/ServerReferenceCommon.h"
 #include "mqtt5/field/SessionExpiryIntervalCommon.h"
 #include "mqtt5/field/SharedSubAvailCommon.h"
 #include "mqtt5/field/SubIdAvailCommon.h"
@@ -92,12 +92,12 @@ struct ConnackPropertyMembersCommon
     using TopicAliasMaxCommon = mqtt5::field::TopicAliasMaxCommon;
 
     /// @brief Common definitions of the member fields of
-    ///     @ref mqtt5::field::ConnackPropertyMembers::ReasonStr field.
-    using ReasonStrMembersCommon = mqtt5::field::ReasonStrMembersCommon;
+    ///     @ref mqtt5::field::ConnackPropertyMembers::ReasonString field.
+    using ReasonStringMembersCommon = mqtt5::field::ReasonStringMembersCommon;
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::field::ConnackPropertyMembers::ReasonStr field.
-    using ReasonStrCommon = mqtt5::field::ReasonStrCommon;
+    ///     @ref mqtt5::field::ConnackPropertyMembers::ReasonString field.
+    using ReasonStringCommon = mqtt5::field::ReasonStringCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::UserProperty field.
@@ -148,12 +148,12 @@ struct ConnackPropertyMembersCommon
     using ResponseInfoCommon = mqtt5::field::ResponseInfoCommon;
 
     /// @brief Common definitions of the member fields of
-    ///     @ref mqtt5::field::ConnackPropertyMembers::ServerRef field.
-    using ServerRefMembersCommon = mqtt5::field::ServerRefMembersCommon;
+    ///     @ref mqtt5::field::ConnackPropertyMembers::ServerReference field.
+    using ServerReferenceMembersCommon = mqtt5::field::ServerReferenceMembersCommon;
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::field::ConnackPropertyMembers::ServerRef field.
-    using ServerRefCommon = mqtt5::field::ServerRefCommon;
+    ///     @ref mqtt5::field::ConnackPropertyMembers::ServerReference field.
+    using ServerReferenceCommon = mqtt5::field::ServerReferenceCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::AuthMethod field.

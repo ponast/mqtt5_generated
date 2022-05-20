@@ -35,6 +35,7 @@ struct WildcardSubAvailMembers
             std::uint32_t,
             comms::option::def::FailOnInvalid<>,
             comms::option::def::VarLength<1U, 4U>,
+            comms::option::def::UnitsBytes,
             comms::option::def::DefaultNumValue<40>,
             comms::option::def::ValidNumValue<40>,
             comms::option::def::HasCustomRefresh
@@ -46,6 +47,7 @@ struct WildcardSubAvailMembers
                 std::uint32_t,
                 comms::option::def::FailOnInvalid<>,
                 comms::option::def::VarLength<1U, 4U>,
+                comms::option::def::UnitsBytes,
                 comms::option::def::DefaultNumValue<40>,
                 comms::option::def::ValidNumValue<40>,
                 comms::option::def::HasCustomRefresh

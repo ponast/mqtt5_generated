@@ -27,7 +27,7 @@ struct PubackReasonCodeCommon
     ///     @ref mqtt5::field::PubackReasonCode field.
     enum class ValueType : std::uint8_t
     {
-        Success = 0, ///< value @b Success.
+        Success = 0, ///< value <b>Success</b>.
         NoMatchingSubscribers = 16, ///< value <b>No Matching Subscribers</b>.
         UnspecifiedError = 128, ///< value <b>Unspecified error</b>.
         ImplSpecificError = 131, ///< value <b>Impl. Specific Error</b>.

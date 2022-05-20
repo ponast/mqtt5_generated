@@ -16,12 +16,12 @@
 #include "mqtt5/field/FieldBase.h"
 #include "mqtt5/field/MaxPacketSize.h"
 #include "mqtt5/field/MaxQos.h"
-#include "mqtt5/field/ReasonStr.h"
+#include "mqtt5/field/ReasonString.h"
 #include "mqtt5/field/ReceiveMax.h"
 #include "mqtt5/field/ResponseInfo.h"
 #include "mqtt5/field/RetainAvailable.h"
 #include "mqtt5/field/ServerKeepAlive.h"
-#include "mqtt5/field/ServerRef.h"
+#include "mqtt5/field/ServerReference.h"
 #include "mqtt5/field/SessionExpiryInterval.h"
 #include "mqtt5/field/SharedSubAvail.h"
 #include "mqtt5/field/SubIdAvail.h"
@@ -93,8 +93,8 @@ struct ConnackPropertyMembers
 
 
     /// @brief Definition of <b>"Reason String"</b> field.
-    using ReasonStr =
-        mqtt5::field::ReasonStr<
+    using ReasonString =
+        mqtt5::field::ReasonString<
             TOpt
         >;
 
@@ -142,8 +142,8 @@ struct ConnackPropertyMembers
 
 
     /// @brief Definition of <b>"Server Reference"</b> field.
-    using ServerRef =
-        mqtt5::field::ServerRef<
+    using ServerReference =
+        mqtt5::field::ServerReference<
             TOpt
         >;
 
@@ -172,14 +172,14 @@ struct ConnackPropertyMembers
            MaxPacketSize,
            AssignedClientId,
            TopicAliasMax,
-           ReasonStr,
+           ReasonString,
            UserProperty,
            WildcardSubAvail,
            SubIdAvail,
            SharedSubAvail,
            ServerKeepAlive,
            ResponseInfo,
-           ServerRef,
+           ServerReference,
            AuthMethod,
            AuthData
         >;
@@ -230,9 +230,9 @@ public:
     ///     @li @b FieldIdx_topicAliasMax index, @b Field_topicAliasMax type,
     ///         @b initField_topicAliasMax() and @b accessField_topicAliasMax() access functions -
     ///         for mqtt5::field::ConnackPropertyMembers::TopicAliasMax member field.
-    ///     @li @b FieldIdx_reasonStr index, @b Field_reasonStr type,
-    ///         @b initField_reasonStr() and @b accessField_reasonStr() access functions -
-    ///         for mqtt5::field::ConnackPropertyMembers::ReasonStr member field.
+    ///     @li @b FieldIdx_reasonString index, @b Field_reasonString type,
+    ///         @b initField_reasonString() and @b accessField_reasonString() access functions -
+    ///         for mqtt5::field::ConnackPropertyMembers::ReasonString member field.
     ///     @li @b FieldIdx_userProperty index, @b Field_userProperty type,
     ///         @b initField_userProperty() and @b accessField_userProperty() access functions -
     ///         for mqtt5::field::ConnackPropertyMembers::UserProperty member field.
@@ -251,9 +251,9 @@ public:
     ///     @li @b FieldIdx_responseInfo index, @b Field_responseInfo type,
     ///         @b initField_responseInfo() and @b accessField_responseInfo() access functions -
     ///         for mqtt5::field::ConnackPropertyMembers::ResponseInfo member field.
-    ///     @li @b FieldIdx_serverRef index, @b Field_serverRef type,
-    ///         @b initField_serverRef() and @b accessField_serverRef() access functions -
-    ///         for mqtt5::field::ConnackPropertyMembers::ServerRef member field.
+    ///     @li @b FieldIdx_serverReference index, @b Field_serverReference type,
+    ///         @b initField_serverReference() and @b accessField_serverReference() access functions -
+    ///         for mqtt5::field::ConnackPropertyMembers::ServerReference member field.
     ///     @li @b FieldIdx_authMethod index, @b Field_authMethod type,
     ///         @b initField_authMethod() and @b accessField_authMethod() access functions -
     ///         for mqtt5::field::ConnackPropertyMembers::AuthMethod member field.
@@ -268,14 +268,14 @@ public:
         maxPacketSize,
         assignedClientId,
         topicAliasMax,
-        reasonStr,
+        reasonString,
         userProperty,
         wildcardSubAvail,
         subIdAvail,
         sharedSubAvail,
         serverKeepAlive,
         responseInfo,
-        serverRef,
+        serverReference,
         authMethod,
         authData
     );
@@ -308,8 +308,8 @@ public:
         case FieldIdx_topicAliasMax:
             memFieldDispatch<FieldIdx_topicAliasMax>(accessField_topicAliasMax(), std::forward<TFunc>(func));
             break;
-        case FieldIdx_reasonStr:
-            memFieldDispatch<FieldIdx_reasonStr>(accessField_reasonStr(), std::forward<TFunc>(func));
+        case FieldIdx_reasonString:
+            memFieldDispatch<FieldIdx_reasonString>(accessField_reasonString(), std::forward<TFunc>(func));
             break;
         case FieldIdx_userProperty:
             memFieldDispatch<FieldIdx_userProperty>(accessField_userProperty(), std::forward<TFunc>(func));
@@ -329,8 +329,8 @@ public:
         case FieldIdx_responseInfo:
             memFieldDispatch<FieldIdx_responseInfo>(accessField_responseInfo(), std::forward<TFunc>(func));
             break;
-        case FieldIdx_serverRef:
-            memFieldDispatch<FieldIdx_serverRef>(accessField_serverRef(), std::forward<TFunc>(func));
+        case FieldIdx_serverReference:
+            memFieldDispatch<FieldIdx_serverReference>(accessField_serverReference(), std::forward<TFunc>(func));
             break;
         case FieldIdx_authMethod:
             memFieldDispatch<FieldIdx_authMethod>(accessField_authMethod(), std::forward<TFunc>(func));
@@ -374,8 +374,8 @@ public:
         case FieldIdx_topicAliasMax:
             memFieldDispatch<FieldIdx_topicAliasMax>(accessField_topicAliasMax(), std::forward<TFunc>(func));
             break;
-        case FieldIdx_reasonStr:
-            memFieldDispatch<FieldIdx_reasonStr>(accessField_reasonStr(), std::forward<TFunc>(func));
+        case FieldIdx_reasonString:
+            memFieldDispatch<FieldIdx_reasonString>(accessField_reasonString(), std::forward<TFunc>(func));
             break;
         case FieldIdx_userProperty:
             memFieldDispatch<FieldIdx_userProperty>(accessField_userProperty(), std::forward<TFunc>(func));
@@ -395,8 +395,8 @@ public:
         case FieldIdx_responseInfo:
             memFieldDispatch<FieldIdx_responseInfo>(accessField_responseInfo(), std::forward<TFunc>(func));
             break;
-        case FieldIdx_serverRef:
-            memFieldDispatch<FieldIdx_serverRef>(accessField_serverRef(), std::forward<TFunc>(func));
+        case FieldIdx_serverReference:
+            memFieldDispatch<FieldIdx_serverReference>(accessField_serverReference(), std::forward<TFunc>(func));
             break;
         case FieldIdx_authMethod:
             memFieldDispatch<FieldIdx_authMethod>(accessField_authMethod(), std::forward<TFunc>(func));

@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include "mqtt5/field/ReasonStrCommon.h"
-#include "mqtt5/field/ServerRefCommon.h"
+#include "mqtt5/field/ReasonStringCommon.h"
+#include "mqtt5/field/ServerReferenceCommon.h"
 #include "mqtt5/field/SessionExpiryIntervalCommon.h"
 #include "mqtt5/field/UserPropertyCommon.h"
 
@@ -31,12 +31,12 @@ struct ClientDisconnectPropertyMembersCommon
     using SessionExpiryIntervalCommon = mqtt5::field::SessionExpiryIntervalCommon;
 
     /// @brief Common definitions of the member fields of
-    ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ReasonStr field.
-    using ReasonStrMembersCommon = mqtt5::field::ReasonStrMembersCommon;
+    ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ReasonString field.
+    using ReasonStringMembersCommon = mqtt5::field::ReasonStringMembersCommon;
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ReasonStr field.
-    using ReasonStrCommon = mqtt5::field::ReasonStrCommon;
+    ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ReasonString field.
+    using ReasonStringCommon = mqtt5::field::ReasonStringCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::UserProperty field.
@@ -47,12 +47,12 @@ struct ClientDisconnectPropertyMembersCommon
     using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
 
     /// @brief Common definitions of the member fields of
-    ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ServerRef field.
-    using ServerRefMembersCommon = mqtt5::field::ServerRefMembersCommon;
+    ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ServerReference field.
+    using ServerReferenceMembersCommon = mqtt5::field::ServerReferenceMembersCommon;
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ServerRef field.
-    using ServerRefCommon = mqtt5::field::ServerRefCommon;
+    ///     @ref mqtt5::field::ClientDisconnectPropertyMembers::ServerReference field.
+    using ServerReferenceCommon = mqtt5::field::ServerReferenceCommon;
 
 };
 

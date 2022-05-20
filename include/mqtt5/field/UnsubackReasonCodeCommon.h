@@ -27,7 +27,7 @@ struct UnsubackReasonCodeCommon
     ///     @ref mqtt5::field::UnsubackReasonCode field.
     enum class ValueType : std::uint8_t
     {
-        Success = 0, ///< value @b Success.
+        Success = 0, ///< value <b>Success</b>.
         NoSubscriptionExisted = 17, ///< value <b>No Subscription Existed</b>.
         UnspecifiedError = 128, ///< value <b>Unspecified error</b>.
         ImplSpecificError = 131, ///< value <b>Impl. Specific Error</b>.

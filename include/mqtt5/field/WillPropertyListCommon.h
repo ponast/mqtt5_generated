@@ -7,6 +7,7 @@
 #pragma once
 
 #include <cstdint>
+#include "mqtt5/field/WillPropertyCommon.h"
 
 namespace mqtt5
 {
@@ -19,6 +20,14 @@ namespace field
 ///     @ref mqtt5::field::WillPropertyList field.
 struct WillPropertyListMembersCommon
 {
+    /// @brief Common definitions of the member fields of
+    ///     @ref mqtt5::field::WillPropertyListMembers::WillProperty field.
+    using WillPropertyMembersCommon = mqtt5::field::WillPropertyMembersCommon;
+
+    /// @brief Common types and functions for
+    ///     @ref mqtt5::field::WillPropertyListMembers::WillProperty field.
+    using WillPropertyCommon = mqtt5::field::WillPropertyCommon;
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::WillPropertyListMembers::Length field.
     struct LengthCommon

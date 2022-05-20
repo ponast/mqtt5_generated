@@ -63,6 +63,10 @@ struct DefaultOptions
         using String = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
+        ///     mqtt5::field::SubscribePayload field.
+        using SubscribePayload = comms::option::EmptyOption;
+
+        /// @brief Extra options for @ref
         ///     mqtt5::field::SubscribePropertyList
         ///     field.
         using SubscribePropertyList = comms::option::EmptyOption;
@@ -132,17 +136,6 @@ struct DefaultOptions
         /// @brief Extra options for @ref
         ///     mqtt5::message::Suback message.
         using Suback = comms::option::EmptyOption;
-
-        /// @brief Extra options for fields of
-        ///     @ref mqtt5::message::Subscribe message.
-        struct SubscribeFields
-        {
-            /// @brief Extra options for @ref
-            ///     mqtt5::message::SubscribeFields::List
-            ///     field.
-            using List = comms::option::EmptyOption;
-
-        };
 
         /// @brief Extra options for @ref
         ///     mqtt5::message::Subscribe message.

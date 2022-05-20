@@ -27,14 +27,16 @@ class Length : public
     comms::field::IntValue<
         mqtt5::field::FieldBase<>,
         std::uint16_t,
-        TExtraOpts...
+        TExtraOpts...,
+        comms::option::def::UnitsBytes
     >
 {
     using Base =
         comms::field::IntValue<
             mqtt5::field::FieldBase<>,
             std::uint16_t,
-            TExtraOpts...
+            TExtraOpts...,
+            comms::option::def::UnitsBytes
         >;
 public:
     /// @brief Re-definition of the value type.

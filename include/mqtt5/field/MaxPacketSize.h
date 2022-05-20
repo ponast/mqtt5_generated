@@ -34,6 +34,7 @@ struct MaxPacketSizeMembers
             std::uint32_t,
             comms::option::def::FailOnInvalid<>,
             comms::option::def::VarLength<1U, 4U>,
+            comms::option::def::UnitsBytes,
             comms::option::def::DefaultNumValue<39>,
             comms::option::def::ValidNumValue<39>,
             comms::option::def::HasCustomRefresh
@@ -45,6 +46,7 @@ struct MaxPacketSizeMembers
                 std::uint32_t,
                 comms::option::def::FailOnInvalid<>,
                 comms::option::def::VarLength<1U, 4U>,
+                comms::option::def::UnitsBytes,
                 comms::option::def::DefaultNumValue<39>,
                 comms::option::def::ValidNumValue<39>,
                 comms::option::def::HasCustomRefresh
@@ -87,13 +89,15 @@ struct MaxPacketSizeMembers
     class Value : public
         comms::field::IntValue<
             mqtt5::field::FieldBase<>,
-            std::uint32_t
+            std::uint32_t,
+            comms::option::def::UnitsBytes
         >
     {
         using Base =
             comms::field::IntValue<
                 mqtt5::field::FieldBase<>,
-                std::uint32_t
+                std::uint32_t,
+                comms::option::def::UnitsBytes
             >;
     public:
         /// @brief Re-definition of the value type.

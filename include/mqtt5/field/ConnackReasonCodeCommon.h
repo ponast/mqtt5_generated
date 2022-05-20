@@ -27,7 +27,7 @@ struct ConnackReasonCodeCommon
     ///     @ref mqtt5::field::ConnackReasonCode field.
     enum class ValueType : std::uint8_t
     {
-        Success = 0, ///< value @b Success.
+        Success = 0, ///< value <b>Success</b>.
         UnspecifiedError = 128, ///< value <b>Unspecified error</b>.
         MalformedPacket = 129, ///< value <b>Malformed Packet</b>.
         ProtocolError = 130, ///< value <b>Protocol Error</b>.

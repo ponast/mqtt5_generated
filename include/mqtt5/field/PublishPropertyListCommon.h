@@ -7,6 +7,7 @@
 #pragma once
 
 #include <cstdint>
+#include "mqtt5/field/PublishPropertyCommon.h"
 
 namespace mqtt5
 {
@@ -19,6 +20,14 @@ namespace field
 ///     @ref mqtt5::field::PublishPropertyList field.
 struct PublishPropertyListMembersCommon
 {
+    /// @brief Common definitions of the member fields of
+    ///     @ref mqtt5::field::PublishPropertyListMembers::PublishProperty field.
+    using PublishPropertyMembersCommon = mqtt5::field::PublishPropertyMembersCommon;
+
+    /// @brief Common types and functions for
+    ///     @ref mqtt5::field::PublishPropertyListMembers::PublishProperty field.
+    using PublishPropertyCommon = mqtt5::field::PublishPropertyCommon;
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::PublishPropertyListMembers::Length field.
     struct LengthCommon
