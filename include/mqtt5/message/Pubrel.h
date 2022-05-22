@@ -10,9 +10,9 @@
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/PacketId.h"
-#include "mqtt5/field/PubackPropertyList.h"
-#include "mqtt5/field/PubackReasonCode.h"
+#include "mqtt5/field/PacketIdentifier.h"
+#include "mqtt5/field/PubrelProperties.h"
+#include "mqtt5/field/PubrelReasonCode.h"
 #include "mqtt5/message/PubrelCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -31,23 +31,37 @@ namespace message
 template <typename TOpt = mqtt5::options::DefaultOptions>
 struct PubrelFields
 {
-    /// @brief Definition of <b>"Packet ID"</b> field.
-    using PacketId =
-        mqtt5::field::PacketId<
+    /// @brief Definition of <b>"PacketId"</b> field.
+    class PacketId : public
+        mqtt5::field::PacketIdentifier<
             TOpt
-        >;
+        >
+    {
+        using Base =
+            mqtt5::field::PacketIdentifier<
+                TOpt
+            >;
+    public:
+        /// @brief Name of the field.
+        static const char* name()
+        {
+            return mqtt5::message::PubrelFieldsCommon::PacketIdCommon::name();
+        }
+
+
+    };
 
 
     /// @brief Definition of <b>"Reason Code"</b> field.
     using ReasonCode =
-        mqtt5::field::PubackReasonCode<
+        mqtt5::field::PubrelReasonCode<
             TOpt
         >;
 
 
-    /// @brief Definition of <b>"Handshake Properties"</b> field.
+    /// @brief Definition of <b>"Puback Properties"</b> field.
     using Properties =
-        mqtt5::field::PubackPropertyList<
+        mqtt5::field::PubrelProperties<
             TOpt
         >;
 

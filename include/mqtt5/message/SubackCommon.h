@@ -6,8 +6,9 @@
 
 #pragma once
 
-#include "mqtt5/field/PacketIdCommon.h"
-#include "mqtt5/field/SubackPropertyListCommon.h"
+#include "mqtt5/field/PacketIdentifierCommon.h"
+#include "mqtt5/field/SubackPayloadCommon.h"
+#include "mqtt5/field/SubackPropertiesCommon.h"
 
 namespace mqtt5
 {
@@ -23,24 +24,32 @@ struct SubackFieldsCommon
 {
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::SubackFields::PacketId field.
-    using PacketIdCommon = mqtt5::field::PacketIdCommon;
+    struct PacketIdCommon : public mqtt5::field::PacketIdentifierCommon
+    {
+        /// @brief Name of the @ref mqtt5::message::SubackFields::PacketId field.
+        static const char* name()
+        {
+            return "PacketId";
+        }
+
+    };
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::SubackFields::Properties field.
-    using PropertiesMembersCommon = mqtt5::field::SubackPropertyListMembersCommon;
+    using PropertiesMembersCommon = mqtt5::field::SubackPropertiesMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::SubackFields::Properties field.
-    using PropertiesCommon = mqtt5::field::SubackPropertyListCommon;
+    using PropertiesCommon = mqtt5::field::SubackPropertiesCommon;
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::message::SubackFields::List field.
-    struct ListCommon
+    ///     @ref mqtt5::message::SubackFields::Payload field.
+    struct PayloadCommon : public mqtt5::field::SubackPayloadCommon
     {
-        /// @brief Name of the @ref mqtt5::message::SubackFields::List field.
+        /// @brief Name of the @ref mqtt5::message::SubackFields::Payload field.
         static const char* name()
         {
-            return "List";
+            return "Payload";
         }
 
     };

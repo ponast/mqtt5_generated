@@ -6,8 +6,9 @@
 
 #pragma once
 
-#include "mqtt5/field/PacketIdCommon.h"
-#include "mqtt5/field/UnsubscribePropertyListCommon.h"
+#include "mqtt5/field/PacketIdentifierCommon.h"
+#include "mqtt5/field/UnsubscribePayloadCommon.h"
+#include "mqtt5/field/UnsubscribePropertiesCommon.h"
 
 namespace mqtt5
 {
@@ -23,24 +24,36 @@ struct UnsubscribeFieldsCommon
 {
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::UnsubscribeFields::PacketId field.
-    using PacketIdCommon = mqtt5::field::PacketIdCommon;
+    struct PacketIdCommon : public mqtt5::field::PacketIdentifierCommon
+    {
+        /// @brief Name of the @ref mqtt5::message::UnsubscribeFields::PacketId field.
+        static const char* name()
+        {
+            return "PacketId";
+        }
+
+    };
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::UnsubscribeFields::Properties field.
-    using PropertiesMembersCommon = mqtt5::field::UnsubscribePropertyListMembersCommon;
+    using PropertiesMembersCommon = mqtt5::field::UnsubscribePropertiesMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::UnsubscribeFields::Properties field.
-    using PropertiesCommon = mqtt5::field::UnsubscribePropertyListCommon;
+    using PropertiesCommon = mqtt5::field::UnsubscribePropertiesCommon;
+
+    /// @brief Common definitions of the member fields of
+    ///     @ref mqtt5::message::UnsubscribeFields::Payload field.
+    using PayloadMembersCommon = mqtt5::field::UnsubscribePayloadMembersCommon;
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::message::UnsubscribeFields::List field.
-    struct ListCommon
+    ///     @ref mqtt5::message::UnsubscribeFields::Payload field.
+    struct PayloadCommon : public mqtt5::field::UnsubscribePayloadCommon
     {
-        /// @brief Name of the @ref mqtt5::message::UnsubscribeFields::List field.
+        /// @brief Name of the @ref mqtt5::message::UnsubscribeFields::Payload field.
         static const char* name()
         {
-            return "List";
+            return "Payload";
         }
 
     };

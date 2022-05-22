@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "mqtt5/field/PacketIdCommon.h"
+#include "mqtt5/field/PacketIdentifierCommon.h"
 #include "mqtt5/field/SubscribePayloadCommon.h"
-#include "mqtt5/field/SubscribePropertyListCommon.h"
+#include "mqtt5/field/SubscribePropertiesCommon.h"
 
 namespace mqtt5
 {
@@ -24,15 +24,23 @@ struct SubscribeFieldsCommon
 {
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::SubscribeFields::PacketId field.
-    using PacketIdCommon = mqtt5::field::PacketIdCommon;
+    struct PacketIdCommon : public mqtt5::field::PacketIdentifierCommon
+    {
+        /// @brief Name of the @ref mqtt5::message::SubscribeFields::PacketId field.
+        static const char* name()
+        {
+            return "PacketId";
+        }
+
+    };
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::SubscribeFields::Properties field.
-    using PropertiesMembersCommon = mqtt5::field::SubscribePropertyListMembersCommon;
+    using PropertiesMembersCommon = mqtt5::field::SubscribePropertiesMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::SubscribeFields::Properties field.
-    using PropertiesCommon = mqtt5::field::SubscribePropertyListCommon;
+    using PropertiesCommon = mqtt5::field::SubscribePropertiesCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::SubscribeFields::Payload field.

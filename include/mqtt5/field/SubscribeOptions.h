@@ -190,6 +190,8 @@ struct SubscribeOptionsMembers
 };
 
 /// @brief Definition of <b>"SubscribeOptions"</b> field.
+/// @details
+///     Defined in section 3.8.3.1.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>

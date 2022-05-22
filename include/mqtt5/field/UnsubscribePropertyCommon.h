@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "mqtt5/field/UserPropertyCommon.h"
+#include "mqtt5/field/PropertyUserPropertyCommon.h"
 
 namespace mqtt5
 {
@@ -21,11 +21,11 @@ struct UnsubscribePropertyMembersCommon
 {
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::UnsubscribePropertyMembers::UserProperty field.
-    using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
+    using UserPropertyMembersCommon = mqtt5::field::PropertyUserPropertyMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::UnsubscribePropertyMembers::UserProperty field.
-    using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
+    using UserPropertyCommon = mqtt5::field::PropertyUserPropertyCommon;
 
 };
 

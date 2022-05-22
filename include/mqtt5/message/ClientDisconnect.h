@@ -9,7 +9,7 @@
 #include "comms/MessageBase.h"
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
-#include "mqtt5/field/ClientDisconnectPropertyList.h"
+#include "mqtt5/field/ClientDisconnectProperties.h"
 #include "mqtt5/field/DisconnectReasonCode.h"
 #include "mqtt5/field/FieldBase.h"
 #include "mqtt5/message/ClientDisconnectCommon.h"
@@ -39,7 +39,7 @@ struct ClientDisconnectFields
 
     /// @brief Definition of <b>"Client Disconnect Properties"</b> field.
     using Properties =
-        mqtt5::field::ClientDisconnectPropertyList<
+        mqtt5::field::ClientDisconnectProperties<
             TOpt
         >;
 

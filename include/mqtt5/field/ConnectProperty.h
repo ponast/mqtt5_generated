@@ -9,17 +9,17 @@
 #include "comms/CompileControl.h"
 #include "comms/field/Variant.h"
 #include "comms/options.h"
-#include "mqtt5/field/AuthData.h"
-#include "mqtt5/field/AuthMethod.h"
 #include "mqtt5/field/ConnectPropertyCommon.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/MaxPacketSize.h"
-#include "mqtt5/field/ReceiveMax.h"
-#include "mqtt5/field/RequestProblemInfo.h"
-#include "mqtt5/field/RequestResponseInfo.h"
-#include "mqtt5/field/SessionExpiryInterval.h"
-#include "mqtt5/field/TopicAliasMax.h"
-#include "mqtt5/field/UserProperty.h"
+#include "mqtt5/field/PropertyAuthData.h"
+#include "mqtt5/field/PropertyAuthMethod.h"
+#include "mqtt5/field/PropertyMaxPacketSize.h"
+#include "mqtt5/field/PropertyReceiveMax.h"
+#include "mqtt5/field/PropertyRequestProblemInfo.h"
+#include "mqtt5/field/PropertyRequestResponseInfo.h"
+#include "mqtt5/field/PropertySessionExpiryInterval.h"
+#include "mqtt5/field/PropertyTopicAliasMax.h"
+#include "mqtt5/field/PropertyUserProperty.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 namespace mqtt5
@@ -37,63 +37,63 @@ struct ConnectPropertyMembers
 {
     /// @brief Definition of <b>"Session Expiry Interval"</b> field.
     using SessionExpiryInterval =
-        mqtt5::field::SessionExpiryInterval<
+        mqtt5::field::PropertySessionExpiryInterval<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Receive Maximum"</b> field.
     using ReceiveMax =
-        mqtt5::field::ReceiveMax<
+        mqtt5::field::PropertyReceiveMax<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Maximum Packet Size"</b> field.
     using MaxPacketSize =
-        mqtt5::field::MaxPacketSize<
+        mqtt5::field::PropertyMaxPacketSize<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Topic Alias Maximum"</b> field.
     using TopicAliasMax =
-        mqtt5::field::TopicAliasMax<
+        mqtt5::field::PropertyTopicAliasMax<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Request Response Information"</b> field.
     using RequestResponseInfo =
-        mqtt5::field::RequestResponseInfo<
+        mqtt5::field::PropertyRequestResponseInfo<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Request Problem Information"</b> field.
     using RequestProblemInfo =
-        mqtt5::field::RequestProblemInfo<
+        mqtt5::field::PropertyRequestProblemInfo<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
-        mqtt5::field::UserProperty<
+        mqtt5::field::PropertyUserProperty<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Authentication Method"</b> field.
     using AuthMethod =
-        mqtt5::field::AuthMethod<
+        mqtt5::field::PropertyAuthMethod<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Authentication Data"</b> field.
     using AuthData =
-        mqtt5::field::AuthData<
+        mqtt5::field::PropertyAuthData<
             TOpt
         >;
 
@@ -114,6 +114,8 @@ struct ConnectPropertyMembers
 };
 
 /// @brief Definition of <b>""</b> field.
+/// @details
+///     Defined in section 3.1.2.11.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>

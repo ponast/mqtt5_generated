@@ -27,11 +27,11 @@ struct BareMetalDefaultOptionsT : public TBase
     struct field : public TBase::field
     {
         /// @brief Extra options for @ref
-        ///     mqtt5::field::AuthPropertyList field.
-        using AuthPropertyList =
+        ///     mqtt5::field::AuthProperties field.
+        using AuthProperties =
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::AuthPropertyList
+                typename TBase::field::AuthProperties
             >;
 
         /// @brief Extra options for @ref
@@ -43,37 +43,28 @@ struct BareMetalDefaultOptionsT : public TBase
             >;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::ClientDisconnectPropertyList
+        ///     mqtt5::field::ClientDisconnectProperties
         ///     field.
-        using ClientDisconnectPropertyList =
+        using ClientDisconnectProperties =
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::ClientDisconnectPropertyList
+                typename TBase::field::ClientDisconnectProperties
             >;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::ConnackPropertyList field.
-        using ConnackPropertyList =
+        ///     mqtt5::field::ConnackProperties field.
+        using ConnackProperties =
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::ConnackPropertyList
+                typename TBase::field::ConnackProperties
             >;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::ConnectPropertyList field.
-        using ConnectPropertyList =
+        ///     mqtt5::field::ConnectProperties field.
+        using ConnectProperties =
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::ConnectPropertyList
-            >;
-
-        /// @brief Extra options for @ref
-        ///     mqtt5::field::HandshakePropertyList
-        ///     field.
-        using HandshakePropertyList =
-            std::tuple<
-                comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::HandshakePropertyList
+                typename TBase::field::ConnectProperties
             >;
 
         /// @brief Extra options for @ref
@@ -85,28 +76,36 @@ struct BareMetalDefaultOptionsT : public TBase
             >;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::PublishPropertyList field.
-        using PublishPropertyList =
+        ///     mqtt5::field::PubackProperties field.
+        using PubackProperties =
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::PublishPropertyList
+                typename TBase::field::PubackProperties
             >;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::ServerDisconnectPropertyList
+        ///     mqtt5::field::PublishProperties field.
+        using PublishProperties =
+            std::tuple<
+                comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
+                typename TBase::field::PublishProperties
+            >;
+
+        /// @brief Extra options for @ref
+        ///     mqtt5::field::ServerDisconnectProperties
         ///     field.
-        using ServerDisconnectPropertyList =
+        using ServerDisconnectProperties =
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::ServerDisconnectPropertyList
+                typename TBase::field::ServerDisconnectProperties
             >;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::String field.
-        using String =
+        ///     mqtt5::field::SubackPayload field.
+        using SubackPayload =
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::String
+                typename TBase::field::SubackPayload
             >;
 
         /// @brief Extra options for @ref
@@ -118,29 +117,52 @@ struct BareMetalDefaultOptionsT : public TBase
             >;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::SubscribePropertyList
-        ///     field.
-        using SubscribePropertyList =
+        ///     mqtt5::field::SubscribeProperties field.
+        using SubscribeProperties =
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::SubscribePropertyList
+                typename TBase::field::SubscribeProperties
             >;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::UnsubscribePropertyList
-        ///     field.
-        using UnsubscribePropertyList =
+        ///     mqtt5::field::UnsubackPayload field.
+        using UnsubackPayload =
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::UnsubscribePropertyList
+                typename TBase::field::UnsubackPayload
             >;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::WillPropertyList field.
-        using WillPropertyList =
+        ///     mqtt5::field::UnsubscribePayload field.
+        using UnsubscribePayload =
             std::tuple<
                 comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                typename TBase::field::WillPropertyList
+                typename TBase::field::UnsubscribePayload
+            >;
+
+        /// @brief Extra options for @ref
+        ///     mqtt5::field::UnsubscribeProperties
+        ///     field.
+        using UnsubscribeProperties =
+            std::tuple<
+                comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
+                typename TBase::field::UnsubscribeProperties
+            >;
+
+        /// @brief Extra options for @ref
+        ///     mqtt5::field::Utf8String field.
+        using Utf8String =
+            std::tuple<
+                comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
+                typename TBase::field::Utf8String
+            >;
+
+        /// @brief Extra options for @ref
+        ///     mqtt5::field::WillProperties field.
+        using WillProperties =
+            std::tuple<
+                comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
+                typename TBase::field::WillProperties
             >;
 
     }; // struct field
@@ -159,51 +181,6 @@ struct BareMetalDefaultOptionsT : public TBase
                 std::tuple<
                     comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
                     typename TBase::message::PublishFields::Payload
-                >;
-
-        };
-
-        /// @brief Extra options for fields of
-        ///     @ref mqtt5::message::Suback message.
-        struct SubackFields : public TBase::message::SubackFields
-        {
-            /// @brief Extra options for @ref
-            ///     mqtt5::message::SubackFields::List
-            ///     field.
-            using List =
-                std::tuple<
-                    comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                    typename TBase::message::SubackFields::List
-                >;
-
-        };
-
-        /// @brief Extra options for fields of
-        ///     @ref mqtt5::message::Unsuback message.
-        struct UnsubackFields : public TBase::message::UnsubackFields
-        {
-            /// @brief Extra options for @ref
-            ///     mqtt5::message::UnsubackFields::List
-            ///     field.
-            using List =
-                std::tuple<
-                    comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                    typename TBase::message::UnsubackFields::List
-                >;
-
-        };
-
-        /// @brief Extra options for fields of
-        ///     @ref mqtt5::message::Unsubscribe message.
-        struct UnsubscribeFields : public TBase::message::UnsubscribeFields
-        {
-            /// @brief Extra options for @ref
-            ///     mqtt5::message::UnsubscribeFields::List
-            ///     field.
-            using List =
-                std::tuple<
-                    comms::option::app::FixedSizeStorage<DEFAULT_SEQ_FIXED_STORAGE_SIZE>,
-                    typename TBase::message::UnsubscribeFields::List
                 >;
 
         };

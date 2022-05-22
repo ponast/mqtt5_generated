@@ -9,12 +9,12 @@
 #include "comms/CompileControl.h"
 #include "comms/field/Variant.h"
 #include "comms/options.h"
-#include "mqtt5/field/AuthData.h"
-#include "mqtt5/field/AuthMethod.h"
 #include "mqtt5/field/AuthPropertyCommon.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/ReasonString.h"
-#include "mqtt5/field/UserProperty.h"
+#include "mqtt5/field/PropertyAuthData.h"
+#include "mqtt5/field/PropertyAuthMethod.h"
+#include "mqtt5/field/PropertyReasonString.h"
+#include "mqtt5/field/PropertyUserProperty.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 namespace mqtt5
@@ -32,28 +32,28 @@ struct AuthPropertyMembers
 {
     /// @brief Definition of <b>"Authentication Method"</b> field.
     using AuthMethod =
-        mqtt5::field::AuthMethod<
+        mqtt5::field::PropertyAuthMethod<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Authentication Data"</b> field.
     using AuthData =
-        mqtt5::field::AuthData<
+        mqtt5::field::PropertyAuthData<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Reason String"</b> field.
     using ReasonString =
-        mqtt5::field::ReasonString<
+        mqtt5::field::PropertyReasonString<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
-        mqtt5::field::UserProperty<
+        mqtt5::field::PropertyUserProperty<
             TOpt
         >;
 
@@ -69,6 +69,8 @@ struct AuthPropertyMembers
 };
 
 /// @brief Definition of <b>""</b> field.
+/// @details
+///     Defined in section 3.15.2.2.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>

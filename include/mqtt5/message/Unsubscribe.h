@@ -7,13 +7,12 @@
 
 #include <tuple>
 #include "comms/MessageBase.h"
-#include "comms/field/ArrayList.h"
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/PacketId.h"
-#include "mqtt5/field/TopicFilter.h"
-#include "mqtt5/field/UnsubscribePropertyList.h"
+#include "mqtt5/field/PacketIdentifier.h"
+#include "mqtt5/field/UnsubscribePayload.h"
+#include "mqtt5/field/UnsubscribeProperties.h"
 #include "mqtt5/message/UnsubscribeCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -32,39 +31,49 @@ namespace message
 template <typename TOpt = mqtt5::options::DefaultOptions>
 struct UnsubscribeFields
 {
-    /// @brief Definition of <b>"Packet ID"</b> field.
-    using PacketId =
-        mqtt5::field::PacketId<
+    /// @brief Definition of <b>"PacketId"</b> field.
+    class PacketId : public
+        mqtt5::field::PacketIdentifier<
             TOpt
-        >;
-
-
-    /// @brief Definition of <b>"Unsubscribe Properties"</b> field.
-    using Properties =
-        mqtt5::field::UnsubscribePropertyList<
-            TOpt
-        >;
-
-
-    /// @brief Definition of <b>"List"</b> field.
-    class List : public
-        comms::field::ArrayList<
-            mqtt5::field::FieldBase<>,
-            mqtt5::field::TopicFilter<TOpt>,
-            typename TOpt::message::UnsubscribeFields::List
         >
     {
         using Base =
-            comms::field::ArrayList<
-                mqtt5::field::FieldBase<>,
-                mqtt5::field::TopicFilter<TOpt>,
-                typename TOpt::message::UnsubscribeFields::List
+            mqtt5::field::PacketIdentifier<
+                TOpt
             >;
     public:
         /// @brief Name of the field.
         static const char* name()
         {
-            return mqtt5::message::UnsubscribeFieldsCommon::ListCommon::name();
+            return mqtt5::message::UnsubscribeFieldsCommon::PacketIdCommon::name();
+        }
+
+
+    };
+
+
+    /// @brief Definition of <b>"Unsubscribe Properties"</b> field.
+    using Properties =
+        mqtt5::field::UnsubscribeProperties<
+            TOpt
+        >;
+
+
+    /// @brief Definition of <b>"Payload"</b> field.
+    class Payload : public
+        mqtt5::field::UnsubscribePayload<
+            TOpt
+        >
+    {
+        using Base =
+            mqtt5::field::UnsubscribePayload<
+                TOpt
+            >;
+    public:
+        /// @brief Name of the field.
+        static const char* name()
+        {
+            return mqtt5::message::UnsubscribeFieldsCommon::PayloadCommon::name();
         }
 
 
@@ -75,7 +84,7 @@ struct UnsubscribeFields
     using All = std::tuple<
         PacketId,
         Properties,
-        List
+        Payload
     >;
 };
 
@@ -118,12 +127,12 @@ public:
     ///         for @ref UnsubscribeFields::PacketId field.
     ///     @li @b FieldIdx_properties index, @b Field_properties type and @b field_properties() access fuction
     ///         for @ref UnsubscribeFields::Properties field.
-    ///     @li @b FieldIdx_list index, @b Field_list type and @b field_list() access fuction
-    ///         for @ref UnsubscribeFields::List field.
+    ///     @li @b FieldIdx_payload index, @b Field_payload type and @b field_payload() access fuction
+    ///         for @ref UnsubscribeFields::Payload field.
     COMMS_MSG_FIELDS_NAMES(
         packetId,
         properties,
-        list
+        payload
     );
 
     // Compile time check for serialisation length.
@@ -163,7 +172,7 @@ public:
             return false;
         }
 
-        return !field_list().value().empty();
+        return !field_payload().value().empty();
     }
 
 

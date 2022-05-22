@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "mqtt5/field/StringCommon.h"
+#include "mqtt5/field/Utf8StringCommon.h"
 
 namespace mqtt5
 {
@@ -17,7 +17,7 @@ namespace field
 
 /// @brief Common types and functions for
 ///     @ref mqtt5::field::TopicFilter field.
-struct TopicFilterCommon : public mqtt5::field::StringCommon
+struct TopicFilterCommon : public mqtt5::field::Utf8StringCommon
 {
     /// @brief Name of the @ref mqtt5::field::TopicFilter field.
     static const char* name()

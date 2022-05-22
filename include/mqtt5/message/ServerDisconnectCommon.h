@@ -7,7 +7,7 @@
 #pragma once
 
 #include "mqtt5/field/DisconnectReasonCodeCommon.h"
-#include "mqtt5/field/ServerDisconnectPropertyListCommon.h"
+#include "mqtt5/field/ServerDisconnectPropertiesCommon.h"
 
 namespace mqtt5
 {
@@ -27,11 +27,11 @@ struct ServerDisconnectFieldsCommon
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ServerDisconnectFields::Properties field.
-    using PropertiesMembersCommon = mqtt5::field::ServerDisconnectPropertyListMembersCommon;
+    using PropertiesMembersCommon = mqtt5::field::ServerDisconnectPropertiesMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ServerDisconnectFields::Properties field.
-    using PropertiesCommon = mqtt5::field::ServerDisconnectPropertyListCommon;
+    using PropertiesCommon = mqtt5::field::ServerDisconnectPropertiesCommon;
 
 };
 

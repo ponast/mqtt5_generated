@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "mqtt5/field/PacketIdCommon.h"
-#include "mqtt5/field/PubackPropertyListCommon.h"
-#include "mqtt5/field/PubackReasonCodeCommon.h"
+#include "mqtt5/field/PacketIdentifierCommon.h"
+#include "mqtt5/field/PubrelPropertiesCommon.h"
+#include "mqtt5/field/PubrelReasonCodeCommon.h"
 
 namespace mqtt5
 {
@@ -24,19 +24,27 @@ struct PubrelFieldsCommon
 {
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PubrelFields::PacketId field.
-    using PacketIdCommon = mqtt5::field::PacketIdCommon;
+    struct PacketIdCommon : public mqtt5::field::PacketIdentifierCommon
+    {
+        /// @brief Name of the @ref mqtt5::message::PubrelFields::PacketId field.
+        static const char* name()
+        {
+            return "PacketId";
+        }
+
+    };
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PubrelFields::ReasonCode field.
-    using ReasonCodeCommon = mqtt5::field::PubackReasonCodeCommon;
+    using ReasonCodeCommon = mqtt5::field::PubrelReasonCodeCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::PubrelFields::Properties field.
-    using PropertiesMembersCommon = mqtt5::field::PubackPropertyListMembersCommon;
+    using PropertiesMembersCommon = mqtt5::field::PubrelPropertiesMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PubrelFields::Properties field.
-    using PropertiesCommon = mqtt5::field::PubackPropertyListCommon;
+    using PropertiesCommon = mqtt5::field::PubrelPropertiesCommon;
 
 };
 

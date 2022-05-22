@@ -5,22 +5,22 @@
 
 #pragma once
 
-#include <cstdint>
 #include <tuple>
 #include "comms/MessageBase.h"
-#include "comms/field/Bitfield.h"
-#include "comms/field/BitmaskValue.h"
-#include "comms/field/IntValue.h"
-#include "comms/field/Optional.h"
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
-#include "mqtt5/field/BinData.h"
-#include "mqtt5/field/ConnectPropertyList.h"
+#include "mqtt5/field/ClientId.h"
+#include "mqtt5/field/ConnectFlags.h"
+#include "mqtt5/field/ConnectProperties.h"
 #include "mqtt5/field/FieldBase.h"
+#include "mqtt5/field/KeepAlive.h"
+#include "mqtt5/field/OptionalPassword.h"
+#include "mqtt5/field/OptionalUserName.h"
+#include "mqtt5/field/OptionalWillPayload.h"
+#include "mqtt5/field/OptionalWillProperties.h"
+#include "mqtt5/field/OptionalWillTopic.h"
 #include "mqtt5/field/ProtocolName.h"
-#include "mqtt5/field/Qos.h"
-#include "mqtt5/field/String.h"
-#include "mqtt5/field/WillPropertyList.h"
+#include "mqtt5/field/ProtocolVersion.h"
 #include "mqtt5/message/ConnectCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -47,513 +47,77 @@ struct ConnectFields
 
 
     /// @brief Definition of <b>"Protocol Version"</b> field.
-    class ProtocolVersion : public
-        comms::field::IntValue<
-            mqtt5::field::FieldBase<>,
-            std::uint8_t,
-            comms::option::def::DefaultNumValue<5>,
-            comms::option::def::ValidNumValue<5>
-        >
-    {
-        using Base =
-            comms::field::IntValue<
-                mqtt5::field::FieldBase<>,
-                std::uint8_t,
-                comms::option::def::DefaultNumValue<5>,
-                comms::option::def::ValidNumValue<5>
-            >;
-    public:
-        /// @brief Re-definition of the value type.
-        using ValueType = typename Base::ValueType;
+    using ProtocolVersion =
+        mqtt5::field::ProtocolVersion<
+            TOpt
+        >;
 
-        /// @brief Compile time detection of special values presence.
-        static constexpr bool hasSpecials()
-        {
-            return mqtt5::message::ConnectFieldsCommon::ProtocolVersionCommon::hasSpecials();
-        }
-
-
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return mqtt5::message::ConnectFieldsCommon::ProtocolVersionCommon::name();
-        }
-
-
-    };
-
-
-    /// @brief Scope for all the member fields of
-    ///     @ref Flags field.
-    struct FlagsMembers
-    {
-        /// @brief Definition of <b>""</b> field.
-        class Low : public
-            comms::field::BitmaskValue<
-                mqtt5::field::FieldBase<>,
-                comms::option::def::FixedBitLength<3U>,
-                comms::option::def::BitmaskReservedBits<0x1U, 0x0U>
-            >
-        {
-            using Base =
-                comms::field::BitmaskValue<
-                    mqtt5::field::FieldBase<>,
-                    comms::option::def::FixedBitLength<3U>,
-                    comms::option::def::BitmaskReservedBits<0x1U, 0x0U>
-                >;
-        public:
-            /// @brief Provide names for internal bits.
-            /// @details See definition of @b COMMS_BITMASK_BITS macro
-            ///     related to @b comms::field::BitmaskValue class from COMMS library
-            ///     for details.
-            ///
-            ///      The generated enum values:
-            ///      @li @b BitIdx_cleanStart.
-            ///      @li @b BitIdx_willFlag.
-            COMMS_BITMASK_BITS(
-                cleanStart=1,
-                willFlag=2
-            );
-
-            /// @brief Generates independent access functions for internal bits.
-            /// @details See definition of @b COMMS_BITMASK_BITS_ACCESS macro
-            ///     related to @b comms::field::BitmaskValue class from COMMS library
-            ///     for details.
-            ///
-            ///     The generated access functions are:
-            ///      @li @b getBitValue_cleanStart() and @b setBitValue_cleanStart().
-            ///      @li @b getBitValue_willFlag() and @b setBitValue_willFlag().
-            COMMS_BITMASK_BITS_ACCESS(
-                cleanStart,
-                willFlag
-            );
-
-            /// @brief Retrieve name of the bit.
-            /// @see @ref mqtt5::message::ConnectFieldsCommon::FlagsMembersCommon::LowCommon::bitName().
-            static const char* bitName(BitIdx idx)
-            {
-                return
-                    mqtt5::message::ConnectFieldsCommon::FlagsMembersCommon::LowCommon::bitName(
-                        static_cast<std::size_t>(idx));
-            }
-
-            /// @brief Name of the field.
-            static const char* name()
-            {
-                return mqtt5::message::ConnectFieldsCommon::FlagsMembersCommon::LowCommon::name();
-            }
-
-
-        };
-
-
-        /// @brief Definition of <b>"Will QoS"</b> field.
-        class WillQos : public
-            mqtt5::field::Qos<
-                TOpt,
-                comms::option::def::FixedBitLength<2U>
-            >
-        {
-            using Base =
-                mqtt5::field::Qos<
-                    TOpt,
-                    comms::option::def::FixedBitLength<2U>
-                >;
-        public:
-            /// @brief Name of the field.
-            static const char* name()
-            {
-                return mqtt5::message::ConnectFieldsCommon::FlagsMembersCommon::WillQosCommon::name();
-            }
-
-
-        };
-
-
-        /// @brief Definition of <b>""</b> field.
-        class High : public
-            comms::field::BitmaskValue<
-                mqtt5::field::FieldBase<>,
-                comms::option::def::FixedBitLength<3U>
-            >
-        {
-            using Base =
-                comms::field::BitmaskValue<
-                    mqtt5::field::FieldBase<>,
-                    comms::option::def::FixedBitLength<3U>
-                >;
-        public:
-            /// @brief Provides names and generates access functions for internal bits.
-            /// @details See definition of @b COMMS_BITMASK_BITS_SEQ macro
-            ///     related to @b comms::field::BitmaskValue class from COMMS library
-            ///     for details.
-            ///
-            ///      The generated enum values and functions are:
-            ///      @li @b BitIdx_willRetain, @b getBitValue_willRetain() and @b setBitValue_willRetain().
-            ///      @li @b BitIdx_passwordFlag, @b getBitValue_passwordFlag() and @b setBitValue_passwordFlag().
-            ///      @li @b BitIdx_userNameFlag, @b getBitValue_userNameFlag() and @b setBitValue_userNameFlag().
-            COMMS_BITMASK_BITS_SEQ(
-                willRetain,
-                passwordFlag,
-                userNameFlag
-            );
-
-            /// @brief Retrieve name of the bit.
-            /// @see @ref mqtt5::message::ConnectFieldsCommon::FlagsMembersCommon::HighCommon::bitName().
-            static const char* bitName(BitIdx idx)
-            {
-                return
-                    mqtt5::message::ConnectFieldsCommon::FlagsMembersCommon::HighCommon::bitName(
-                        static_cast<std::size_t>(idx));
-            }
-
-            /// @brief Name of the field.
-            static const char* name()
-            {
-                return mqtt5::message::ConnectFieldsCommon::FlagsMembersCommon::HighCommon::name();
-            }
-
-
-        };
-
-
-        /// @brief All members bundled in @b std::tuple.
-        using All =
-            std::tuple<
-               Low,
-               WillQos,
-               High
-            >;
-    };
 
     /// @brief Definition of <b>"Connect Flags"</b> field.
-    class Flags : public
-        comms::field::Bitfield<
-            mqtt5::field::FieldBase<>,
-            typename FlagsMembers::All
-        >
-    {
-        using Base =
-            comms::field::Bitfield<
-                mqtt5::field::FieldBase<>,
-                typename FlagsMembers::All
-            >;
-    public:
-        /// @brief Allow access to internal fields.
-        /// @details See definition of @b COMMS_FIELD_MEMBERS_NAMES macro
-        ///     related to @b comms::field::Bitfield class from COMMS library
-        ///     for details.
-        ///
-        ///     The generated values, types and access functions are:
-        ///     @li @b FieldIdx_low index, @b Field_low type and @b field_low() access function -
-        ///         for mqtt5::message::ConnectFields::FlagsMembers::Low member field.
-        ///     @li @b FieldIdx_willQos index, @b Field_willQos type and @b field_willQos() access function -
-        ///         for mqtt5::message::ConnectFields::FlagsMembers::WillQos member field.
-        ///     @li @b FieldIdx_high index, @b Field_high type and @b field_high() access function -
-        ///         for mqtt5::message::ConnectFields::FlagsMembers::High member field.
-        COMMS_FIELD_MEMBERS_NAMES(
-            low,
-            willQos,
-            high
-        );
-
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return mqtt5::message::ConnectFieldsCommon::FlagsCommon::name();
-        }
-
-
-    };
+    using Flags =
+        mqtt5::field::ConnectFlags<
+            TOpt
+        >;
 
 
     /// @brief Definition of <b>"Keep Alive"</b> field.
-    class KeepAlive : public
-        comms::field::IntValue<
-            mqtt5::field::FieldBase<>,
-            std::uint16_t,
-            comms::option::def::UnitsSeconds
-        >
-    {
-        using Base =
-            comms::field::IntValue<
-                mqtt5::field::FieldBase<>,
-                std::uint16_t,
-                comms::option::def::UnitsSeconds
-            >;
-    public:
-        /// @brief Re-definition of the value type.
-        using ValueType = typename Base::ValueType;
-
-        /// @brief Compile time detection of special values presence.
-        static constexpr bool hasSpecials()
-        {
-            return mqtt5::message::ConnectFieldsCommon::KeepAliveCommon::hasSpecials();
-        }
-
-
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return mqtt5::message::ConnectFieldsCommon::KeepAliveCommon::name();
-        }
-
-
-    };
+    using KeepAlive =
+        mqtt5::field::KeepAlive<
+            TOpt
+        >;
 
 
     /// @brief Definition of <b>"Connect Properties"</b> field.
     using Properties =
-        mqtt5::field::ConnectPropertyList<
+        mqtt5::field::ConnectProperties<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Client ID"</b> field.
-    class ClientId : public
-        mqtt5::field::String<
+    using ClientId =
+        mqtt5::field::ClientId<
+            TOpt
+        >;
+
+
+    /// @brief Definition of <b>"Will Properties"</b> field.
+    using WillProperties =
+        mqtt5::field::OptionalWillProperties<
+            TOpt
+        >;
+
+
+    /// @brief Definition of <b>"Will Topic"</b> field.
+    using WillTopic =
+        mqtt5::field::OptionalWillTopic<
+            TOpt
+        >;
+
+
+    /// @brief Definition of <b>"Will Payload"</b> field.
+    using WillPayload =
+        mqtt5::field::OptionalWillPayload<
+            TOpt
+        >;
+
+
+    /// @brief Definition of <b>"User Name"</b> field.
+    using UserName =
+        mqtt5::field::OptionalUserName<
+            TOpt
+        >;
+
+
+    /// @brief Definition of <b>"Password"</b> field.
+    class Password : public
+        mqtt5::field::OptionalPassword<
             TOpt
         >
     {
         using Base =
-            mqtt5::field::String<
+            mqtt5::field::OptionalPassword<
                 TOpt
-            >;
-    public:
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return mqtt5::message::ConnectFieldsCommon::ClientIdCommon::name();
-        }
-
-
-    };
-
-
-    /// @brief Scope for all the member fields of
-    ///     @ref WillProperties field.
-    struct WillPropertiesMembers
-    {
-        /// @brief Definition of <b>"Will Properties"</b> field.
-        using List =
-            mqtt5::field::WillPropertyList<
-                TOpt
-            >;
-
-
-    };
-
-    /// @brief Definition of <b>"Will Properties"</b> field.
-    class WillProperties : public
-        comms::field::Optional<
-            typename WillPropertiesMembers::List,
-            comms::option::def::MissingByDefault
-        >
-    {
-        using Base =
-            comms::field::Optional<
-                typename WillPropertiesMembers::List,
-                comms::option::def::MissingByDefault
-            >;
-    public:
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return mqtt5::message::ConnectFieldsCommon::WillPropertiesCommon::name();
-        }
-
-
-    };
-
-
-    /// @brief Scope for all the member fields of
-    ///     @ref WillTopic field.
-    struct WillTopicMembers
-    {
-        /// @brief Definition of <b>"Will Topic"</b> field.
-        class Value : public
-            mqtt5::field::String<
-                TOpt
-            >
-        {
-            using Base =
-                mqtt5::field::String<
-                    TOpt
-                >;
-        public:
-            /// @brief Name of the field.
-            static const char* name()
-            {
-                return mqtt5::message::ConnectFieldsCommon::WillTopicMembersCommon::ValueCommon::name();
-            }
-
-
-        };
-
-
-    };
-
-    /// @brief Definition of <b>"Will Topic"</b> field.
-    class WillTopic : public
-        comms::field::Optional<
-            typename WillTopicMembers::Value,
-            comms::option::def::MissingByDefault
-        >
-    {
-        using Base =
-            comms::field::Optional<
-                typename WillTopicMembers::Value,
-                comms::option::def::MissingByDefault
-            >;
-    public:
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return mqtt5::message::ConnectFieldsCommon::WillTopicCommon::name();
-        }
-
-
-    };
-
-
-    /// @brief Scope for all the member fields of
-    ///     @ref WillMessage field.
-    struct WillMessageMembers
-    {
-        /// @brief Definition of <b>"Will Message"</b> field.
-        class Value : public
-            mqtt5::field::BinData<
-                TOpt
-            >
-        {
-            using Base =
-                mqtt5::field::BinData<
-                    TOpt
-                >;
-        public:
-            /// @brief Name of the field.
-            static const char* name()
-            {
-                return mqtt5::message::ConnectFieldsCommon::WillMessageMembersCommon::ValueCommon::name();
-            }
-
-
-        };
-
-
-    };
-
-    /// @brief Definition of <b>"Will Message"</b> field.
-    class WillMessage : public
-        comms::field::Optional<
-            typename WillMessageMembers::Value,
-            comms::option::def::MissingByDefault
-        >
-    {
-        using Base =
-            comms::field::Optional<
-                typename WillMessageMembers::Value,
-                comms::option::def::MissingByDefault
-            >;
-    public:
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return mqtt5::message::ConnectFieldsCommon::WillMessageCommon::name();
-        }
-
-
-    };
-
-
-    /// @brief Scope for all the member fields of
-    ///     @ref UserName field.
-    struct UserNameMembers
-    {
-        /// @brief Definition of <b>"User Name"</b> field.
-        class Value : public
-            mqtt5::field::String<
-                TOpt
-            >
-        {
-            using Base =
-                mqtt5::field::String<
-                    TOpt
-                >;
-        public:
-            /// @brief Name of the field.
-            static const char* name()
-            {
-                return mqtt5::message::ConnectFieldsCommon::UserNameMembersCommon::ValueCommon::name();
-            }
-
-
-        };
-
-
-    };
-
-    /// @brief Definition of <b>"User Name"</b> field.
-    class UserName : public
-        comms::field::Optional<
-            typename UserNameMembers::Value,
-            comms::option::def::MissingByDefault
-        >
-    {
-        using Base =
-            comms::field::Optional<
-                typename UserNameMembers::Value,
-                comms::option::def::MissingByDefault
-            >;
-    public:
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return mqtt5::message::ConnectFieldsCommon::UserNameCommon::name();
-        }
-
-
-    };
-
-
-    /// @brief Scope for all the member fields of
-    ///     @ref Password field.
-    struct PasswordMembers
-    {
-        /// @brief Definition of <b>"Value"</b> field.
-        class Value : public
-            mqtt5::field::BinData<
-                TOpt
-            >
-        {
-            using Base =
-                mqtt5::field::BinData<
-                    TOpt
-                >;
-        public:
-            /// @brief Name of the field.
-            static const char* name()
-            {
-                return mqtt5::message::ConnectFieldsCommon::PasswordMembersCommon::ValueCommon::name();
-            }
-
-
-        };
-
-
-    };
-
-    /// @brief Definition of <b>"Password"</b> field.
-    class Password : public
-        comms::field::Optional<
-            typename PasswordMembers::Value,
-            comms::option::def::MissingByDefault
-        >
-    {
-        using Base =
-            comms::field::Optional<
-                typename PasswordMembers::Value,
-                comms::option::def::MissingByDefault
             >;
     public:
         /// @brief Name of the field.
@@ -576,7 +140,7 @@ struct ConnectFields
         ClientId,
         WillProperties,
         WillTopic,
-        WillMessage,
+        WillPayload,
         UserName,
         Password
     >;
@@ -635,8 +199,8 @@ public:
     ///         for @ref ConnectFields::WillProperties field.
     ///     @li @b FieldIdx_willTopic index, @b Field_willTopic type and @b field_willTopic() access fuction
     ///         for @ref ConnectFields::WillTopic field.
-    ///     @li @b FieldIdx_willMessage index, @b Field_willMessage type and @b field_willMessage() access fuction
-    ///         for @ref ConnectFields::WillMessage field.
+    ///     @li @b FieldIdx_willPayload index, @b Field_willPayload type and @b field_willPayload() access fuction
+    ///         for @ref ConnectFields::WillPayload field.
     ///     @li @b FieldIdx_userName index, @b Field_userName type and @b field_userName() access fuction
     ///         for @ref ConnectFields::UserName field.
     ///     @li @b FieldIdx_password index, @b Field_password type and @b field_password() access fuction
@@ -650,7 +214,7 @@ public:
         clientId,
         willProperties,
         willTopic,
-        willMessage,
+        willPayload,
         userName,
         password
     );
@@ -697,7 +261,7 @@ public:
         bool updated = Base::doRefresh();
         updated = refresh_willProperties() || updated;
         updated = refresh_willTopic() || updated;
-        updated = refresh_willMessage() || updated;
+        updated = refresh_willPayload() || updated;
         updated = refresh_userName() || updated;
         updated = refresh_password() || updated;
         return updated;
@@ -732,9 +296,9 @@ private:
         return refreshOptionalField(field_flags().field_low().getBitValue_willFlag(), field_willTopic());
     }
 
-    bool refresh_willMessage()
+    bool refresh_willPayload()
     {
-        return refreshOptionalField(field_flags().field_low().getBitValue_willFlag(), field_willMessage());
+        return refreshOptionalField(field_flags().field_low().getBitValue_willFlag(), field_willPayload());
     }
 
     bool refresh_userName()
@@ -746,8 +310,6 @@ private:
     {
         return refreshOptionalField(field_flags().field_high().getBitValue_passwordFlag(), field_password());
     }
-
-
 
 
 };

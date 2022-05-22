@@ -6,10 +6,10 @@
 
 #pragma once
 
-#include "mqtt5/field/AuthDataCommon.h"
-#include "mqtt5/field/AuthMethodCommon.h"
-#include "mqtt5/field/ReasonStringCommon.h"
-#include "mqtt5/field/UserPropertyCommon.h"
+#include "mqtt5/field/PropertyAuthDataCommon.h"
+#include "mqtt5/field/PropertyAuthMethodCommon.h"
+#include "mqtt5/field/PropertyReasonStringCommon.h"
+#include "mqtt5/field/PropertyUserPropertyCommon.h"
 
 namespace mqtt5
 {
@@ -24,35 +24,35 @@ struct AuthPropertyMembersCommon
 {
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::AuthPropertyMembers::AuthMethod field.
-    using AuthMethodMembersCommon = mqtt5::field::AuthMethodMembersCommon;
+    using AuthMethodMembersCommon = mqtt5::field::PropertyAuthMethodMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::AuthPropertyMembers::AuthMethod field.
-    using AuthMethodCommon = mqtt5::field::AuthMethodCommon;
+    using AuthMethodCommon = mqtt5::field::PropertyAuthMethodCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::AuthPropertyMembers::AuthData field.
-    using AuthDataMembersCommon = mqtt5::field::AuthDataMembersCommon;
+    using AuthDataMembersCommon = mqtt5::field::PropertyAuthDataMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::AuthPropertyMembers::AuthData field.
-    using AuthDataCommon = mqtt5::field::AuthDataCommon;
+    using AuthDataCommon = mqtt5::field::PropertyAuthDataCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::AuthPropertyMembers::ReasonString field.
-    using ReasonStringMembersCommon = mqtt5::field::ReasonStringMembersCommon;
+    using ReasonStringMembersCommon = mqtt5::field::PropertyReasonStringMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::AuthPropertyMembers::ReasonString field.
-    using ReasonStringCommon = mqtt5::field::ReasonStringCommon;
+    using ReasonStringCommon = mqtt5::field::PropertyReasonStringCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::AuthPropertyMembers::UserProperty field.
-    using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
+    using UserPropertyMembersCommon = mqtt5::field::PropertyUserPropertyMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::AuthPropertyMembers::UserProperty field.
-    using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
+    using UserPropertyCommon = mqtt5::field::PropertyUserPropertyCommon;
 
 };
 

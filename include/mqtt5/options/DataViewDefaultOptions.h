@@ -37,11 +37,11 @@ struct DataViewDefaultOptionsT : public TBase
             >;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::String field.
-        using String =
+        ///     mqtt5::field::Utf8String field.
+        using Utf8String =
             std::tuple<
                 comms::option::app::OrigDataView,
-                typename TBase::field::String
+                typename TBase::field::Utf8String
             >;
 
     }; // struct field

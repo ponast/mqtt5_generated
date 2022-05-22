@@ -8,8 +8,8 @@
 #include "comms/field/String.h"
 #include "comms/options.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/Length.h"
 #include "mqtt5/field/ProtocolNameCommon.h"
+#include "mqtt5/field/Utf8StringLength.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 namespace mqtt5
@@ -20,6 +20,8 @@ namespace field
 
 
 /// @brief Definition of <b>"Protocol Name"</b> field.
+/// @details
+///     Defined in section 3.1.2.1.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>
@@ -28,7 +30,7 @@ class ProtocolName : public
         mqtt5::field::FieldBase<>,
         TExtraOpts...,
         typename TOpt::field::ProtocolName,
-        comms::option::def::SequenceSerLengthFieldPrefix<mqtt5::field::Length<TOpt> >
+        comms::option::def::SequenceSerLengthFieldPrefix<mqtt5::field::Utf8StringLength<TOpt> >
     >
 {
     using Base =
@@ -36,7 +38,7 @@ class ProtocolName : public
             mqtt5::field::FieldBase<>,
             TExtraOpts...,
             typename TOpt::field::ProtocolName,
-            comms::option::def::SequenceSerLengthFieldPrefix<mqtt5::field::Length<TOpt> >
+            comms::option::def::SequenceSerLengthFieldPrefix<mqtt5::field::Utf8StringLength<TOpt> >
         >;
 public:
     /// @brief Default constructor

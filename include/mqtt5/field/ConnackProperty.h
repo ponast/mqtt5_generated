@@ -9,25 +9,25 @@
 #include "comms/CompileControl.h"
 #include "comms/field/Variant.h"
 #include "comms/options.h"
-#include "mqtt5/field/AssignedClientId.h"
-#include "mqtt5/field/AuthData.h"
-#include "mqtt5/field/AuthMethod.h"
 #include "mqtt5/field/ConnackPropertyCommon.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/MaxPacketSize.h"
-#include "mqtt5/field/MaxQos.h"
-#include "mqtt5/field/ReasonString.h"
-#include "mqtt5/field/ReceiveMax.h"
-#include "mqtt5/field/ResponseInfo.h"
-#include "mqtt5/field/RetainAvailable.h"
-#include "mqtt5/field/ServerKeepAlive.h"
-#include "mqtt5/field/ServerReference.h"
-#include "mqtt5/field/SessionExpiryInterval.h"
-#include "mqtt5/field/SharedSubAvail.h"
-#include "mqtt5/field/SubIdAvail.h"
-#include "mqtt5/field/TopicAliasMax.h"
-#include "mqtt5/field/UserProperty.h"
-#include "mqtt5/field/WildcardSubAvail.h"
+#include "mqtt5/field/PropertyAssignedClientId.h"
+#include "mqtt5/field/PropertyAuthData.h"
+#include "mqtt5/field/PropertyAuthMethod.h"
+#include "mqtt5/field/PropertyMaxPacketSize.h"
+#include "mqtt5/field/PropertyMaxQos.h"
+#include "mqtt5/field/PropertyReasonString.h"
+#include "mqtt5/field/PropertyReceiveMax.h"
+#include "mqtt5/field/PropertyResponseInfo.h"
+#include "mqtt5/field/PropertyRetainAvailable.h"
+#include "mqtt5/field/PropertyServerKeepAlive.h"
+#include "mqtt5/field/PropertyServerReference.h"
+#include "mqtt5/field/PropertySessionExpiryInterval.h"
+#include "mqtt5/field/PropertySharedSubAvail.h"
+#include "mqtt5/field/PropertySubIdAvail.h"
+#include "mqtt5/field/PropertyTopicAliasMax.h"
+#include "mqtt5/field/PropertyUserProperty.h"
+#include "mqtt5/field/PropertyWildcardSubAvail.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 namespace mqtt5
@@ -45,119 +45,119 @@ struct ConnackPropertyMembers
 {
     /// @brief Definition of <b>"Session Expiry Interval"</b> field.
     using SessionExpiryInterval =
-        mqtt5::field::SessionExpiryInterval<
+        mqtt5::field::PropertySessionExpiryInterval<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Receive Maximum"</b> field.
     using ReceiveMax =
-        mqtt5::field::ReceiveMax<
+        mqtt5::field::PropertyReceiveMax<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Maximum QoS"</b> field.
     using MaxQos =
-        mqtt5::field::MaxQos<
+        mqtt5::field::PropertyMaxQos<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Retain Available"</b> field.
     using RetainAvailable =
-        mqtt5::field::RetainAvailable<
+        mqtt5::field::PropertyRetainAvailable<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Maximum Packet Size"</b> field.
     using MaxPacketSize =
-        mqtt5::field::MaxPacketSize<
+        mqtt5::field::PropertyMaxPacketSize<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Assigned Client ID"</b> field.
     using AssignedClientId =
-        mqtt5::field::AssignedClientId<
+        mqtt5::field::PropertyAssignedClientId<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Topic Alias Maximum"</b> field.
     using TopicAliasMax =
-        mqtt5::field::TopicAliasMax<
+        mqtt5::field::PropertyTopicAliasMax<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Reason String"</b> field.
     using ReasonString =
-        mqtt5::field::ReasonString<
+        mqtt5::field::PropertyReasonString<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
-        mqtt5::field::UserProperty<
+        mqtt5::field::PropertyUserProperty<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Wildcard Subscription Available"</b> field.
     using WildcardSubAvail =
-        mqtt5::field::WildcardSubAvail<
+        mqtt5::field::PropertyWildcardSubAvail<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Subscription ID Available"</b> field.
     using SubIdAvail =
-        mqtt5::field::SubIdAvail<
+        mqtt5::field::PropertySubIdAvail<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Shared Subscription Available"</b> field.
     using SharedSubAvail =
-        mqtt5::field::SharedSubAvail<
+        mqtt5::field::PropertySharedSubAvail<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Server Keep Alive"</b> field.
     using ServerKeepAlive =
-        mqtt5::field::ServerKeepAlive<
+        mqtt5::field::PropertyServerKeepAlive<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Response Information"</b> field.
     using ResponseInfo =
-        mqtt5::field::ResponseInfo<
+        mqtt5::field::PropertyResponseInfo<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Server Reference"</b> field.
     using ServerReference =
-        mqtt5::field::ServerReference<
+        mqtt5::field::PropertyServerReference<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Authentication Method"</b> field.
     using AuthMethod =
-        mqtt5::field::AuthMethod<
+        mqtt5::field::PropertyAuthMethod<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Authentication Data"</b> field.
     using AuthData =
-        mqtt5::field::AuthData<
+        mqtt5::field::PropertyAuthData<
             TOpt
         >;
 
@@ -186,6 +186,8 @@ struct ConnackPropertyMembers
 };
 
 /// @brief Definition of <b>""</b> field.
+/// @details
+///     Defined in section 3.2.2.3.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>

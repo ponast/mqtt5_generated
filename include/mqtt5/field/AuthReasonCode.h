@@ -19,6 +19,8 @@ namespace field
 
 
 /// @brief Definition of <b>"Reason Code"</b> field.
+/// @details
+///     Defined in section 3.15.2.1.
 /// @see @ref mqtt5::field::AuthReasonCodeCommon::ValueType
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.

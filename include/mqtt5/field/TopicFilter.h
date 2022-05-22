@@ -7,8 +7,8 @@
 
 #include "comms/options.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/String.h"
 #include "mqtt5/field/TopicFilterCommon.h"
+#include "mqtt5/field/Utf8String.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 namespace mqtt5
@@ -19,17 +19,19 @@ namespace field
 
 
 /// @brief Definition of <b>"TopicFilter"</b> field.
+/// @details
+///     Defined in section 4.7.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>
 class TopicFilter : public
-    mqtt5::field::String<
+    mqtt5::field::Utf8String<
         TOpt,
         TExtraOpts...
     >
 {
     using Base =
-        mqtt5::field::String<
+        mqtt5::field::Utf8String<
             TOpt,
             TExtraOpts...
         >;

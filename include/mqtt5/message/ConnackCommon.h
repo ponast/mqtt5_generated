@@ -6,8 +6,8 @@
 
 #pragma once
 
-#include <type_traits>
-#include "mqtt5/field/ConnackPropertyListCommon.h"
+#include "mqtt5/field/ConnackFlagsCommon.h"
+#include "mqtt5/field/ConnackPropertiesCommon.h"
 #include "mqtt5/field/ConnackReasonCodeCommon.h"
 
 namespace mqtt5
@@ -24,30 +24,13 @@ struct ConnackFieldsCommon
 {
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnackFields::Flags field.
-    struct FlagsCommon
+    struct FlagsCommon : public mqtt5::field::ConnackFlagsCommon
     {
         /// @brief Name of the @ref mqtt5::message::ConnackFields::Flags field.
         static const char* name()
         {
             return "Flags";
         }
-
-        /// @brief Retrieve name of the bit of
-        ///     @ref mqtt5::message::ConnackFields::Flags field.
-        static const char* bitName(std::size_t idx)
-        {
-            static const char* Map[] = {
-                "Session Present"
-            };
-
-            static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-            if (MapSize <= idx) {
-                return nullptr;
-            }
-
-            return Map[idx];
-        }
-
 
     };
 
@@ -57,11 +40,11 @@ struct ConnackFieldsCommon
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ConnackFields::Properties field.
-    using PropertiesMembersCommon = mqtt5::field::ConnackPropertyListMembersCommon;
+    using PropertiesMembersCommon = mqtt5::field::ConnackPropertiesMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnackFields::Properties field.
-    using PropertiesCommon = mqtt5::field::ConnackPropertyListCommon;
+    using PropertiesCommon = mqtt5::field::ConnackPropertiesCommon;
 
 };
 

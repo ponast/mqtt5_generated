@@ -20,65 +20,75 @@ struct DefaultOptions
     struct field
     {
         /// @brief Extra options for @ref
-        ///     mqtt5::field::AuthPropertyList field.
-        using AuthPropertyList = comms::option::EmptyOption;
+        ///     mqtt5::field::AuthProperties field.
+        using AuthProperties = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
         ///     mqtt5::field::BinData field.
         using BinData = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::ClientDisconnectPropertyList
+        ///     mqtt5::field::ClientDisconnectProperties
         ///     field.
-        using ClientDisconnectPropertyList = comms::option::EmptyOption;
+        using ClientDisconnectProperties = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::ConnackPropertyList field.
-        using ConnackPropertyList = comms::option::EmptyOption;
+        ///     mqtt5::field::ConnackProperties field.
+        using ConnackProperties = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::ConnectPropertyList field.
-        using ConnectPropertyList = comms::option::EmptyOption;
-
-        /// @brief Extra options for @ref
-        ///     mqtt5::field::HandshakePropertyList
-        ///     field.
-        using HandshakePropertyList = comms::option::EmptyOption;
+        ///     mqtt5::field::ConnectProperties field.
+        using ConnectProperties = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
         ///     mqtt5::field::ProtocolName field.
         using ProtocolName = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::PublishPropertyList field.
-        using PublishPropertyList = comms::option::EmptyOption;
+        ///     mqtt5::field::PubackProperties field.
+        using PubackProperties = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::ServerDisconnectPropertyList
+        ///     mqtt5::field::PublishProperties field.
+        using PublishProperties = comms::option::EmptyOption;
+
+        /// @brief Extra options for @ref
+        ///     mqtt5::field::ServerDisconnectProperties
         ///     field.
-        using ServerDisconnectPropertyList = comms::option::EmptyOption;
+        using ServerDisconnectProperties = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::String field.
-        using String = comms::option::EmptyOption;
+        ///     mqtt5::field::SubackPayload field.
+        using SubackPayload = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
         ///     mqtt5::field::SubscribePayload field.
         using SubscribePayload = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::SubscribePropertyList
-        ///     field.
-        using SubscribePropertyList = comms::option::EmptyOption;
+        ///     mqtt5::field::SubscribeProperties field.
+        using SubscribeProperties = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::UnsubscribePropertyList
-        ///     field.
-        using UnsubscribePropertyList = comms::option::EmptyOption;
+        ///     mqtt5::field::UnsubackPayload field.
+        using UnsubackPayload = comms::option::EmptyOption;
 
         /// @brief Extra options for @ref
-        ///     mqtt5::field::WillPropertyList field.
-        using WillPropertyList = comms::option::EmptyOption;
+        ///     mqtt5::field::UnsubscribePayload field.
+        using UnsubscribePayload = comms::option::EmptyOption;
+
+        /// @brief Extra options for @ref
+        ///     mqtt5::field::UnsubscribeProperties
+        ///     field.
+        using UnsubscribeProperties = comms::option::EmptyOption;
+
+        /// @brief Extra options for @ref
+        ///     mqtt5::field::Utf8String field.
+        using Utf8String = comms::option::EmptyOption;
+
+        /// @brief Extra options for @ref
+        ///     mqtt5::field::WillProperties field.
+        using WillProperties = comms::option::EmptyOption;
 
     }; // struct field
 
@@ -122,17 +132,6 @@ struct DefaultOptions
         ///     message.
         using ServerDisconnect = comms::option::EmptyOption;
 
-        /// @brief Extra options for fields of
-        ///     @ref mqtt5::message::Suback message.
-        struct SubackFields
-        {
-            /// @brief Extra options for @ref
-            ///     mqtt5::message::SubackFields::List
-            ///     field.
-            using List = comms::option::EmptyOption;
-
-        };
-
         /// @brief Extra options for @ref
         ///     mqtt5::message::Suback message.
         using Suback = comms::option::EmptyOption;
@@ -141,31 +140,9 @@ struct DefaultOptions
         ///     mqtt5::message::Subscribe message.
         using Subscribe = comms::option::EmptyOption;
 
-        /// @brief Extra options for fields of
-        ///     @ref mqtt5::message::Unsuback message.
-        struct UnsubackFields
-        {
-            /// @brief Extra options for @ref
-            ///     mqtt5::message::UnsubackFields::List
-            ///     field.
-            using List = comms::option::EmptyOption;
-
-        };
-
         /// @brief Extra options for @ref
         ///     mqtt5::message::Unsuback message.
         using Unsuback = comms::option::EmptyOption;
-
-        /// @brief Extra options for fields of
-        ///     @ref mqtt5::message::Unsubscribe message.
-        struct UnsubscribeFields
-        {
-            /// @brief Extra options for @ref
-            ///     mqtt5::message::UnsubscribeFields::List
-            ///     field.
-            using List = comms::option::EmptyOption;
-
-        };
 
         /// @brief Extra options for @ref
         ///     mqtt5::message::Unsubscribe message.

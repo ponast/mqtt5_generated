@@ -19,6 +19,8 @@ namespace field
 
 
 /// @brief Definition of <b>"MsgId"</b> field.
+/// @details
+///     Mapping between MQTT control packet name and value
 /// @see @ref mqtt5::MsgId
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.

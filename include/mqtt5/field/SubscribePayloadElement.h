@@ -50,6 +50,8 @@ struct SubscribePayloadElementMembers
 };
 
 /// @brief Definition of <b>""</b> field.
+/// @details
+///     Defined in section 3.8.3.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>

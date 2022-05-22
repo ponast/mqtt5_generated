@@ -6,14 +6,17 @@
 
 #pragma once
 
-#include <cstdint>
-#include <type_traits>
-#include "mqtt5/field/BinDataCommon.h"
-#include "mqtt5/field/ConnectPropertyListCommon.h"
+#include "mqtt5/field/ClientIdCommon.h"
+#include "mqtt5/field/ConnectFlagsCommon.h"
+#include "mqtt5/field/ConnectPropertiesCommon.h"
+#include "mqtt5/field/KeepAliveCommon.h"
+#include "mqtt5/field/OptionalPasswordCommon.h"
+#include "mqtt5/field/OptionalUserNameCommon.h"
+#include "mqtt5/field/OptionalWillPayloadCommon.h"
+#include "mqtt5/field/OptionalWillPropertiesCommon.h"
+#include "mqtt5/field/OptionalWillTopicCommon.h"
 #include "mqtt5/field/ProtocolNameCommon.h"
-#include "mqtt5/field/QosCommon.h"
-#include "mqtt5/field/StringCommon.h"
-#include "mqtt5/field/WillPropertyListCommon.h"
+#include "mqtt5/field/ProtocolVersionCommon.h"
 
 namespace mqtt5
 {
@@ -33,299 +36,71 @@ struct ConnectFieldsCommon
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnectFields::ProtocolVersion field.
-    struct ProtocolVersionCommon
-    {
-        /// @brief Re-definition of the value type used by
-        ///     mqtt5::message::ConnectFields::ProtocolVersion field.
-        using ValueType = std::uint8_t;
+    using ProtocolVersionCommon = mqtt5::field::ProtocolVersionCommon;
 
-        /// @brief Name of the @ref mqtt5::message::ConnectFields::ProtocolVersion field.
-        static const char* name()
-        {
-            return "Protocol Version";
-        }
-
-        /// @brief Compile time detection of special values presence.
-        static constexpr bool hasSpecials()
-        {
-            return false;
-        }
-
-
-    };
-
-    /// @brief Scope for all the common definitions of the member fields of
+    /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ConnectFields::Flags field.
-    struct FlagsMembersCommon
-    {
-        /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::FlagsMembers::Low field.
-        struct LowCommon
-        {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::FlagsMembers::Low field.
-            static const char* name()
-            {
-                return "";
-            }
-
-            /// @brief Retrieve name of the bit of
-            ///     @ref mqtt5::message::ConnectFields::FlagsMembers::Low field.
-            static const char* bitName(std::size_t idx)
-            {
-                static const char* Map[] = {
-                    nullptr,
-                    "Clean Start",
-                    "Will Flag"
-                };
-
-                static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-                if (MapSize <= idx) {
-                    return nullptr;
-                }
-
-                return Map[idx];
-            }
-
-
-        };
-
-        /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::FlagsMembers::WillQos field.
-        struct WillQosCommon : public mqtt5::field::QosCommon
-        {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::FlagsMembers::WillQos field.
-            static const char* name()
-            {
-                return "Will QoS";
-            }
-
-        };
-
-        /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::FlagsMembers::High field.
-        struct HighCommon
-        {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::FlagsMembers::High field.
-            static const char* name()
-            {
-                return "";
-            }
-
-            /// @brief Retrieve name of the bit of
-            ///     @ref mqtt5::message::ConnectFields::FlagsMembers::High field.
-            static const char* bitName(std::size_t idx)
-            {
-                static const char* Map[] = {
-                    "Will Retain",
-                    "Password Flag",
-                    "User Name Flag"
-                };
-
-                static const std::size_t MapSize = std::extent<decltype(Map)>::value;
-                if (MapSize <= idx) {
-                    return nullptr;
-                }
-
-                return Map[idx];
-            }
-
-
-        };
-
-    };
+    using FlagsMembersCommon = mqtt5::field::ConnectFlagsMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnectFields::Flags field.
-    struct FlagsCommon
-    {
-        /// @brief Name of the @ref mqtt5::message::ConnectFields::Flags field.
-        static const char* name()
-        {
-            return "Connect Flags";
-        }
-
-    };
+    using FlagsCommon = mqtt5::field::ConnectFlagsCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnectFields::KeepAlive field.
-    struct KeepAliveCommon
-    {
-        /// @brief Re-definition of the value type used by
-        ///     mqtt5::message::ConnectFields::KeepAlive field.
-        using ValueType = std::uint16_t;
-
-        /// @brief Name of the @ref mqtt5::message::ConnectFields::KeepAlive field.
-        static const char* name()
-        {
-            return "Keep Alive";
-        }
-
-        /// @brief Compile time detection of special values presence.
-        static constexpr bool hasSpecials()
-        {
-            return false;
-        }
-
-
-    };
+    using KeepAliveCommon = mqtt5::field::KeepAliveCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ConnectFields::Properties field.
-    using PropertiesMembersCommon = mqtt5::field::ConnectPropertyListMembersCommon;
+    using PropertiesMembersCommon = mqtt5::field::ConnectPropertiesMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnectFields::Properties field.
-    using PropertiesCommon = mqtt5::field::ConnectPropertyListCommon;
+    using PropertiesCommon = mqtt5::field::ConnectPropertiesCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnectFields::ClientId field.
-    struct ClientIdCommon : public mqtt5::field::StringCommon
-    {
-        /// @brief Name of the @ref mqtt5::message::ConnectFields::ClientId field.
-        static const char* name()
-        {
-            return "Client ID";
-        }
+    using ClientIdCommon = mqtt5::field::ClientIdCommon;
 
-    };
-
-    /// @brief Scope for all the common definitions of the member fields of
+    /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ConnectFields::WillProperties field.
-    struct WillPropertiesMembersCommon
-    {
-        /// @brief Common definitions of the member fields of
-        ///     @ref mqtt5::message::ConnectFields::WillPropertiesMembers::List field.
-        using ListMembersCommon = mqtt5::field::WillPropertyListMembersCommon;
-
-        /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::WillPropertiesMembers::List field.
-        using ListCommon = mqtt5::field::WillPropertyListCommon;
-
-    };
+    using WillPropertiesMembersCommon = mqtt5::field::OptionalWillPropertiesMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnectFields::WillProperties field.
-    struct WillPropertiesCommon
-    {
-        /// @brief Name of the @ref mqtt5::message::ConnectFields::WillProperties field.
-        static const char* name()
-        {
-            return "Will Properties";
-        }
+    using WillPropertiesCommon = mqtt5::field::OptionalWillPropertiesCommon;
 
-    };
-
-    /// @brief Scope for all the common definitions of the member fields of
+    /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ConnectFields::WillTopic field.
-    struct WillTopicMembersCommon
-    {
-        /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::WillTopicMembers::Value field.
-        struct ValueCommon : public mqtt5::field::StringCommon
-        {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::WillTopicMembers::Value field.
-            static const char* name()
-            {
-                return "Will Topic";
-            }
-
-        };
-
-    };
+    using WillTopicMembersCommon = mqtt5::field::OptionalWillTopicMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnectFields::WillTopic field.
-    struct WillTopicCommon
-    {
-        /// @brief Name of the @ref mqtt5::message::ConnectFields::WillTopic field.
-        static const char* name()
-        {
-            return "Will Topic";
-        }
+    using WillTopicCommon = mqtt5::field::OptionalWillTopicCommon;
 
-    };
-
-    /// @brief Scope for all the common definitions of the member fields of
-    ///     @ref mqtt5::message::ConnectFields::WillMessage field.
-    struct WillMessageMembersCommon
-    {
-        /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::WillMessageMembers::Value field.
-        struct ValueCommon : public mqtt5::field::BinDataCommon
-        {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::WillMessageMembers::Value field.
-            static const char* name()
-            {
-                return "Will Message";
-            }
-
-        };
-
-    };
+    /// @brief Common definitions of the member fields of
+    ///     @ref mqtt5::message::ConnectFields::WillPayload field.
+    using WillPayloadMembersCommon = mqtt5::field::OptionalWillPayloadMembersCommon;
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::message::ConnectFields::WillMessage field.
-    struct WillMessageCommon
-    {
-        /// @brief Name of the @ref mqtt5::message::ConnectFields::WillMessage field.
-        static const char* name()
-        {
-            return "Will Message";
-        }
+    ///     @ref mqtt5::message::ConnectFields::WillPayload field.
+    using WillPayloadCommon = mqtt5::field::OptionalWillPayloadCommon;
 
-    };
-
-    /// @brief Scope for all the common definitions of the member fields of
+    /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ConnectFields::UserName field.
-    struct UserNameMembersCommon
-    {
-        /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::UserNameMembers::Value field.
-        struct ValueCommon : public mqtt5::field::StringCommon
-        {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::UserNameMembers::Value field.
-            static const char* name()
-            {
-                return "User Name";
-            }
-
-        };
-
-    };
+    using UserNameMembersCommon = mqtt5::field::OptionalUserNameMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnectFields::UserName field.
-    struct UserNameCommon
-    {
-        /// @brief Name of the @ref mqtt5::message::ConnectFields::UserName field.
-        static const char* name()
-        {
-            return "User Name";
-        }
+    using UserNameCommon = mqtt5::field::OptionalUserNameCommon;
 
-    };
-
-    /// @brief Scope for all the common definitions of the member fields of
+    /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ConnectFields::Password field.
-    struct PasswordMembersCommon
-    {
-        /// @brief Common types and functions for
-        ///     @ref mqtt5::message::ConnectFields::PasswordMembers::Value field.
-        struct ValueCommon : public mqtt5::field::BinDataCommon
-        {
-            /// @brief Name of the @ref mqtt5::message::ConnectFields::PasswordMembers::Value field.
-            static const char* name()
-            {
-                return "Value";
-            }
-
-        };
-
-    };
+    using PasswordMembersCommon = mqtt5::field::OptionalPasswordMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnectFields::Password field.
-    struct PasswordCommon
+    struct PasswordCommon : public mqtt5::field::OptionalPasswordCommon
     {
         /// @brief Name of the @ref mqtt5::message::ConnectFields::Password field.
         static const char* name()

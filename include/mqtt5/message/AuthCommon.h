@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include "mqtt5/field/AuthPropertyListCommon.h"
+#include "mqtt5/field/AuthPropertiesCommon.h"
 #include "mqtt5/field/AuthReasonCodeCommon.h"
 
 namespace mqtt5
@@ -27,11 +27,11 @@ struct AuthFieldsCommon
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::AuthFields::Properties field.
-    using PropertiesMembersCommon = mqtt5::field::AuthPropertyListMembersCommon;
+    using PropertiesMembersCommon = mqtt5::field::AuthPropertiesMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::AuthFields::Properties field.
-    using PropertiesCommon = mqtt5::field::AuthPropertyListCommon;
+    using PropertiesCommon = mqtt5::field::AuthPropertiesCommon;
 
 };
 

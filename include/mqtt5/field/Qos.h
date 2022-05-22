@@ -19,6 +19,9 @@ namespace field
 
 
 /// @brief Definition of <b>"Qos"</b> field.
+/// @details
+///     Quality of service for MQTT control packet flows. Defined in
+///     section 4.3.
 /// @see @ref mqtt5::field::QosCommon::ValueType
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.

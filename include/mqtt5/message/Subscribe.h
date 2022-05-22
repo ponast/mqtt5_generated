@@ -10,9 +10,9 @@
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/PacketId.h"
+#include "mqtt5/field/PacketIdentifier.h"
 #include "mqtt5/field/SubscribePayload.h"
-#include "mqtt5/field/SubscribePropertyList.h"
+#include "mqtt5/field/SubscribeProperties.h"
 #include "mqtt5/message/SubscribeCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -31,16 +31,30 @@ namespace message
 template <typename TOpt = mqtt5::options::DefaultOptions>
 struct SubscribeFields
 {
-    /// @brief Definition of <b>"Packet ID"</b> field.
-    using PacketId =
-        mqtt5::field::PacketId<
+    /// @brief Definition of <b>"PacketId"</b> field.
+    class PacketId : public
+        mqtt5::field::PacketIdentifier<
             TOpt
-        >;
+        >
+    {
+        using Base =
+            mqtt5::field::PacketIdentifier<
+                TOpt
+            >;
+    public:
+        /// @brief Name of the field.
+        static const char* name()
+        {
+            return mqtt5::message::SubscribeFieldsCommon::PacketIdCommon::name();
+        }
+
+
+    };
 
 
     /// @brief Definition of <b>"Subscribe Properties"</b> field.
     using Properties =
-        mqtt5::field::SubscribePropertyList<
+        mqtt5::field::SubscribeProperties<
             TOpt
         >;
 

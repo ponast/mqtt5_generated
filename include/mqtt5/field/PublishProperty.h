@@ -9,16 +9,16 @@
 #include "comms/CompileControl.h"
 #include "comms/field/Variant.h"
 #include "comms/options.h"
-#include "mqtt5/field/ContentType.h"
-#include "mqtt5/field/CorrelationData.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/MessageExpiryInterval.h"
-#include "mqtt5/field/PayloadFormatIndicator.h"
+#include "mqtt5/field/PropertyContentType.h"
+#include "mqtt5/field/PropertyCorrelationData.h"
+#include "mqtt5/field/PropertyMessageExpiryInterval.h"
+#include "mqtt5/field/PropertyPayloadFormatIndicator.h"
+#include "mqtt5/field/PropertyResponseTopic.h"
+#include "mqtt5/field/PropertySubscriptionId.h"
+#include "mqtt5/field/PropertyTopicAlias.h"
+#include "mqtt5/field/PropertyUserProperty.h"
 #include "mqtt5/field/PublishPropertyCommon.h"
-#include "mqtt5/field/ResponseTopic.h"
-#include "mqtt5/field/SubscriptionId.h"
-#include "mqtt5/field/TopicAlias.h"
-#include "mqtt5/field/UserProperty.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 namespace mqtt5
@@ -34,58 +34,58 @@ namespace field
 template <typename TOpt = mqtt5::options::DefaultOptions>
 struct PublishPropertyMembers
 {
-    /// @brief Definition of <b>"Property Format Indicator"</b> field.
+    /// @brief Definition of <b>"Payload Format Indicator"</b> field.
     using PayloadFormatIndicator =
-        mqtt5::field::PayloadFormatIndicator<
+        mqtt5::field::PropertyPayloadFormatIndicator<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Message Expiry Interval"</b> field.
     using MessageExpiryInterval =
-        mqtt5::field::MessageExpiryInterval<
+        mqtt5::field::PropertyMessageExpiryInterval<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Topic Alias"</b> field.
     using TopicAlias =
-        mqtt5::field::TopicAlias<
+        mqtt5::field::PropertyTopicAlias<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Response Topic"</b> field.
     using ResponseTopic =
-        mqtt5::field::ResponseTopic<
+        mqtt5::field::PropertyResponseTopic<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Correlation Data"</b> field.
     using CorrelationData =
-        mqtt5::field::CorrelationData<
+        mqtt5::field::PropertyCorrelationData<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
-        mqtt5::field::UserProperty<
+        mqtt5::field::PropertyUserProperty<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Subscription ID"</b> field.
     using SubscriptionId =
-        mqtt5::field::SubscriptionId<
+        mqtt5::field::PropertySubscriptionId<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Content Type"</b> field.
     using ContentType =
-        mqtt5::field::ContentType<
+        mqtt5::field::PropertyContentType<
             TOpt
         >;
 
@@ -105,6 +105,8 @@ struct PublishPropertyMembers
 };
 
 /// @brief Definition of <b>""</b> field.
+/// @details
+///     Defined in section 3.3.2.3.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>

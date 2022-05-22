@@ -9,12 +9,11 @@
 #include <tuple>
 #include "comms/MessageBase.h"
 #include "comms/field/ArrayList.h"
-#include "comms/field/Optional.h"
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/PacketId.h"
-#include "mqtt5/field/PublishPropertyList.h"
+#include "mqtt5/field/OptionalPacketIdentifier.h"
+#include "mqtt5/field/PublishProperties.h"
 #include "mqtt5/field/TopicName.h"
 #include "mqtt5/message/PublishCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
@@ -42,31 +41,15 @@ struct PublishFields
 
 
     /// @brief Definition of <b>"Packet ID"</b> field.
-    class PacketId : public
-        comms::field::Optional<
-            mqtt5::field::PacketId<TOpt>,
-            comms::option::def::MissingByDefault
-        >
-    {
-        using Base =
-            comms::field::Optional<
-                mqtt5::field::PacketId<TOpt>,
-                comms::option::def::MissingByDefault
-            >;
-    public:
-        /// @brief Name of the field.
-        static const char* name()
-        {
-            return mqtt5::message::PublishFieldsCommon::PacketIdCommon::name();
-        }
-
-
-    };
+    using PacketId =
+        mqtt5::field::OptionalPacketIdentifier<
+            TOpt
+        >;
 
 
     /// @brief Definition of <b>"Publish Properties"</b> field.
     using Properties =
-        mqtt5::field::PublishPropertyList<
+        mqtt5::field::PublishProperties<
             TOpt
         >;
 

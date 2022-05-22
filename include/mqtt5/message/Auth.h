@@ -9,7 +9,7 @@
 #include "comms/MessageBase.h"
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
-#include "mqtt5/field/AuthPropertyList.h"
+#include "mqtt5/field/AuthProperties.h"
 #include "mqtt5/field/AuthReasonCode.h"
 #include "mqtt5/field/FieldBase.h"
 #include "mqtt5/message/AuthCommon.h"
@@ -39,7 +39,7 @@ struct AuthFields
 
     /// @brief Definition of <b>"Auth Properties"</b> field.
     using Properties =
-        mqtt5::field::AuthPropertyList<
+        mqtt5::field::AuthProperties<
             TOpt
         >;
 

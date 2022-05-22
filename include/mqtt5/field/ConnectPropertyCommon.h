@@ -6,15 +6,15 @@
 
 #pragma once
 
-#include "mqtt5/field/AuthDataCommon.h"
-#include "mqtt5/field/AuthMethodCommon.h"
-#include "mqtt5/field/MaxPacketSizeCommon.h"
-#include "mqtt5/field/ReceiveMaxCommon.h"
-#include "mqtt5/field/RequestProblemInfoCommon.h"
-#include "mqtt5/field/RequestResponseInfoCommon.h"
-#include "mqtt5/field/SessionExpiryIntervalCommon.h"
-#include "mqtt5/field/TopicAliasMaxCommon.h"
-#include "mqtt5/field/UserPropertyCommon.h"
+#include "mqtt5/field/PropertyAuthDataCommon.h"
+#include "mqtt5/field/PropertyAuthMethodCommon.h"
+#include "mqtt5/field/PropertyMaxPacketSizeCommon.h"
+#include "mqtt5/field/PropertyReceiveMaxCommon.h"
+#include "mqtt5/field/PropertyRequestProblemInfoCommon.h"
+#include "mqtt5/field/PropertyRequestResponseInfoCommon.h"
+#include "mqtt5/field/PropertySessionExpiryIntervalCommon.h"
+#include "mqtt5/field/PropertyTopicAliasMaxCommon.h"
+#include "mqtt5/field/PropertyUserPropertyCommon.h"
 
 namespace mqtt5
 {
@@ -29,75 +29,75 @@ struct ConnectPropertyMembersCommon
 {
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::SessionExpiryInterval field.
-    using SessionExpiryIntervalMembersCommon = mqtt5::field::SessionExpiryIntervalMembersCommon;
+    using SessionExpiryIntervalMembersCommon = mqtt5::field::PropertySessionExpiryIntervalMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::SessionExpiryInterval field.
-    using SessionExpiryIntervalCommon = mqtt5::field::SessionExpiryIntervalCommon;
+    using SessionExpiryIntervalCommon = mqtt5::field::PropertySessionExpiryIntervalCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::ReceiveMax field.
-    using ReceiveMaxMembersCommon = mqtt5::field::ReceiveMaxMembersCommon;
+    using ReceiveMaxMembersCommon = mqtt5::field::PropertyReceiveMaxMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::ReceiveMax field.
-    using ReceiveMaxCommon = mqtt5::field::ReceiveMaxCommon;
+    using ReceiveMaxCommon = mqtt5::field::PropertyReceiveMaxCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::MaxPacketSize field.
-    using MaxPacketSizeMembersCommon = mqtt5::field::MaxPacketSizeMembersCommon;
+    using MaxPacketSizeMembersCommon = mqtt5::field::PropertyMaxPacketSizeMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::MaxPacketSize field.
-    using MaxPacketSizeCommon = mqtt5::field::MaxPacketSizeCommon;
+    using MaxPacketSizeCommon = mqtt5::field::PropertyMaxPacketSizeCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::TopicAliasMax field.
-    using TopicAliasMaxMembersCommon = mqtt5::field::TopicAliasMaxMembersCommon;
+    using TopicAliasMaxMembersCommon = mqtt5::field::PropertyTopicAliasMaxMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::TopicAliasMax field.
-    using TopicAliasMaxCommon = mqtt5::field::TopicAliasMaxCommon;
+    using TopicAliasMaxCommon = mqtt5::field::PropertyTopicAliasMaxCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::RequestResponseInfo field.
-    using RequestResponseInfoMembersCommon = mqtt5::field::RequestResponseInfoMembersCommon;
+    using RequestResponseInfoMembersCommon = mqtt5::field::PropertyRequestResponseInfoMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::RequestResponseInfo field.
-    using RequestResponseInfoCommon = mqtt5::field::RequestResponseInfoCommon;
+    using RequestResponseInfoCommon = mqtt5::field::PropertyRequestResponseInfoCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::RequestProblemInfo field.
-    using RequestProblemInfoMembersCommon = mqtt5::field::RequestProblemInfoMembersCommon;
+    using RequestProblemInfoMembersCommon = mqtt5::field::PropertyRequestProblemInfoMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::RequestProblemInfo field.
-    using RequestProblemInfoCommon = mqtt5::field::RequestProblemInfoCommon;
+    using RequestProblemInfoCommon = mqtt5::field::PropertyRequestProblemInfoCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::UserProperty field.
-    using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
+    using UserPropertyMembersCommon = mqtt5::field::PropertyUserPropertyMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::UserProperty field.
-    using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
+    using UserPropertyCommon = mqtt5::field::PropertyUserPropertyCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::AuthMethod field.
-    using AuthMethodMembersCommon = mqtt5::field::AuthMethodMembersCommon;
+    using AuthMethodMembersCommon = mqtt5::field::PropertyAuthMethodMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::AuthMethod field.
-    using AuthMethodCommon = mqtt5::field::AuthMethodCommon;
+    using AuthMethodCommon = mqtt5::field::PropertyAuthMethodCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnectPropertyMembers::AuthData field.
-    using AuthDataMembersCommon = mqtt5::field::AuthDataMembersCommon;
+    using AuthDataMembersCommon = mqtt5::field::PropertyAuthDataMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnectPropertyMembers::AuthData field.
-    using AuthDataCommon = mqtt5::field::AuthDataCommon;
+    using AuthDataCommon = mqtt5::field::PropertyAuthDataCommon;
 
 };
 

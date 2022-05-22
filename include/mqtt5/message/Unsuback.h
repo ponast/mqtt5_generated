@@ -7,13 +7,12 @@
 
 #include <tuple>
 #include "comms/MessageBase.h"
-#include "comms/field/ArrayList.h"
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/PacketId.h"
-#include "mqtt5/field/UnsubackPropertyList.h"
-#include "mqtt5/field/UnsubackReasonCode.h"
+#include "mqtt5/field/PacketIdentifier.h"
+#include "mqtt5/field/UnsubackPayload.h"
+#include "mqtt5/field/UnsubackProperties.h"
 #include "mqtt5/message/UnsubackCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -32,39 +31,49 @@ namespace message
 template <typename TOpt = mqtt5::options::DefaultOptions>
 struct UnsubackFields
 {
-    /// @brief Definition of <b>"Packet ID"</b> field.
-    using PacketId =
-        mqtt5::field::PacketId<
+    /// @brief Definition of <b>"PacketId"</b> field.
+    class PacketId : public
+        mqtt5::field::PacketIdentifier<
             TOpt
-        >;
-
-
-    /// @brief Definition of <b>"Handshake Properties"</b> field.
-    using Properties =
-        mqtt5::field::UnsubackPropertyList<
-            TOpt
-        >;
-
-
-    /// @brief Definition of <b>"List"</b> field.
-    class List : public
-        comms::field::ArrayList<
-            mqtt5::field::FieldBase<>,
-            mqtt5::field::UnsubackReasonCode<TOpt>,
-            typename TOpt::message::UnsubackFields::List
         >
     {
         using Base =
-            comms::field::ArrayList<
-                mqtt5::field::FieldBase<>,
-                mqtt5::field::UnsubackReasonCode<TOpt>,
-                typename TOpt::message::UnsubackFields::List
+            mqtt5::field::PacketIdentifier<
+                TOpt
             >;
     public:
         /// @brief Name of the field.
         static const char* name()
         {
-            return mqtt5::message::UnsubackFieldsCommon::ListCommon::name();
+            return mqtt5::message::UnsubackFieldsCommon::PacketIdCommon::name();
+        }
+
+
+    };
+
+
+    /// @brief Definition of <b>"Puback Properties"</b> field.
+    using Properties =
+        mqtt5::field::UnsubackProperties<
+            TOpt
+        >;
+
+
+    /// @brief Definition of <b>"Payload"</b> field.
+    class Payload : public
+        mqtt5::field::UnsubackPayload<
+            TOpt
+        >
+    {
+        using Base =
+            mqtt5::field::UnsubackPayload<
+                TOpt
+            >;
+    public:
+        /// @brief Name of the field.
+        static const char* name()
+        {
+            return mqtt5::message::UnsubackFieldsCommon::PayloadCommon::name();
         }
 
 
@@ -75,7 +84,7 @@ struct UnsubackFields
     using All = std::tuple<
         PacketId,
         Properties,
-        List
+        Payload
     >;
 };
 
@@ -118,12 +127,12 @@ public:
     ///         for @ref UnsubackFields::PacketId field.
     ///     @li @b FieldIdx_properties index, @b Field_properties type and @b field_properties() access fuction
     ///         for @ref UnsubackFields::Properties field.
-    ///     @li @b FieldIdx_list index, @b Field_list type and @b field_list() access fuction
-    ///         for @ref UnsubackFields::List field.
+    ///     @li @b FieldIdx_payload index, @b Field_payload type and @b field_payload() access fuction
+    ///         for @ref UnsubackFields::Payload field.
     COMMS_MSG_FIELDS_NAMES(
         packetId,
         properties,
-        list
+        payload
     );
 
     // Compile time check for serialisation length.

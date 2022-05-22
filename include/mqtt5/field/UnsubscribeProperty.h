@@ -10,8 +10,8 @@
 #include "comms/field/Variant.h"
 #include "comms/options.h"
 #include "mqtt5/field/FieldBase.h"
+#include "mqtt5/field/PropertyUserProperty.h"
 #include "mqtt5/field/UnsubscribePropertyCommon.h"
-#include "mqtt5/field/UserProperty.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 namespace mqtt5
@@ -29,7 +29,7 @@ struct UnsubscribePropertyMembers
 {
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
-        mqtt5::field::UserProperty<
+        mqtt5::field::PropertyUserProperty<
             TOpt
         >;
 
@@ -42,6 +42,8 @@ struct UnsubscribePropertyMembers
 };
 
 /// @brief Definition of <b>""</b> field.
+/// @details
+///     Defined in section 3.10.2.1.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>

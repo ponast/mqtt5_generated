@@ -35,6 +35,8 @@ struct SubscribePayloadMembers
 };
 
 /// @brief Definition of <b>"SubscribePayload"</b> field.
+/// @details
+///     Defined in section 3.8.3.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>

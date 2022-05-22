@@ -9,8 +9,8 @@
 #include "comms/field/ArrayList.h"
 #include "comms/options.h"
 #include "mqtt5/field/BinDataCommon.h"
+#include "mqtt5/field/BinDataLength.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/Length.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 namespace mqtt5
@@ -21,6 +21,8 @@ namespace field
 
 
 /// @brief Definition of <b>"BinData"</b> field.
+/// @details
+///     Defined in section 1.5.6.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>
@@ -30,7 +32,7 @@ class BinData : public
         std::uint8_t,
         TExtraOpts...,
         typename TOpt::field::BinData,
-        comms::option::def::SequenceSerLengthFieldPrefix<mqtt5::field::Length<TOpt> >
+        comms::option::def::SequenceSerLengthFieldPrefix<mqtt5::field::BinDataLength<TOpt> >
     >
 {
     using Base =
@@ -39,7 +41,7 @@ class BinData : public
             std::uint8_t,
             TExtraOpts...,
             typename TOpt::field::BinData,
-            comms::option::def::SequenceSerLengthFieldPrefix<mqtt5::field::Length<TOpt> >
+            comms::option::def::SequenceSerLengthFieldPrefix<mqtt5::field::BinDataLength<TOpt> >
         >;
 public:
     /// @brief Name of the field.

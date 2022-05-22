@@ -6,7 +6,8 @@
 
 #pragma once
 
-#include "mqtt5/field/PublishPropertyListCommon.h"
+#include "mqtt5/field/OptionalPacketIdentifierCommon.h"
+#include "mqtt5/field/PublishPropertiesCommon.h"
 #include "mqtt5/field/TopicNameCommon.h"
 
 namespace mqtt5
@@ -25,25 +26,21 @@ struct PublishFieldsCommon
     ///     @ref mqtt5::message::PublishFields::TopicName field.
     using TopicNameCommon = mqtt5::field::TopicNameCommon;
 
+    /// @brief Common definitions of the member fields of
+    ///     @ref mqtt5::message::PublishFields::PacketId field.
+    using PacketIdMembersCommon = mqtt5::field::OptionalPacketIdentifierMembersCommon;
+
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PublishFields::PacketId field.
-    struct PacketIdCommon
-    {
-        /// @brief Name of the @ref mqtt5::message::PublishFields::PacketId field.
-        static const char* name()
-        {
-            return "Packet ID";
-        }
-
-    };
+    using PacketIdCommon = mqtt5::field::OptionalPacketIdentifierCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::PublishFields::Properties field.
-    using PropertiesMembersCommon = mqtt5::field::PublishPropertyListMembersCommon;
+    using PropertiesMembersCommon = mqtt5::field::PublishPropertiesMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PublishFields::Properties field.
-    using PropertiesCommon = mqtt5::field::PublishPropertyListCommon;
+    using PropertiesCommon = mqtt5::field::PublishPropertiesCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::PublishFields::Payload field.

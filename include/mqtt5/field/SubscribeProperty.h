@@ -10,9 +10,9 @@
 #include "comms/field/Variant.h"
 #include "comms/options.h"
 #include "mqtt5/field/FieldBase.h"
+#include "mqtt5/field/PropertySubscriptionId.h"
+#include "mqtt5/field/PropertyUserProperty.h"
 #include "mqtt5/field/SubscribePropertyCommon.h"
-#include "mqtt5/field/SubscriptionId.h"
-#include "mqtt5/field/UserProperty.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 namespace mqtt5
@@ -30,14 +30,14 @@ struct SubscribePropertyMembers
 {
     /// @brief Definition of <b>"Subscription ID"</b> field.
     using SubscriptionId =
-        mqtt5::field::SubscriptionId<
+        mqtt5::field::PropertySubscriptionId<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
-        mqtt5::field::UserProperty<
+        mqtt5::field::PropertyUserProperty<
             TOpt
         >;
 
@@ -51,6 +51,8 @@ struct SubscribePropertyMembers
 };
 
 /// @brief Definition of <b>""</b> field.
+/// @details
+///     Defined in section 3.8.2.1.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>

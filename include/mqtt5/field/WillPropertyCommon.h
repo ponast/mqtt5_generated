@@ -6,13 +6,13 @@
 
 #pragma once
 
-#include "mqtt5/field/ContentTypeCommon.h"
-#include "mqtt5/field/CorrelationDataCommon.h"
-#include "mqtt5/field/MessageExpiryIntervalCommon.h"
-#include "mqtt5/field/PayloadFormatIndicatorCommon.h"
-#include "mqtt5/field/ResponseTopicCommon.h"
-#include "mqtt5/field/UserPropertyCommon.h"
-#include "mqtt5/field/WillDelayIntervalCommon.h"
+#include "mqtt5/field/PropertyContentTypeCommon.h"
+#include "mqtt5/field/PropertyCorrelationDataCommon.h"
+#include "mqtt5/field/PropertyMessageExpiryIntervalCommon.h"
+#include "mqtt5/field/PropertyPayloadFormatIndicatorCommon.h"
+#include "mqtt5/field/PropertyResponseTopicCommon.h"
+#include "mqtt5/field/PropertyUserPropertyCommon.h"
+#include "mqtt5/field/PropertyWillDelayIntervalCommon.h"
 
 namespace mqtt5
 {
@@ -27,59 +27,59 @@ struct WillPropertyMembersCommon
 {
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::WillPropertyMembers::WillDelayInterval field.
-    using WillDelayIntervalMembersCommon = mqtt5::field::WillDelayIntervalMembersCommon;
+    using WillDelayIntervalMembersCommon = mqtt5::field::PropertyWillDelayIntervalMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::WillPropertyMembers::WillDelayInterval field.
-    using WillDelayIntervalCommon = mqtt5::field::WillDelayIntervalCommon;
+    using WillDelayIntervalCommon = mqtt5::field::PropertyWillDelayIntervalCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::WillPropertyMembers::PayloadFormatIndicator field.
-    using PayloadFormatIndicatorMembersCommon = mqtt5::field::PayloadFormatIndicatorMembersCommon;
+    using PayloadFormatIndicatorMembersCommon = mqtt5::field::PropertyPayloadFormatIndicatorMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::WillPropertyMembers::PayloadFormatIndicator field.
-    using PayloadFormatIndicatorCommon = mqtt5::field::PayloadFormatIndicatorCommon;
+    using PayloadFormatIndicatorCommon = mqtt5::field::PropertyPayloadFormatIndicatorCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::WillPropertyMembers::MessageExpiryInterval field.
-    using MessageExpiryIntervalMembersCommon = mqtt5::field::MessageExpiryIntervalMembersCommon;
+    using MessageExpiryIntervalMembersCommon = mqtt5::field::PropertyMessageExpiryIntervalMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::WillPropertyMembers::MessageExpiryInterval field.
-    using MessageExpiryIntervalCommon = mqtt5::field::MessageExpiryIntervalCommon;
+    using MessageExpiryIntervalCommon = mqtt5::field::PropertyMessageExpiryIntervalCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::WillPropertyMembers::ContentType field.
-    using ContentTypeMembersCommon = mqtt5::field::ContentTypeMembersCommon;
+    using ContentTypeMembersCommon = mqtt5::field::PropertyContentTypeMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::WillPropertyMembers::ContentType field.
-    using ContentTypeCommon = mqtt5::field::ContentTypeCommon;
+    using ContentTypeCommon = mqtt5::field::PropertyContentTypeCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::WillPropertyMembers::ResponseTopic field.
-    using ResponseTopicMembersCommon = mqtt5::field::ResponseTopicMembersCommon;
+    using ResponseTopicMembersCommon = mqtt5::field::PropertyResponseTopicMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::WillPropertyMembers::ResponseTopic field.
-    using ResponseTopicCommon = mqtt5::field::ResponseTopicCommon;
+    using ResponseTopicCommon = mqtt5::field::PropertyResponseTopicCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::WillPropertyMembers::CorrelationData field.
-    using CorrelationDataMembersCommon = mqtt5::field::CorrelationDataMembersCommon;
+    using CorrelationDataMembersCommon = mqtt5::field::PropertyCorrelationDataMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::WillPropertyMembers::CorrelationData field.
-    using CorrelationDataCommon = mqtt5::field::CorrelationDataCommon;
+    using CorrelationDataCommon = mqtt5::field::PropertyCorrelationDataCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::WillPropertyMembers::UserProperty field.
-    using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
+    using UserPropertyMembersCommon = mqtt5::field::PropertyUserPropertyMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::WillPropertyMembers::UserProperty field.
-    using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
+    using UserPropertyCommon = mqtt5::field::PropertyUserPropertyCommon;
 
 };
 

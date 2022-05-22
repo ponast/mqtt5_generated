@@ -11,7 +11,7 @@
 #include "mqtt5/MsgId.h"
 #include "mqtt5/field/DisconnectReasonCode.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/ServerDisconnectPropertyList.h"
+#include "mqtt5/field/ServerDisconnectProperties.h"
 #include "mqtt5/message/ServerDisconnectCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -39,7 +39,7 @@ struct ServerDisconnectFields
 
     /// @brief Definition of <b>"Server Disconnect Properties"</b> field.
     using Properties =
-        mqtt5::field::ServerDisconnectPropertyList<
+        mqtt5::field::ServerDisconnectProperties<
             TOpt
         >;
 

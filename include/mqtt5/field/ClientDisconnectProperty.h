@@ -11,10 +11,10 @@
 #include "comms/options.h"
 #include "mqtt5/field/ClientDisconnectPropertyCommon.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/field/ReasonString.h"
-#include "mqtt5/field/ServerReference.h"
-#include "mqtt5/field/SessionExpiryInterval.h"
-#include "mqtt5/field/UserProperty.h"
+#include "mqtt5/field/PropertyReasonString.h"
+#include "mqtt5/field/PropertyServerReference.h"
+#include "mqtt5/field/PropertySessionExpiryInterval.h"
+#include "mqtt5/field/PropertyUserProperty.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 namespace mqtt5
@@ -32,28 +32,28 @@ struct ClientDisconnectPropertyMembers
 {
     /// @brief Definition of <b>"Session Expiry Interval"</b> field.
     using SessionExpiryInterval =
-        mqtt5::field::SessionExpiryInterval<
+        mqtt5::field::PropertySessionExpiryInterval<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Reason String"</b> field.
     using ReasonString =
-        mqtt5::field::ReasonString<
+        mqtt5::field::PropertyReasonString<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"User Property"</b> field.
     using UserProperty =
-        mqtt5::field::UserProperty<
+        mqtt5::field::PropertyUserProperty<
             TOpt
         >;
 
 
     /// @brief Definition of <b>"Server Reference"</b> field.
     using ServerReference =
-        mqtt5::field::ServerReference<
+        mqtt5::field::PropertyServerReference<
             TOpt
         >;
 
@@ -69,6 +69,8 @@ struct ClientDisconnectPropertyMembers
 };
 
 /// @brief Definition of <b>""</b> field.
+/// @details
+///     Defined in section 3.14.2.1.
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>

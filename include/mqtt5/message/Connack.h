@@ -7,10 +7,10 @@
 
 #include <tuple>
 #include "comms/MessageBase.h"
-#include "comms/field/BitmaskValue.h"
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
-#include "mqtt5/field/ConnackPropertyList.h"
+#include "mqtt5/field/ConnackFlags.h"
+#include "mqtt5/field/ConnackProperties.h"
 #include "mqtt5/field/ConnackReasonCode.h"
 #include "mqtt5/field/FieldBase.h"
 #include "mqtt5/message/ConnackCommon.h"
@@ -33,39 +33,15 @@ struct ConnackFields
 {
     /// @brief Definition of <b>"Flags"</b> field.
     class Flags : public
-        comms::field::BitmaskValue<
-            mqtt5::field::FieldBase<>,
-            comms::option::def::FixedLength<1U>,
-            comms::option::def::BitmaskReservedBits<0xFEU, 0x0U>
+        mqtt5::field::ConnackFlags<
+            TOpt
         >
     {
         using Base =
-            comms::field::BitmaskValue<
-                mqtt5::field::FieldBase<>,
-                comms::option::def::FixedLength<1U>,
-                comms::option::def::BitmaskReservedBits<0xFEU, 0x0U>
+            mqtt5::field::ConnackFlags<
+                TOpt
             >;
     public:
-        /// @brief Provides names and generates access functions for internal bits.
-        /// @details See definition of @b COMMS_BITMASK_BITS_SEQ macro
-        ///     related to @b comms::field::BitmaskValue class from COMMS library
-        ///     for details.
-        ///
-        ///      The generated enum values and functions are:
-        ///      @li @b BitIdx_sp, @b getBitValue_sp() and @b setBitValue_sp().
-        COMMS_BITMASK_BITS_SEQ(
-            sp
-        );
-
-        /// @brief Retrieve name of the bit.
-        /// @see @ref mqtt5::message::ConnackFieldsCommon::FlagsCommon::bitName().
-        static const char* bitName(BitIdx idx)
-        {
-            return
-                mqtt5::message::ConnackFieldsCommon::FlagsCommon::bitName(
-                    static_cast<std::size_t>(idx));
-        }
-
         /// @brief Name of the field.
         static const char* name()
         {
@@ -85,7 +61,7 @@ struct ConnackFields
 
     /// @brief Definition of <b>"Connack Properties"</b> field.
     using Properties =
-        mqtt5::field::ConnackPropertyList<
+        mqtt5::field::ConnackProperties<
             TOpt
         >;
 

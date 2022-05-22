@@ -6,23 +6,23 @@
 
 #pragma once
 
-#include "mqtt5/field/AssignedClientIdCommon.h"
-#include "mqtt5/field/AuthDataCommon.h"
-#include "mqtt5/field/AuthMethodCommon.h"
-#include "mqtt5/field/MaxPacketSizeCommon.h"
-#include "mqtt5/field/MaxQosCommon.h"
-#include "mqtt5/field/ReasonStringCommon.h"
-#include "mqtt5/field/ReceiveMaxCommon.h"
-#include "mqtt5/field/ResponseInfoCommon.h"
-#include "mqtt5/field/RetainAvailableCommon.h"
-#include "mqtt5/field/ServerKeepAliveCommon.h"
-#include "mqtt5/field/ServerReferenceCommon.h"
-#include "mqtt5/field/SessionExpiryIntervalCommon.h"
-#include "mqtt5/field/SharedSubAvailCommon.h"
-#include "mqtt5/field/SubIdAvailCommon.h"
-#include "mqtt5/field/TopicAliasMaxCommon.h"
-#include "mqtt5/field/UserPropertyCommon.h"
-#include "mqtt5/field/WildcardSubAvailCommon.h"
+#include "mqtt5/field/PropertyAssignedClientIdCommon.h"
+#include "mqtt5/field/PropertyAuthDataCommon.h"
+#include "mqtt5/field/PropertyAuthMethodCommon.h"
+#include "mqtt5/field/PropertyMaxPacketSizeCommon.h"
+#include "mqtt5/field/PropertyMaxQosCommon.h"
+#include "mqtt5/field/PropertyReasonStringCommon.h"
+#include "mqtt5/field/PropertyReceiveMaxCommon.h"
+#include "mqtt5/field/PropertyResponseInfoCommon.h"
+#include "mqtt5/field/PropertyRetainAvailableCommon.h"
+#include "mqtt5/field/PropertyServerKeepAliveCommon.h"
+#include "mqtt5/field/PropertyServerReferenceCommon.h"
+#include "mqtt5/field/PropertySessionExpiryIntervalCommon.h"
+#include "mqtt5/field/PropertySharedSubAvailCommon.h"
+#include "mqtt5/field/PropertySubIdAvailCommon.h"
+#include "mqtt5/field/PropertyTopicAliasMaxCommon.h"
+#include "mqtt5/field/PropertyUserPropertyCommon.h"
+#include "mqtt5/field/PropertyWildcardSubAvailCommon.h"
 
 namespace mqtt5
 {
@@ -37,139 +37,139 @@ struct ConnackPropertyMembersCommon
 {
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::SessionExpiryInterval field.
-    using SessionExpiryIntervalMembersCommon = mqtt5::field::SessionExpiryIntervalMembersCommon;
+    using SessionExpiryIntervalMembersCommon = mqtt5::field::PropertySessionExpiryIntervalMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::SessionExpiryInterval field.
-    using SessionExpiryIntervalCommon = mqtt5::field::SessionExpiryIntervalCommon;
+    using SessionExpiryIntervalCommon = mqtt5::field::PropertySessionExpiryIntervalCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::ReceiveMax field.
-    using ReceiveMaxMembersCommon = mqtt5::field::ReceiveMaxMembersCommon;
+    using ReceiveMaxMembersCommon = mqtt5::field::PropertyReceiveMaxMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::ReceiveMax field.
-    using ReceiveMaxCommon = mqtt5::field::ReceiveMaxCommon;
+    using ReceiveMaxCommon = mqtt5::field::PropertyReceiveMaxCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::MaxQos field.
-    using MaxQosMembersCommon = mqtt5::field::MaxQosMembersCommon;
+    using MaxQosMembersCommon = mqtt5::field::PropertyMaxQosMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::MaxQos field.
-    using MaxQosCommon = mqtt5::field::MaxQosCommon;
+    using MaxQosCommon = mqtt5::field::PropertyMaxQosCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::RetainAvailable field.
-    using RetainAvailableMembersCommon = mqtt5::field::RetainAvailableMembersCommon;
+    using RetainAvailableMembersCommon = mqtt5::field::PropertyRetainAvailableMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::RetainAvailable field.
-    using RetainAvailableCommon = mqtt5::field::RetainAvailableCommon;
+    using RetainAvailableCommon = mqtt5::field::PropertyRetainAvailableCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::MaxPacketSize field.
-    using MaxPacketSizeMembersCommon = mqtt5::field::MaxPacketSizeMembersCommon;
+    using MaxPacketSizeMembersCommon = mqtt5::field::PropertyMaxPacketSizeMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::MaxPacketSize field.
-    using MaxPacketSizeCommon = mqtt5::field::MaxPacketSizeCommon;
+    using MaxPacketSizeCommon = mqtt5::field::PropertyMaxPacketSizeCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::AssignedClientId field.
-    using AssignedClientIdMembersCommon = mqtt5::field::AssignedClientIdMembersCommon;
+    using AssignedClientIdMembersCommon = mqtt5::field::PropertyAssignedClientIdMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::AssignedClientId field.
-    using AssignedClientIdCommon = mqtt5::field::AssignedClientIdCommon;
+    using AssignedClientIdCommon = mqtt5::field::PropertyAssignedClientIdCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::TopicAliasMax field.
-    using TopicAliasMaxMembersCommon = mqtt5::field::TopicAliasMaxMembersCommon;
+    using TopicAliasMaxMembersCommon = mqtt5::field::PropertyTopicAliasMaxMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::TopicAliasMax field.
-    using TopicAliasMaxCommon = mqtt5::field::TopicAliasMaxCommon;
+    using TopicAliasMaxCommon = mqtt5::field::PropertyTopicAliasMaxCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::ReasonString field.
-    using ReasonStringMembersCommon = mqtt5::field::ReasonStringMembersCommon;
+    using ReasonStringMembersCommon = mqtt5::field::PropertyReasonStringMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::ReasonString field.
-    using ReasonStringCommon = mqtt5::field::ReasonStringCommon;
+    using ReasonStringCommon = mqtt5::field::PropertyReasonStringCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::UserProperty field.
-    using UserPropertyMembersCommon = mqtt5::field::UserPropertyMembersCommon;
+    using UserPropertyMembersCommon = mqtt5::field::PropertyUserPropertyMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::UserProperty field.
-    using UserPropertyCommon = mqtt5::field::UserPropertyCommon;
+    using UserPropertyCommon = mqtt5::field::PropertyUserPropertyCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::WildcardSubAvail field.
-    using WildcardSubAvailMembersCommon = mqtt5::field::WildcardSubAvailMembersCommon;
+    using WildcardSubAvailMembersCommon = mqtt5::field::PropertyWildcardSubAvailMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::WildcardSubAvail field.
-    using WildcardSubAvailCommon = mqtt5::field::WildcardSubAvailCommon;
+    using WildcardSubAvailCommon = mqtt5::field::PropertyWildcardSubAvailCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::SubIdAvail field.
-    using SubIdAvailMembersCommon = mqtt5::field::SubIdAvailMembersCommon;
+    using SubIdAvailMembersCommon = mqtt5::field::PropertySubIdAvailMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::SubIdAvail field.
-    using SubIdAvailCommon = mqtt5::field::SubIdAvailCommon;
+    using SubIdAvailCommon = mqtt5::field::PropertySubIdAvailCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::SharedSubAvail field.
-    using SharedSubAvailMembersCommon = mqtt5::field::SharedSubAvailMembersCommon;
+    using SharedSubAvailMembersCommon = mqtt5::field::PropertySharedSubAvailMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::SharedSubAvail field.
-    using SharedSubAvailCommon = mqtt5::field::SharedSubAvailCommon;
+    using SharedSubAvailCommon = mqtt5::field::PropertySharedSubAvailCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::ServerKeepAlive field.
-    using ServerKeepAliveMembersCommon = mqtt5::field::ServerKeepAliveMembersCommon;
+    using ServerKeepAliveMembersCommon = mqtt5::field::PropertyServerKeepAliveMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::ServerKeepAlive field.
-    using ServerKeepAliveCommon = mqtt5::field::ServerKeepAliveCommon;
+    using ServerKeepAliveCommon = mqtt5::field::PropertyServerKeepAliveCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::ResponseInfo field.
-    using ResponseInfoMembersCommon = mqtt5::field::ResponseInfoMembersCommon;
+    using ResponseInfoMembersCommon = mqtt5::field::PropertyResponseInfoMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::ResponseInfo field.
-    using ResponseInfoCommon = mqtt5::field::ResponseInfoCommon;
+    using ResponseInfoCommon = mqtt5::field::PropertyResponseInfoCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::ServerReference field.
-    using ServerReferenceMembersCommon = mqtt5::field::ServerReferenceMembersCommon;
+    using ServerReferenceMembersCommon = mqtt5::field::PropertyServerReferenceMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::ServerReference field.
-    using ServerReferenceCommon = mqtt5::field::ServerReferenceCommon;
+    using ServerReferenceCommon = mqtt5::field::PropertyServerReferenceCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::AuthMethod field.
-    using AuthMethodMembersCommon = mqtt5::field::AuthMethodMembersCommon;
+    using AuthMethodMembersCommon = mqtt5::field::PropertyAuthMethodMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::AuthMethod field.
-    using AuthMethodCommon = mqtt5::field::AuthMethodCommon;
+    using AuthMethodCommon = mqtt5::field::PropertyAuthMethodCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::field::ConnackPropertyMembers::AuthData field.
-    using AuthDataMembersCommon = mqtt5::field::AuthDataMembersCommon;
+    using AuthDataMembersCommon = mqtt5::field::PropertyAuthDataMembersCommon;
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::ConnackPropertyMembers::AuthData field.
-    using AuthDataCommon = mqtt5::field::AuthDataCommon;
+    using AuthDataCommon = mqtt5::field::PropertyAuthDataCommon;
 
 };
 
