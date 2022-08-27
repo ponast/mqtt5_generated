@@ -73,14 +73,16 @@ struct PropertyTopicAliasMaxMembers
     ///     Defined in section 1.5.2.
     class Value : public
         comms::field::IntValue<
-            mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
-            std::uint16_t
+            mqtt5::field::FieldBase<>,
+            std::uint16_t,
+            comms::option::def::ValidNumValueRange<1, 65535L>
         >
     {
         using Base =
             comms::field::IntValue<
-                mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
-                std::uint16_t
+                mqtt5::field::FieldBase<>,
+                std::uint16_t,
+                comms::option::def::ValidNumValueRange<1, 65535L>
             >;
     public:
         /// @brief Re-definition of the value type.

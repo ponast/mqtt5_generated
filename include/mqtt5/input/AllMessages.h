@@ -6,7 +6,7 @@
 #pragma once
 
 #include <tuple>
-#include "mqtt5/message/Auth.h"
+#include "mqtt5/message/ClientAuth.h"
 #include "mqtt5/message/ClientDisconnect.h"
 #include "mqtt5/message/Connack.h"
 #include "mqtt5/message/Connect.h"
@@ -17,6 +17,7 @@
 #include "mqtt5/message/Publish.h"
 #include "mqtt5/message/Pubrec.h"
 #include "mqtt5/message/Pubrel.h"
+#include "mqtt5/message/ServerAuth.h"
 #include "mqtt5/message/ServerDisconnect.h"
 #include "mqtt5/message/Suback.h"
 #include "mqtt5/message/Subscribe.h"
@@ -51,7 +52,8 @@ using AllMessages =
         mqtt5::message::Pingresp<TBase, TOpt>,
         mqtt5::message::ServerDisconnect<TBase, TOpt>,
         mqtt5::message::ClientDisconnect<TBase, TOpt>,
-        mqtt5::message::Auth<TBase, TOpt>
+        mqtt5::message::ServerAuth<TBase, TOpt>,
+        mqtt5::message::ClientAuth<TBase, TOpt>
     >;
 
 } // namespace input

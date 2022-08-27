@@ -73,7 +73,7 @@ struct PropertyReceiveMaxMembers
     ///     Defined in section 1.5.2.
     class Value : public
         comms::field::IntValue<
-            mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
+            mqtt5::field::FieldBase<>,
             std::uint16_t,
             comms::option::def::DefaultNumValue<65535L>,
             comms::option::def::ValidNumValueRange<1, 65535L>
@@ -81,7 +81,7 @@ struct PropertyReceiveMaxMembers
     {
         using Base =
             comms::field::IntValue<
-                mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
+                mqtt5::field::FieldBase<>,
                 std::uint16_t,
                 comms::option::def::DefaultNumValue<65535L>,
                 comms::option::def::ValidNumValueRange<1, 65535L>

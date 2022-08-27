@@ -6,9 +6,9 @@
 
 #pragma once
 
-#include "mqtt5/field/ConnackFlagsCommon.h"
 #include "mqtt5/field/ConnackPropertiesCommon.h"
-#include "mqtt5/field/ConnackReasonCodeCommon.h"
+#include "mqtt5/field/ConnectAcknowledgeFlagsCommon.h"
+#include "mqtt5/field/ConnectReasonCodeCommon.h"
 
 namespace mqtt5
 {
@@ -24,7 +24,7 @@ struct ConnackFieldsCommon
 {
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnackFields::Flags field.
-    struct FlagsCommon : public mqtt5::field::ConnackFlagsCommon
+    struct FlagsCommon : public mqtt5::field::ConnectAcknowledgeFlagsCommon
     {
         /// @brief Name of the @ref mqtt5::message::ConnackFields::Flags field.
         static const char* name()
@@ -36,7 +36,7 @@ struct ConnackFieldsCommon
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::message::ConnackFields::ReasonCode field.
-    using ReasonCodeCommon = mqtt5::field::ConnackReasonCodeCommon;
+    using ReasonCodeCommon = mqtt5::field::ConnectReasonCodeCommon;
 
     /// @brief Common definitions of the member fields of
     ///     @ref mqtt5::message::ConnackFields::Properties field.

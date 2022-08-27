@@ -2,7 +2,7 @@
 
 /// @file
 /// @brief Contains common template parameters independent functionality of
-///    @ref mqtt5::field::AuthReasonCode field.
+///    @ref mqtt5::field::ServerAuthReasonCode field.
 
 #pragma once
 
@@ -18,21 +18,20 @@ namespace field
 
 
 /// @brief Common types and functions for
-///     @ref mqtt5::field::AuthReasonCode field.
-struct AuthReasonCodeCommon
+///     @ref mqtt5::field::ServerAuthReasonCode field.
+struct ServerAuthReasonCodeCommon
 {
     /// @brief Values enumerator for
-    ///     @ref mqtt5::field::AuthReasonCode field.
+    ///     @ref mqtt5::field::ServerAuthReasonCode field.
     enum class ValueType : std::uint8_t
     {
         Success = 0, ///< value @b Success.
         ContinueAuth = 24, ///< value <b>Continue authentication</b>.
-        ReAuth = 25, ///< value <b>Re-authenticate</b>.
 
         // --- Extra values generated for convenience ---
         FirstValue = 0, ///< First defined value.
-        LastValue = 25, ///< Last defined value.
-        ValuesLimit = 26, ///< Upper limit for defined values.
+        LastValue = 24, ///< Last defined value.
+        ValuesLimit = 25, ///< Upper limit for defined values.
     };
 
     /// @brief Single value name info entry
@@ -43,10 +42,10 @@ struct AuthReasonCodeCommon
     ///     The @b second value of the pair is the size of the array.
     using ValueNamesMapInfo = std::pair<const ValueNameInfo*, std::size_t>;
 
-    /// @brief Name of the @ref mqtt5::field::AuthReasonCode field.
+    /// @brief Name of the @ref mqtt5::field::ServerAuthReasonCode field.
     static const char* name()
     {
-        return "Reason Code";
+        return "Server Reason Code";
     }
 
     /// @brief Retrieve name of the enum value
@@ -74,8 +73,7 @@ struct AuthReasonCodeCommon
     {
         static const ValueNameInfo Map[] = {
             std::make_pair(ValueType::Success, "Success"),
-            std::make_pair(ValueType::ContinueAuth, "Continue authentication"),
-            std::make_pair(ValueType::ReAuth, "Re-authenticate")
+            std::make_pair(ValueType::ContinueAuth, "Continue authentication")
         };
         static const std::size_t MapSize = std::extent<decltype(Map)>::value;
 
@@ -86,8 +84,8 @@ struct AuthReasonCodeCommon
 };
 
 /// @brief Values enumerator for
-///     @ref mqtt5::field::AuthReasonCode field.
-using AuthReasonCodeVal = AuthReasonCodeCommon::ValueType;
+///     @ref mqtt5::field::ServerAuthReasonCode field.
+using ServerAuthReasonCodeVal = ServerAuthReasonCodeCommon::ValueType;
 
 
 } // namespace field

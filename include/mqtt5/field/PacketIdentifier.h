@@ -27,7 +27,7 @@ namespace field
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>
 class PacketIdentifier : public
     comms::field::IntValue<
-        mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
+        mqtt5::field::FieldBase<>,
         std::uint16_t,
         TExtraOpts...,
         comms::option::def::UnitsBytes
@@ -35,7 +35,7 @@ class PacketIdentifier : public
 {
     using Base =
         comms::field::IntValue<
-            mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
+            mqtt5::field::FieldBase<>,
             std::uint16_t,
             TExtraOpts...,
             comms::option::def::UnitsBytes

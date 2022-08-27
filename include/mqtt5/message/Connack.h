@@ -9,9 +9,9 @@
 #include "comms/MessageBase.h"
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
-#include "mqtt5/field/ConnackFlags.h"
 #include "mqtt5/field/ConnackProperties.h"
-#include "mqtt5/field/ConnackReasonCode.h"
+#include "mqtt5/field/ConnectAcknowledgeFlags.h"
+#include "mqtt5/field/ConnectReasonCode.h"
 #include "mqtt5/field/FieldBase.h"
 #include "mqtt5/message/ConnackCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
@@ -33,12 +33,12 @@ struct ConnackFields
 {
     /// @brief Definition of <b>"Flags"</b> field.
     class Flags : public
-        mqtt5::field::ConnackFlags<
+        mqtt5::field::ConnectAcknowledgeFlags<
             TOpt
         >
     {
         using Base =
-            mqtt5::field::ConnackFlags<
+            mqtt5::field::ConnectAcknowledgeFlags<
                 TOpt
             >;
     public:
@@ -54,7 +54,7 @@ struct ConnackFields
 
     /// @brief Definition of <b>"Reason Code"</b> field.
     using ReasonCode =
-        mqtt5::field::ConnackReasonCode<
+        mqtt5::field::ConnectReasonCode<
             TOpt
         >;
 

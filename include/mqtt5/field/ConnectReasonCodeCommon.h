@@ -2,7 +2,7 @@
 
 /// @file
 /// @brief Contains common template parameters independent functionality of
-///    @ref mqtt5::field::ConnackReasonCode field.
+///    @ref mqtt5::field::ConnectReasonCode field.
 
 #pragma once
 
@@ -20,11 +20,11 @@ namespace field
 
 
 /// @brief Common types and functions for
-///     @ref mqtt5::field::ConnackReasonCode field.
-struct ConnackReasonCodeCommon
+///     @ref mqtt5::field::ConnectReasonCode field.
+struct ConnectReasonCodeCommon
 {
     /// @brief Values enumerator for
-    ///     @ref mqtt5::field::ConnackReasonCode field.
+    ///     @ref mqtt5::field::ConnectReasonCode field.
     enum class ValueType : std::uint8_t
     {
         Success = 0, ///< value <b>Success</b>.
@@ -64,7 +64,7 @@ struct ConnackReasonCodeCommon
     ///     The @b second value of the pair is the size of the array.
     using ValueNamesMapInfo = std::pair<const ValueNameInfo*, std::size_t>;
 
-    /// @brief Name of the @ref mqtt5::field::ConnackReasonCode field.
+    /// @brief Name of the @ref mqtt5::field::ConnectReasonCode field.
     static const char* name()
     {
         return "Reason Code";
@@ -126,8 +126,8 @@ struct ConnackReasonCodeCommon
 };
 
 /// @brief Values enumerator for
-///     @ref mqtt5::field::ConnackReasonCode field.
-using ConnackReasonCodeVal = ConnackReasonCodeCommon::ValueType;
+///     @ref mqtt5::field::ConnectReasonCode field.
+using ConnectReasonCodeVal = ConnectReasonCodeCommon::ValueType;
 
 
 } // namespace field

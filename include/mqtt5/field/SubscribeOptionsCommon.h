@@ -25,8 +25,16 @@ namespace field
 struct SubscribeOptionsMembersCommon
 {
     /// @brief Common types and functions for
-    ///     @ref mqtt5::field::SubscribeOptionsMembers::Qos field.
-    using QosCommon = mqtt5::field::QosCommon;
+    ///     @ref mqtt5::field::SubscribeOptionsMembers::MaxQos field.
+    struct MaxQosCommon : public mqtt5::field::QosCommon
+    {
+        /// @brief Name of the @ref mqtt5::field::SubscribeOptionsMembers::MaxQos field.
+        static const char* name()
+        {
+            return "MaxQos";
+        }
+
+    };
 
     /// @brief Common types and functions for
     ///     @ref mqtt5::field::SubscribeOptionsMembers::Bits field.
@@ -87,7 +95,7 @@ struct SubscribeOptionsMembersCommon
         /// @brief Name of the @ref mqtt5::field::SubscribeOptionsMembers::RetainHandling field.
         static const char* name()
         {
-            return "Retain Handling";
+            return "RetainHandling";
         }
 
         /// @brief Retrieve name of the enum value

@@ -73,14 +73,14 @@ struct PropertySessionExpiryIntervalMembers
     ///     Defined in section 1.5.3.
     class Value : public
         comms::field::IntValue<
-            mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
+            mqtt5::field::FieldBase<>,
             std::uint32_t,
             comms::option::def::UnitsSeconds
         >
     {
         using Base =
             comms::field::IntValue<
-                mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
+                mqtt5::field::FieldBase<>,
                 std::uint32_t,
                 comms::option::def::UnitsSeconds
             >;

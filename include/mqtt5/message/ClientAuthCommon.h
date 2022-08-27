@@ -2,12 +2,12 @@
 
 /// @file
 /// @brief Contains common template parameters independent functionality of
-///    @ref mqtt5::message::Auth message and its fields.
+///    @ref mqtt5::message::ClientAuth message and its fields.
 
 #pragma once
 
 #include "mqtt5/field/AuthPropertiesCommon.h"
-#include "mqtt5/field/AuthReasonCodeCommon.h"
+#include "mqtt5/field/ClientAuthReasonCodeCommon.h"
 
 namespace mqtt5
 {
@@ -17,29 +17,29 @@ namespace message
 
 
 /// @brief Common types and functions for fields of
-///     @ref mqtt5::message::Auth message.
-/// @see mqtt5::message::AuthFields
-struct AuthFieldsCommon
+///     @ref mqtt5::message::ClientAuth message.
+/// @see mqtt5::message::ClientAuthFields
+struct ClientAuthFieldsCommon
 {
     /// @brief Common types and functions for
-    ///     @ref mqtt5::message::AuthFields::ReasonCode field.
-    using ReasonCodeCommon = mqtt5::field::AuthReasonCodeCommon;
+    ///     @ref mqtt5::message::ClientAuthFields::ReasonCode field.
+    using ReasonCodeCommon = mqtt5::field::ClientAuthReasonCodeCommon;
 
     /// @brief Common definitions of the member fields of
-    ///     @ref mqtt5::message::AuthFields::Properties field.
+    ///     @ref mqtt5::message::ClientAuthFields::Properties field.
     using PropertiesMembersCommon = mqtt5::field::AuthPropertiesMembersCommon;
 
     /// @brief Common types and functions for
-    ///     @ref mqtt5::message::AuthFields::Properties field.
+    ///     @ref mqtt5::message::ClientAuthFields::Properties field.
     using PropertiesCommon = mqtt5::field::AuthPropertiesCommon;
 
 };
 
 /// @brief Common types and functions of
-///     @ref mqtt5::message::Auth message.
-struct AuthCommon
+///     @ref mqtt5::message::ClientAuth message.
+struct ClientAuthCommon
 {
-    /// @brief Name of the @ref mqtt5::message::Auth message.
+    /// @brief Name of the @ref mqtt5::message::ClientAuth message.
     static const char* name()
     {
         return "AUTH";

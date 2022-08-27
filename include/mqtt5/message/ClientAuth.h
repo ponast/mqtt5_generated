@@ -10,9 +10,9 @@
 #include "comms/options.h"
 #include "mqtt5/MsgId.h"
 #include "mqtt5/field/AuthProperties.h"
-#include "mqtt5/field/AuthReasonCode.h"
+#include "mqtt5/field/ClientAuthReasonCode.h"
 #include "mqtt5/field/FieldBase.h"
-#include "mqtt5/message/AuthCommon.h"
+#include "mqtt5/message/ClientAuthCommon.h"
 #include "mqtt5/options/DefaultOptions.h"
 
 
@@ -23,16 +23,16 @@ namespace message
 {
 
 
-/// @brief Fields of @ref Auth.
+/// @brief Fields of @ref ClientAuth.
 /// @tparam TOpt Extra options
-/// @see @ref Auth
-/// @headerfile mqtt5/message/Auth.h
+/// @see @ref ClientAuth
+/// @headerfile mqtt5/message/ClientAuth.h
 template <typename TOpt = mqtt5::options::DefaultOptions>
-struct AuthFields
+struct ClientAuthFields
 {
-    /// @brief Definition of <b>"Reason Code"</b> field.
+    /// @brief Definition of <b>"Client Reason Code"</b> field.
     using ReasonCode =
-        mqtt5::field::AuthReasonCode<
+        mqtt5::field::ClientAuthReasonCode<
             TOpt
         >;
 
@@ -53,17 +53,17 @@ struct AuthFields
 
 /// @brief Definition of <b>"AUTH"</b> message class.
 /// @details
-///     See @ref AuthFields for definition of the fields this message contains.
+///     See @ref ClientAuthFields for definition of the fields this message contains.
 /// @tparam TMsgBase Base (interface) class.
 /// @tparam TOpt Extra options
-/// @headerfile mqtt5/message/Auth.h
+/// @headerfile mqtt5/message/ClientAuth.h
 template <typename TMsgBase, typename TOpt = mqtt5::options::DefaultOptions>
-class Auth : public
+class ClientAuth : public
     comms::MessageBase<
         TMsgBase,
         comms::option::def::StaticNumIdImpl<mqtt5::MsgId_Auth>,
-        comms::option::def::FieldsImpl<typename AuthFields<TOpt>::All>,
-        comms::option::def::MsgType<Auth<TMsgBase, TOpt> >,
+        comms::option::def::FieldsImpl<typename ClientAuthFields<TOpt>::All>,
+        comms::option::def::MsgType<ClientAuth<TMsgBase, TOpt> >,
         comms::option::def::HasName
     >
 {
@@ -72,8 +72,8 @@ class Auth : public
         comms::MessageBase<
             TMsgBase,
             comms::option::def::StaticNumIdImpl<mqtt5::MsgId_Auth>,
-            comms::option::def::FieldsImpl<typename AuthFields<TOpt>::All>,
-            comms::option::def::MsgType<Auth<TMsgBase, TOpt> >,
+            comms::option::def::FieldsImpl<typename ClientAuthFields<TOpt>::All>,
+            comms::option::def::MsgType<ClientAuth<TMsgBase, TOpt> >,
             comms::option::def::HasName
         >;
 
@@ -85,9 +85,9 @@ public:
     ///
     ///     The generated values, types and functions are:
     ///     @li @b FieldIdx_reasonCode index, @b Field_reasonCode type and @b field_reasonCode() access fuction
-    ///         for @ref AuthFields::ReasonCode field.
+    ///         for @ref ClientAuthFields::ReasonCode field.
     ///     @li @b FieldIdx_properties index, @b Field_properties type and @b field_properties() access fuction
-    ///         for @ref AuthFields::Properties field.
+    ///         for @ref ClientAuthFields::Properties field.
     COMMS_MSG_FIELDS_NAMES(
         reasonCode,
         properties
@@ -100,7 +100,7 @@ public:
     /// @brief Name of the message.
     static const char* doName()
     {
-        return mqtt5::message::AuthCommon::name();
+        return mqtt5::message::ClientAuthCommon::name();
     }
 
 

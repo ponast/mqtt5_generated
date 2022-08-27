@@ -30,12 +30,27 @@ namespace field
 template <typename TOpt = mqtt5::options::DefaultOptions>
 struct SubscribeOptionsMembers
 {
-    /// @brief Definition of <b>"Qos"</b> field.
-    using Qos =
+    /// @brief Definition of <b>"MaxQos"</b> field.
+    class MaxQos : public
         mqtt5::field::Qos<
             TOpt,
             comms::option::def::FixedBitLength<2U>
-        >;
+        >
+    {
+        using Base =
+            mqtt5::field::Qos<
+                TOpt,
+                comms::option::def::FixedBitLength<2U>
+            >;
+    public:
+        /// @brief Name of the field.
+        static const char* name()
+        {
+            return mqtt5::field::SubscribeOptionsMembersCommon::MaxQosCommon::name();
+        }
+
+
+    };
 
 
     /// @brief Definition of <b>""</b> field.
@@ -83,7 +98,7 @@ struct SubscribeOptionsMembers
     };
 
 
-    /// @brief Definition of <b>"Retain Handling"</b> field.
+    /// @brief Definition of <b>"RetainHandling"</b> field.
     /// @see @ref mqtt5::field::SubscribeOptionsMembersCommon::RetainHandlingCommon::ValueType
     class RetainHandling : public
         comms::field::EnumValue<
@@ -182,7 +197,7 @@ struct SubscribeOptionsMembers
     /// @brief All members bundled in @b std::tuple.
     using All =
         std::tuple<
-           Qos,
+           MaxQos,
            Bits,
            RetainHandling,
            Reserved
@@ -215,8 +230,8 @@ public:
     ///     for details.
     ///
     ///     The generated values, types and access functions are:
-    ///     @li @b FieldIdx_qos index, @b Field_qos type and @b field_qos() access function -
-    ///         for mqtt5::field::SubscribeOptionsMembers::Qos member field.
+    ///     @li @b FieldIdx_maxQos index, @b Field_maxQos type and @b field_maxQos() access function -
+    ///         for mqtt5::field::SubscribeOptionsMembers::MaxQos member field.
     ///     @li @b FieldIdx_bits index, @b Field_bits type and @b field_bits() access function -
     ///         for mqtt5::field::SubscribeOptionsMembers::Bits member field.
     ///     @li @b FieldIdx_retainHandling index, @b Field_retainHandling type and @b field_retainHandling() access function -
@@ -224,7 +239,7 @@ public:
     ///     @li @b FieldIdx_reserved index, @b Field_reserved type and @b field_reserved() access function -
     ///         for mqtt5::field::SubscribeOptionsMembers::Reserved member field.
     COMMS_FIELD_MEMBERS_NAMES(
-        qos,
+        maxQos,
         bits,
         retainHandling,
         reserved

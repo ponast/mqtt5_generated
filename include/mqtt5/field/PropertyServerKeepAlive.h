@@ -73,14 +73,14 @@ struct PropertyServerKeepAliveMembers
     ///     Defined in section 1.5.2.
     class Value : public
         comms::field::IntValue<
-            mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
+            mqtt5::field::FieldBase<>,
             std::uint16_t,
             comms::option::def::UnitsSeconds
         >
     {
         using Base =
             comms::field::IntValue<
-                mqtt5::field::FieldBase<comms::option::def::LittleEndian>,
+                mqtt5::field::FieldBase<>,
                 std::uint16_t,
                 comms::option::def::UnitsSeconds
             >;

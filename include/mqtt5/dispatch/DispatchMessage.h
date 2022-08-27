@@ -134,8 +134,21 @@ auto dispatchMessage(
     }
     case mqtt5::MsgId_Auth:
     {
-        using MsgType = mqtt5::message::Auth<InterfaceType, TProtOptions>;
-        return handler.handle(static_cast<MsgType&>(msg));
+        switch (idx) {
+        case 0U:
+        {
+            using MsgType = mqtt5::message::ServerAuth<InterfaceType, TProtOptions>;
+            return handler.handle(static_cast<MsgType&>(msg));
+        }
+        case 1U:
+        {
+            using MsgType = mqtt5::message::ClientAuth<InterfaceType, TProtOptions>;
+            return handler.handle(static_cast<MsgType&>(msg));
+        }
+        default:
+            return handler.handle(msg);
+        };
+        break;
     }
     default:
         break;

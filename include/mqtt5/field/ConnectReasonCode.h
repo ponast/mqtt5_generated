@@ -7,7 +7,7 @@
 
 #include "comms/field/EnumValue.h"
 #include "comms/options.h"
-#include "mqtt5/field/ConnackReasonCodeCommon.h"
+#include "mqtt5/field/ConnectReasonCodeCommon.h"
 #include "mqtt5/field/FieldBase.h"
 #include "mqtt5/options/DefaultOptions.h"
 
@@ -21,21 +21,21 @@ namespace field
 /// @brief Definition of <b>"Reason Code"</b> field.
 /// @details
 ///     Defined in section 3.2.2.2.
-/// @see @ref mqtt5::field::ConnackReasonCodeCommon::ValueType
+/// @see @ref mqtt5::field::ConnectReasonCodeCommon::ValueType
 /// @tparam TOpt Protocol options.
 /// @tparam TExtraOpts Extra options.
 template <typename TOpt = mqtt5::options::DefaultOptions, typename... TExtraOpts>
-class ConnackReasonCode : public
+class ConnectReasonCode : public
     comms::field::EnumValue<
         mqtt5::field::FieldBase<>,
-        mqtt5::field::ConnackReasonCodeCommon::ValueType,
+        mqtt5::field::ConnectReasonCodeCommon::ValueType,
         TExtraOpts...
     >
 {
     using Base =
         comms::field::EnumValue<
             mqtt5::field::FieldBase<>,
-            mqtt5::field::ConnackReasonCodeCommon::ValueType,
+            mqtt5::field::ConnectReasonCodeCommon::ValueType,
             TExtraOpts...
         >;
 public:
@@ -43,17 +43,17 @@ public:
     using ValueType = typename Base::ValueType;
 
     /// @brief Single value name info entry.
-    using ValueNameInfo = mqtt5::field::ConnackReasonCodeCommon::ValueNameInfo;
+    using ValueNameInfo = mqtt5::field::ConnectReasonCodeCommon::ValueNameInfo;
 
     /// @brief Type returned from @ref valueNamesMap() member function.
-    /// @see @ref mqtt5::field::ConnackReasonCodeCommon::ValueNamesMapInfo.
-    using ValueNamesMapInfo = mqtt5::field::ConnackReasonCodeCommon::ValueNamesMapInfo;
+    /// @see @ref mqtt5::field::ConnectReasonCodeCommon::ValueNamesMapInfo.
+    using ValueNamesMapInfo = mqtt5::field::ConnectReasonCodeCommon::ValueNamesMapInfo;
 
     /// @brief Retrieve name of the enum value.
-    /// @see @ref mqtt5::field::ConnackReasonCodeCommon::valueName().
+    /// @see @ref mqtt5::field::ConnectReasonCodeCommon::valueName().
     static const char* valueName(ValueType val)
     {
-        return mqtt5::field::ConnackReasonCodeCommon::valueName(val);
+        return mqtt5::field::ConnectReasonCodeCommon::valueName(val);
     }
 
     /// @brief Retrieve name of the @b current value
@@ -63,17 +63,17 @@ public:
     }
 
     /// @brief Retrieve map of enum value names.
-    /// @see @ref mqtt5::field::ConnackReasonCodeCommon::valueNamesMap().
+    /// @see @ref mqtt5::field::ConnectReasonCodeCommon::valueNamesMap().
     static ValueNamesMapInfo valueNamesMap()
     {
-        return mqtt5::field::ConnackReasonCodeCommon::valueNamesMap();
+        return mqtt5::field::ConnectReasonCodeCommon::valueNamesMap();
     }
 
 
     /// @brief Name of the field.
     static const char* name()
     {
-        return mqtt5::field::ConnackReasonCodeCommon::name();
+        return mqtt5::field::ConnectReasonCodeCommon::name();
     }
 
     /// @brief Generated validity check functionality.
